@@ -91,7 +91,7 @@ text. Thus, you should sometimes use computers in the domain of the
 university in order to get the full text. Sometimes the Nelli Portal
 can also help getting the whole article instead of just the abstract.
 The library has also brief instrucions how to find
-information~\cite{howfindinfo}.
+information~\citep{howfindinfo}.
 
 Instead of normal Google, use Google Scholar
 (\url{http://scholar.google.fi/}). It finds academic publications whereas
@@ -118,7 +118,7 @@ thesis in a way that help the reader to find the original source.
 
 There are several bibliography styles, meaning how to form the
 bibliography in the end of the thesis. Aalto's library has good
-instructions for many styles~\cite{bibinstructions}. You should ask
+instructions for many styles~\citep{bibinstructions}. You should ask
 from your supervisor or instructors which style you should use. This
 thesis template uses the number style that is often used in software
 engineering. The other style also used in the CS field,
@@ -135,7 +135,7 @@ have different meaning. The main point is that first you paraphrase
 the source using your own words and then mark the source. Next, we
 give short examples that are marked with \emph{emphasised text}.
 
-\emph{Haapasalo~\cite{HaapasaloThesis} researched database algorithms
+\emph{Haapasalo~\citep{HaapasaloThesis} researched database algorithms
   that allows use of previous versions of the content stored in the
   database.} This kind of marking means that this paragraph (or until
 the next reference is given) is based on the source mentioned in the
@@ -147,30 +147,30 @@ the type of the article that is referred.
   database. Multiversion B+-trees (MVBT) offer also a way to restore
   the data from previous versions of the database. Concurrent MVBT
   allows many simultaneous updates to the database that is was not
-  possible with MVBT.~\cite{HaapasaloThesis}} When the marking is
+  possible with MVBT.~\citep{HaapasaloThesis}} When the marking is
 after the period, the reference is retrospective: all the paragraph
 (or after previous reference marking) is based on the source given in
 its end. If the content is very broad, you can start with saying
 \emph{According to Haapasalo}, then continue referring the source with
 several separate sentences, and in the end put the marking of your
 source \emph{ that shows that CMVBT are the
-  best. ~\cite{HaapasaloThesis}}. 
+  best. ~\citep{HaapasaloThesis}}. 
 
 If your paragraph has several sources, the above mentioned styles are
 not proper. The reader of your thesis cannot know which of your
 sources give which of the statements. In this case, it is better to
 use more finegraded refering where the reference markings that are
 embedded in the sentences. For example, \emph{the multiversion B+-tree
-  (MVBT) index of Becker et al.~\cite{becker:1996:mvbt} allows database
+  (MVBT) index of Becker et al.~\citep{becker:1996:mvbt} allows database
   users to query old versions of the database, but the index is not
   transactional.
   It's successor, the transactional MBVT (TMVBT), allows a single transaction
   running in its own thread or process to update the database concurrently
   with other transactions that only read the
-  database~\cite{haapasalo:2009:tmvbt}. 
+  database~\citep{haapasalo:2009:tmvbt}. 
   Further development, titled the concurrent MBVT (CMVBT),
   allows several transactions to perform updates to the database at the same
-  time~\cite{HaapasaloThesis}}. 
+  time~\citep{HaapasaloThesis}}. 
   Here, the references are marked before
   the period in the sentences where they are used.
 
@@ -180,7 +180,7 @@ direct quotes has two tricks: quotation marks and the source.  \emph{
   ``Even though deletions in a multiversion index must not physically
   delete the history of the data items, queries and range scans can
   become more efficient, if the leaf pages of the index structure are
-  merged to retain optimality.''~\cite{HaapasaloThesis}} Quotes are
+  merged to retain optimality.''~\citep{HaapasaloThesis}} Quotes are
 hard to make neatly since you should use only as much as needed
 without changing the text. Moreover, you often do not really
 understand what the author has mentioned with his wordings if you
@@ -193,6 +193,6 @@ extremely desperate situation, you can refer with structure \emph{mr
   X~[\ldots] according to ms Y~[\ldots] defined that}, if you find a
 source that refers to the original source. Note also that the
 reference marking is never used as sentence element (example of how 
-\textbf{not} to do it: \emph{\cite{HaapasaloThesis} describes
+\textbf{not} to do it: \emph{\citep{HaapasaloThesis} describes
 an optimal algorithm for indexing multiversiond databases.}).
 
