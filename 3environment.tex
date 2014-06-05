@@ -9,7 +9,9 @@ Visualizations need to be implemented using web technology, because it is crucia
 
 \section{Current Map Visualizations} % TODO come up with a better title
 
-Describe the map visualizations that sparked the interest for this kind of research. FindBooze, Peruskartta and Ottoapp.
+Describe the map visualizations that sparked the interest for this kind of research. FindBooze, Peruskartta and Ottoapp. Also, reason why it is unnecessarily laborious to write map visualizations every time from scratch.
+
+\section{Instructions}
 
 A problem instance is rarely totally independent of its environment.
 Most often you need to describe the environment you work in, what
@@ -17,57 +19,7 @@ limits there are and so on. This is a good place to do that. First we
 tell you about the LaTeX working environments and then is an example
 from an thesis written some years ago.
 
-
-\section{LaTeX working environments}
-\label{sec:environments}
-
-To create \LaTeX\ documents you need two things: a \LaTeX\ environment for
-compiling your documents and a text editor for writing them.
-
-\subsection{Environment}
-
-Fortunately \LaTeX\ can nowadays be found for any (modern) computer
-environment, be it Linux, Windows, or Macintosh.
-For Linuxes (and other Unix clones) and Macs, I'd recommend \emph{TeX
-Live}~\citep{TeXLive}, which is the current default \LaTeX\ distribution for
-many Linux flavors such as Fedora, Debian, Ubuntu, and Gentoo.
-TeX Live is the replacement for the older \emph{teTeX}, which is
-no longer developed.
-
-TeX Live works also for Windows machines (at least according to their web
-site); however, I have used \emph{MiKTeX}~\citep{MiKTeX} and can recommend it
-for Windows. 
-MiKTeX has a nice package manager and automatically fetches missing packages
-for you.
-
-\subsection{Editor}
-
-You can write \LaTeX\ documents with any text editor you like, but having
-syntax coloring options and such really helps a lot.
-My personal favourite for editing \LaTeX\ is the
-\emph{TeXlipse}~\citep{TeXlipse} plugin for the Eclipse IDE~\citep{Eclipse}. 
-Eclipse is an open-source integrated development environment (IDE) initially
-created for writing Java code, but it currently has support for editing
-languages such as C, C++, JavaScript, XML, HTML, and many more. 
-The TeXlipse plugin allows you to edit and compile \LaTeX\ documents directly
-in Eclipse, and compilation errors and warnings are shown in the Eclipse
-\emph{Problems} dialog so that you can locate and fix the issues easily.
-The plugin also supports reference traversal so that you can locate the source
-line where a label or a citation is defined.
-
-Eclipse is an entire development environment, so it may feel a bit heavy-weight
-for editing a document. 
-If you are looking for a more light-weight option, check out TeXworks. 
-TeXworks is a \LaTeX\ editor that is packaged with the newer MiKTeX
-distributions, and it can be acquired from \url{http://www.tug.org/texworks/}.
-
-And if you are attached to your \emph{emacs} or \emph{vim} editor, you
-can of course edit your \LaTeX\ documents with them. 
-Emacs at least has syntax coloring and you can compile your document with a key
-binding, so this may be a good option if you prefer working with the standard
-Linux text editors.
-
-\section{Graphics}
+\section{\LaTeX\ Graphics}
 
 When you use \texttt{pdflatex} to render your thesis, you can include PDF images
 directly, as shown by Figure~\ref{fig:indica_model} below.
