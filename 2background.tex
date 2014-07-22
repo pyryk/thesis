@@ -1,11 +1,77 @@
+%!TEX root = thesis.tex
+
 \chapter{Background}
 \label{chapter:background} 
 
-Also known as ``literature review''/``Kirjallisuuskatsaus''.
+Also known as ``literature review''/``Kirjallisuuskatsaus''. About 20 pages long.
 
-\section{Visualizing Geographical Data}
+\fixme{Could rename the chapter to Data Visualization and move the webtech stuff to a separate chapter?}
 
-How to visualize data (in general, and specifically for geographical data.) Tufte and others.
+\section{Data Visualization}
+
+\subsection{Definition}
+
+According to \citet[chap. ~3]{kosara_visualization_2007}, there is no universally accepted definition of visualization. He proposes the following for a ``minimal set of requirements of requirements for any visualization'':
+
+\begin{itemize}
+	\item It is based on (non-visual) data
+	\item It produces an image
+	\item The results are readable and recognizable
+\end{itemize}
+
+According to him, while visualizations can also have other properties or qualities, such as interaction or visual efficiency, the requirements above are the ones needed for technical definition of the term. Moreover, it should be emphasized that according to this definition visualization is the \emph{process} itself, not the result of it.
+
+\citet[chap. ~4]{kosara_visualization_2007} argues that visualization is separated into two types, \emph{pragmatic} and \emph{artistic} visualization. Pragmatic visualization focuses on the analysis of the data in order to show its relevant characteristics as efficiently as possible. Artistic visualization on the other hand concentrates on the communication of the concern behind the data, not the display of the actual data. \citeauthor{kosara_visualization_2007} states that while these types focus on the opposite sides of the visualization spectrum, it may be possible to close the gap using e.g. interaction.
+
+The first requirement for visualizations by \citet{kosara_visualization_2007} dictates that the visualization is based on data. This is an essential characteristic of \emph{data} visualizations: the visualization is a function which takes data as an input and produces a visual object as an output. In less technical terms, this means that the visualization turns data into visual, effortlessly and efficiently digestible format.
+
+We argue that this leads to the fact that the data and visualization are not inherently tied to each other; the visualization ``function'' can be independent of the data and thus it may be possible to create a visualization framework or platform which is able to function on a potentially wide range of data.
+
+% This may need to moved to Thematic Map Visualization part:
+% ``As this thesis concentrates on the display of data, the analysis of data is considered mainly outside the scope.''
+
+\subsection{Principles for Successful Data Visualization}
+
+The requirements presented in the previous section are enough for the definition of data visualization. However, they do not convey any information about visualization quality. In order to discover the characteristics for successful data visualization, additional principles are needed. \citet[p. ~13]{tufte_visual_1986} states that excellent graphics (i.e. results of visualizations) consist of ``complex ideas communicated with clarity, precision and efficiency''. In practice, this means that the graphics should emphasize the actual data and its nuances above everything else, while serving a clear purpose.
+
+In addition to graphics principles presented in the previous paragraph, \citet[p. ~93]{tufte_visual_1986} presents the concept of \emph{data-ink}. Data-ink represents the ink used for displaying the data in a visualization. He argues that in an excellent visualization, most, if not all, ink used should contribute to display of the data. However, research by \citet{inbar_minimalism_2007} suggests that maximizing the share of data-ink may not be beneficial to the user experience of the visualization. 
+
+The principles presented above are essential, but too abstract in order to be used as a sole basis for defining a good visualization. \fixme{Here something more concrete about the visualizations principles.}
+
+Tufte says hello. About 2 pages?
+
+\begin{itemize}
+\item Data graphics
+\item Definition of good information visualization
+\item Human perception in relation to information visualization
+\end{itemize}
+
+\subsection{Visualizing Geographical Data}
+
+\citet[p. ~16]{tufte_visual_1986} May help.
+
+Geographical data is often visualized with \emph{thematic maps}. Describe thematic maps here.
+
+How do the principles introduced in the previous subsection apply to geographical data? Is there anything else to consider? About 2 pages?
+
+Geographical data is usually visualized with one of the following map types:
+\begin{itemize}
+  \item Dot map - simple maps with dots on relevant locations
+  \item Proportional symbol map - like dot map, but replaces dots with relevant symbols of sizes proportional to the data
+  \item Isarithmic map - Maps with areas separated by contour lines.
+  \item Choropleth map - Shows data aggregated for a set of predefined areas (countries, regions etc)
+  \item Dasymetric map - what's this?
+  \item Flow map - a map that shows ``flows'' from one area to another. Napoleon Russian campaign map.
+\end{itemize}
+\fixme{describe the use cases for each type}
+
+These are from \url{http://en.wikipedia.org/wiki/Thematic_map} - \fixme{find academic references for these}
+
+For this thesis to succeed, it is not necessary for the software framework to support creating every map type described above especially if properties of the types contradict with each other. However, in an ideal situation the most often used types should be covered to gain the most benefit possible.
+
+\section{How Thematic Maps Are Made}
+
+Describe the methods and flow for visualizing data with thematic maps. \citet{schlichtmann_visualization_2002} may help you. This section may be moved to chapter 2
 
 \section{Something about Using Webtech for Visualization}
 
@@ -18,203 +84,3 @@ What is a software framework? Why do they exist? Maybe how to build them?
 \section{Evaluating software framework effectiveness}
 
 Here should be the whole research on how to measure if it is beneficial to reuse software instead of writing from scratch.
-
-\section{Instructions}
-
-Here be description of the current way of visualizing data. In the later sections of this chapter \citep{mohagheghi_empirical_2008}, there should also be information about the problem, i.e. why it is currently unnecessarily laborious to create a web geovisualization. \citep{aggarwal_software_2005}
-
-The problem must have some background, otherwise it is not
-interesting.  You can explain the background here. Probably you should
-change the title to something that describes more the content of this
-chapter. Background consists of information that help other masters of
-the same degree program to understand the rest of the thesis.
-
-Transitions mentioned in Section~\ref{section:structure} are used also
-in the chapters and sections. For example, next in this chapter we
-tell how to use English language, how to find and refer to sources,
-and enlight different ways to include graphics in the thesis.
-
-\section{Language and Structure}
-
-Moreover, the transitions are also used in the paragraph and the
-sentence level meaning that all the text is linked together. For example,
-the word ``moreover'' here is one way, but of course you should use
-variation in the text. Examples of transitional devices (words) and
-their use can be found from writing guides, e.g. from the Online
-Writing Lab
-(OWL)\footnote{http://owl.english.purdue.edu/owl/resource/574/02/} of
-Purdue University or Strunk's Elements of
-Style\footnote{http://www.bartleby.com/141/}. Remember that footnotes
-are additional information, and they are seldom used.  If you refer to a source, you do no
-not use footnote. The right command for the references is \emph{cite}.
-
-The language used in the thesis should be technical (or
-scientifical). For example, the abreviations aren't used but all them
-are written open (i.e. ``are not''). Since the content itself is often
-hard to understand (and explain), the sentences should not be very
-long, use complex language with several examples embedded in the same
-sentence, and, also, seldom used words and weird euphemism or paraphrases
-can make the sentence hard to follow and to read it with only one
-time, and making everything even harder to understand all this without
-any punctuation marks makes the instructor cry and finally after
-trying to correct the language, you will get boomerang, and everyone's
-time has just been wasted.
-
-Please use proofreaders before sending even your unfinished version to
-the instructor and/or supervisor. You will get better comments when
-they do not need first proofread your text. Moreover, they can
-consentrate to the content better if the language and spelling
-mistakes are not distracting the reading. Several editors have their
-own proofreading tools, e.g. ispell in emacs. You can also use
-Microsoft Word to proofread your thesis: it can correct also some
-grammatical errors and not just misspelled words.
-
-Note also that if you have a section or a subsection, you have to have
-at least two of them, or otherwise the section or subsection title is
-unnecessary. Same with the paragraphs an: you should not have sections
-with only one paragraphe, and single sentence paragraph. Furthermore,
-always write some text after the title before the next level title.
-
-\section{Finding and referring to sources}
-
-Never ever copy anything into your theses from somebody else's text
-(nor your own previously published text). Never. Not even for starting
-point to be rewritten later. The risk is that you forgot the copied
-text to your thesis and end up to be accused of plagiarism. Plagiarism
-is a serious crime in studies and science and can ruin your career
-even its beginning. To repeate: never cut and paste text into your
-thesis!
-
-\subsection{Finding sources}
-
-All work is based on someone else's work. You should find the relevant
-sources of your field and choose the best of them. Also, you should
-refer to the original source where a fact has been mentioned first
-time. Remember source evaluation (criticism) with all sources you
-find.
-
-Good starting points for finding references in computer science are: 
-\begin{itemize}
-% You can use this command to set the items in the list closer to each other
-% (ITEM SEParation, the vertical space between the list items) 
-\setlength{\itemsep}{0pt}
-\item Nelli Portal (Aalto Library): \url{http://www.nelliportaali.fi}
-\item ACM Digital library: \url{http://portal.acm.org/}
-\item IEEExplore: \url{http://ieeexplore.ieee.org}
-\item ScienceDirect: \url{http://www.sciencedirect.com/}
-\item \ldots although Google Scholar (\url{http://scholar.google.com/}) will
-find links to most of the articles from the abovementioned sources, if you
-search from within the university network
-\end{itemize}
-
-Some of the publishers do not offer all the text of the articles
-freely, but the library has agreed on the rights to use the whole
-text. Thus, you should sometimes use computers in the domain of the
-university in order to get the full text. Sometimes the Nelli Portal
-can also help getting the whole article instead of just the abstract.
-The library has also brief instrucions how to find
-information~\citep{howfindinfo}.
-
-Instead of normal Google, use Google Scholar
-(\url{http://scholar.google.fi/}). It finds academic publications whereas
-normal Google find too much commercial advertisements or otherwise
-biased information. Wikipedia articles should be referred to in the master
-thesis only very, very seldomly. You can use Wikipedia for understanding
-some basics and finding more sources, but often you cannot be sure if
-the article is correct and unbiased.
-
-One important part of the sources that you have found is the reference
-list. This way you can find the original sources that all the other
-research of the field refer. Often you can also find more information
-with the name of the researchers that are often referred in the
-articles.
-
-\subsection{Referring to sources}
-
-The main point in referring to sources is to separate your own
-thinking and text from that of others. Facts of the research area can
-be given without reference, but otherwise you should refer to
-sources. This means two things: marking the source in the text where
-it has been used, and listing the sources usually in the end of the
-thesis in a way that help the reader to find the original source.
-
-There are several bibliography styles, meaning how to form the
-bibliography in the end of the thesis. Aalto's library has good
-instructions for many styles~\citep{bibinstructions}. You should ask
-from your supervisor or instructors which style you should use. This
-thesis template uses the number style that is often used in software
-engineering. The other style also used in the CS field,
-e.g. usability, is the Harvard style where instead of numbers, the
-reference is marked into the text with author's name and publishing
-year. Other areas use also many other styles for making the lists and
-marking the references.
-
-In addition to the list in the end of the thesis, you have to mark the
-source in the text where the source is used. There are three places
-for the reference: in a sentence before the period, in the end of a
-sentence after the period, or in the end of a paragraph. All of them
-have different meaning. The main point is that first you paraphrase
-the source using your own words and then mark the source. Next, we
-give short examples that are marked with \emph{emphasised text}.
-
-\emph{Haapasalo~\citep{HaapasaloThesis} researched database algorithms
-  that allows use of previous versions of the content stored in the
-  database.} This kind of marking means that this paragraph (or until
-the next reference is given) is based on the source mentioned in the
-beginning.  Giving the source you should use only the family name of
-the first author of the article, and not give any hints about what is
-the type of the article that is referred.
-
-\emph{B+-trees offers one way to index data that is stored in to a
-  database. Multiversion B+-trees (MVBT) offer also a way to restore
-  the data from previous versions of the database. Concurrent MVBT
-  allows many simultaneous updates to the database that is was not
-  possible with MVBT.~\citep{HaapasaloThesis}} When the marking is
-after the period, the reference is retrospective: all the paragraph
-(or after previous reference marking) is based on the source given in
-its end. If the content is very broad, you can start with saying
-\emph{According to Haapasalo}, then continue referring the source with
-several separate sentences, and in the end put the marking of your
-source \emph{ that shows that CMVBT are the
-  best. ~\citep{HaapasaloThesis}}. 
-
-If your paragraph has several sources, the above mentioned styles are
-not proper. The reader of your thesis cannot know which of your
-sources give which of the statements. In this case, it is better to
-use more finegraded refering where the reference markings that are
-embedded in the sentences. For example, \emph{the multiversion B+-tree
-  (MVBT) index of Becker et al.~\citep{becker:1996:mvbt} allows database
-  users to query old versions of the database, but the index is not
-  transactional.
-  It's successor, the transactional MBVT (TMVBT), allows a single transaction
-  running in its own thread or process to update the database concurrently
-  with other transactions that only read the
-  database~\citep{haapasalo:2009:tmvbt}. 
-  Further development, titled the concurrent MBVT (CMVBT),
-  allows several transactions to perform updates to the database at the same
-  time~\citep{HaapasaloThesis}}. 
-  Here, the references are marked before
-  the period in the sentences where they are used.
-
-Finally, direct quotes are allowed. However, often you should avoid
-them since they do not usually fit in to your text very well. Using
-direct quotes has two tricks: quotation marks and the source.  \emph{
-  ``Even though deletions in a multiversion index must not physically
-  delete the history of the data items, queries and range scans can
-  become more efficient, if the leaf pages of the index structure are
-  merged to retain optimality.''~\citep{HaapasaloThesis}} Quotes are
-hard to make neatly since you should use only as much as needed
-without changing the text. Moreover, you often do not really
-understand what the author has mentioned with his wordings if you
-cannot write the same with your own words. Remember also that never
-cut and paste anything without marking the quotation marks right away,
-and in general, never cut and paste anything at all!
-
-Sometimes getting the original source can be almost impossible. In an
-extremely desperate situation, you can refer with structure \emph{mr
-  X~[\ldots] according to ms Y~[\ldots] defined that}, if you find a
-source that refers to the original source. Note also that the
-reference marking is never used as sentence element (example of how 
-\textbf{not} to do it: \emph{\citep{HaapasaloThesis} describes
-an optimal algorithm for indexing multiversiond databases.}).
-
