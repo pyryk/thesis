@@ -42,23 +42,9 @@ The principles presented above are essential, but too abstract in order to be us
 
 % \fixme{This section could really use some more content}
 
-\fixme{Human perception in relation to information visualization (from Ware)}
-
-\subsubsection{To Do}
-\begin{itemize}
-	\item Data graphics
-	\item Definition of good information visualization
-	\item Human perception in relation to information visualization
-\end{itemize}
+\fixme{If desperately in need of more background, add human perception in relation to information visualization (from Ware).}
 
 \subsection{Visualizing Geographical Data}
-
-\subsubsection{To Do}
-\begin{itemize}
-	\item Geographic visualization (e.g. in relation to scientific visualization)
-	\item General (Thematic Maps)
-	\item Map visualization vs. map (thematic map vs general-reference map)
-\end{itemize}
 
 The most natural way of visualizing geographical data is by using a map\citep[chap.~1]{kraak_cartography_2011}. This technique is called \emph{thematic mapping} \citep[chap.~1]{slocum_thematic_2014}. Thematic mapping does not require any specific format of data, except for the geographical dimension \citep[chap.~1]{kraak_cartography_2011}. However, the nature of the data has a great effect on the method, or type, of thematic mapping.
 
@@ -80,17 +66,58 @@ When designing a software framework for geovisualization, it is not necessary to
 
 \fixme{describe the use cases for each type}
 
-\fixme{How do the principles introduced in the previous subsection apply to geographical data? Is there anything else to consider?}
+\subsubsection{To Do}
+\begin{itemize}
+	\item Geographic visualization (e.g. in relation to scientific visualization)
+	\item Map visualization vs. map (thematic map vs general-reference map) \citep{bartz_petchenik_place_1979}
+	\item How do the principles introduced in the previous subsection apply to geographical data? Is there anything else to consider?
+	\item Thematic map interactivity \citep{andrienko_interactive_1999} (Where should this go? Is this an env related thing or here somewhere)
+\end{itemize}
 
 \citet[p.~16]{tufte_visual_1986} May help here as well.
 
 For this thesis to succeed, it is not necessary for the software framework to support creating every map type described above especially if properties of the types contradict with each other. However, in an ideal situation the most often used types should be covered to gain the most benefit possible. \fixme{Rephrase. Not ``for this thesis...'' but ``For a map visualization...''}
 
+Even a single thematic map is often used for multiple different purposes \citep[chap.~2]{schlichtmann_visualization_2002}. For instance, a single map can be read on the \emph{overall level} (``where are the primary schools located in Helsinki metropolitan area?'') and \emph{elementary level} (``is there a primary school in Punavuori?''). Furthermore, some possible uses for a thematic map are ``what is the ratio and distribution of Finnish schools compared to Swedish schools in Helsinki'' or ``what is the spatial distribution of sizes of schools in Helsinki''. Therefore, an efficient map visualization should not lock the user to any single perspective. \fixme{maybe move somewhere? Create a separate (sub)section for interactivity?} \fixme{Interactivity could help here? See \citep{andrienko_interactive_1999}}
+
 \fixme{Analysis part of geovisualization - ``...is considered out of the scope of this work.''}
 
 \section{How Thematic Maps Are Made}
+\citet{schlichtmann_visualization_2002} describes making thematic maps as a six-step process. The first four steps involve deciding on and obtaining the data which are not relevant when building a software framework for visualization. Therefore, we ignore those steps. The step five consists of selecting the visualization method and using it to produce a meaningful visualization from the data. The step six involves explaining the visualization in legend. \fixme{Schlichtmann not concerned with the step 6, find some other source of displaying the legend.}
 
-Describe the methods and flow for visualizing data with thematic maps. \citet{schlichtmann_visualization_2002} or \citet[p.~5]{slocum_thematic_2014} may help you.
+In the map visualization process, several identified objectives for the resulting graphic exist \citep{schlichtmann_visualization_2002}. The objectives are presented in the table below.
+
+\LTcapwidth=\textwidth
+\begin{longtable}{|p{3cm}|p{10cm}|}
+\hline
+\textbf{Name} & \textbf{Description} \\ 
+\hline
+Clarification & Making the map clear and readable. In practice, this means that the topemes (symbols) in a map should be easily detectable and distinguishable from each other \\
+\hline
+Emphasis & Making topemes and other important characteristics of the visualization to stand out visually \\
+\hline
+Types of Entries & Having a clearly distinguishable type for each topeme. \\
+\hline
+Sets of Types & Grouping data points and symbols with similar traits in order to make them belong together visually. Ideally, the visual similarity should be related to the conceptual similarity. \\
+\hline
+Cross-Relations & Visually indicating the potential relations and similarities between different types or between entries of different types. \\
+\hline
+Local Syntax & Aligning visual properties of the topemes to prevent unintentional emphasis of single topemes. \\
+\hline
+Local Ensembles & Supporting topemes with multiple properties (such as the numbers of children and adults in an area) so that the topeme visually reflect both the individual properties and the combination of all properties. \\
+\hline
+Multilocal Ensembles & Supporting topemes with multiple geographical properties (such as spatial distribution of people)  \\
+\hline
+Addable and Non-Addable Quantities & Differentiating addable and non-addable properties. Typically absolute quantitative properties are addable while relative and qualitative properties are non-addable. Addable properties should be visualized in a way that cognitively supports addition (e.g. with sizes of elements) while non-addable quantities should be visualized without said feature (e.g. with colors.) \\
+\hline
+The Surface Illusion & Creating an illusion of surface on the map. This can be achieved for example by using illumination and shadowing. These visual traits can convey a meaning themselves and often naturally do so. \\
+\hline
+\caption{Map visualization objectives as per \citet{schlichtmann_visualization_2002}}
+\end{longtable}
+
+The objectives above are important when visualizing geographical data on a map. Therefore, it is needed to take those into account when creating a visualization tool or framework in order to enable or even encourage the visualizers to reach as many of the objectives as possible.
+
+\fixme{This could use an opinion from some other source as well (Maybe \citep[p.~5]{slocum_thematic_2014})}
 
 \section{Web Software Frameworks}
 
