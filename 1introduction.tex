@@ -18,18 +18,22 @@ The web makes publishing and bundling map visualizations extraordinarily straigh
 
 \fixme{Needs more flesh}
 
-\section{Problem statement}
+\section{Problem Statement}
 
-Currently, there are several libraries available for displaying maps and simple visualizations \fixme{add references to the libraries. GMaps, Leaflet, OpenLayers etc.}. However, none of the mainstream libraries is of sufficiently high abstraction level for building map visualizations effectively, resulting in the need for writing \emph{boilerplate} code that does not directly contribute to the visualization.
+Currently, there are several libraries available for displaying maps and simple visualizations \fixme{add references to the libraries. GMaps, Leaflet, OpenLayers etc.}. However, none of the mainstream libraries is of sufficiently high abstraction level for building map visualizations effectively, resulting in the need for writing \emph{boilerplate} code that does not directly contribute to the visualization. Moreover, the libraries are not designed primarily for visualizations and therefore do not encourage or push the visualizer to create visually and cognitively effective visualizations.
 
 We plan to evaluate means to make creating map visualizations for the web more efficient by building a higher abstraction level software framework for map visualizations. This framework should provide the structure for creating the visualization as well as common web application features needed in modern web applications.
 
 In order to find the solution for the problem, it is necessary to study geographical visualizations and software frameworks. The process of making geographical visualizations should be studied to ensure that the framework enables creating \emph{effective} visualizations. In addition, software frameworks and software reuse should be studied in order to be able to create visualizations \emph{efficiently}. Therefore, we select the following research questions for this thesis:
 
 \begin{enumerate}
-	\item[RQ1] How to measure software framework efficiency reliably?
-	\item[RQ2] How to build a software framework which enables creating effective geographical visualizations efficiently?
+	\item[RQ1] How to build effective geographical visualizations in the web?
+	\item[RQ2] How to build a web software framework which enables creating effective geographical visualizations efficiently?
+	% old one:
+	% \item[RQ2] How to measure software framework efficiency reliably?
+
 \end{enumerate}
+\fixme{Would it make sense to drop the RQ1 since RQ2 pretty much covers it? Or rephrase the questions to overlap less?}
 
 % TODO remove
 % \section{Helpful hints}
