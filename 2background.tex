@@ -3,7 +3,7 @@
 \chapter{Background}
 \label{chapter:background} 
 
-Also known as ``literature review''/``Kirjallisuuskatsaus''. About 20 pages long.
+% Also known as ``literature review''/``Kirjallisuuskatsaus''. About 20 pages long.
 
 In order to build an efficient framework for visualizing geographical data, it is needed to study (a) how to visualize geodata and (b) how to build frameworks. We are going to tackle this problem by first studying the basics of data visualization with an emphasis on geographical data, maps and the visualization process. After visualization, we are going to study the essence of software reuse, focusing on building and evaluating reusable software, also known as software frameworks.
 
@@ -25,7 +25,7 @@ According to him, while visualizations can also have other properties or qualiti
 
 The first requirement for visualizations by \citet{kosara_visualization_2007} dictates that the visualization is based on data. This is an essential characteristic of \emph{data} visualizations: the visualization is a function which takes data as an input and produces a visual object as an output. In less technical terms, this means that the visualization turns data into visual, effortlessly and efficiently digestible format.
 
-We argue that this leads to the fact that the data and visualization are not inherently tied to each other; the visualization ``function'' can be independent of the data and thus it may be possible to create a visualization framework or platform which is able to function on a potentially wide range of data.
+This leads to the fact that the data and visualization are not inherently tied to each other; the visualization ``function'' can be independent of the data and thus it may be possible to create a visualization framework or platform which is able to function on a potentially wide range of data.
 
 \fixme{The goal of visualization is (usually) better understanding of the data.}
 
@@ -38,7 +38,7 @@ The requirements presented in the previous section are sufficient for the defini
 
 In addition to graphics principles presented in the previous paragraph, \citet[p.~93]{tufte_visual_1986} presents the concept of \emph{data-ink}. Data-ink represents the ink used for displaying the data in a visualization. He argues that in an excellent visualization, most, if not all, ink used should contribute to display of the data. However, research by \citet{inbar_minimalism_2007} suggests that maximizing the share of data-ink may not be beneficial to the user experience of the visualization. 
 
-The principles presented above are essential, but too abstract in order to be used as a sole basis for defining a good visualization. However, when combined with the data visualization definition stated above, the principles become considerably more useful and concrete. \citet{azzam_j-b_2013} propose an adapted version of the definition by \citet{kosara_visualization_2007}, complementing the second requirement by requiring the produced image to represent the data truthfully. We argue that this definition in effect combines the definition by \citet{kosara_visualization_2007} with the principle of showing data introduced by \citet{tufte_visual_1986}. The adapted definition facilitates the process of creating a successful data visualizations by offering a more concrete version of Tufte's principles. It gives the developer of the visualization a concrete checklist for representing the data: make sure it does not (a) omit or (b)  overrepresent any information \citep{azzam_j-b_2013}.
+The principles presented above are essential, but too abstract in order to be used as a sole basis for defining a good visualization. However, when combined with the data visualization definition stated above, the principles become considerably more useful and concrete. \citet{azzam_j-b_2013} propose an adapted version of the definition by \citet{kosara_visualization_2007}, complementing the second requirement by requiring the produced image to represent the data truthfully. This definition effectively combines the definition by \citet{kosara_visualization_2007} with the principle of showing data introduced by \citet{tufte_visual_1986}. The adapted definition facilitates the process of creating a successful data visualizations by offering a more concrete version of Tufte's principles. It gives the developer of the visualization a concrete checklist for representing the data: make sure it does not (a) omit or (b) overrepresent any information \citep{azzam_j-b_2013}.
 
 % \fixme{This section could really use some more content}
 
@@ -125,28 +125,25 @@ The objectives above are important when visualizing geographical data on a map. 
 
 In order to create a reusable software framework for visualization, it is necessary to study software reuse along with different reuse techniques and their characteristics, advantages and disadvantages.
 
-\citet{krueger_software_1992} presents software reuse as a process of reusing existing software code (applications, libraries, functions or single lines) when building new software, while according to \citet{mohagheghi_empirical_2008}, reuse is not restricted to code, but can also refer to other software assets such as design. Therefore, software reuse combines often several different existing pieces of code and other assets along with new assets which are specific for the application in question. According to \citet{mcilroy_mass-produced_1969} and \citet{boehm_managing_1999}, it is one of the most effective techniques of reducing the development time and cost of complex software products.
+\citet{krueger_software_1992} presents software reuse as a process of reusing existing software code (applications, libraries, functions or single lines) when building new software, while according to \citet{mohagheghi_empirical_2008}, reuse is not restricted to code, but can also refer to other software assets such as design. However, both agree that software reuse combines several different existing pieces of code (and possibly other assets) along with new assets which are specific for the application in question. According to \citet{mcilroy_mass-produced_1969} and \citet{boehm_managing_1999}, it is one of the most effective techniques of reducing the development time and cost of complex software products.
 
 \subsection{Software Reuse Advantages \& Disadvantages}
 
-When used appropriately, software reuse has several benefits. In their overview of multiple case studies, \citet{mohagheghi_empirical_2008} discovered that in most cases, using reused software components resulted in a considerably lower number of software defects and better productivity. Several of the studies implied that reusing software is also beneficial for software complexity and product time-to-market. However, it should be noted that since the overview only addresses case studies, its results should not be taken as universally applicable.
+When used appropriately, software reuse has several benefits. In their overview of multiple case studies, \citet{mohagheghi_empirical_2008} discovered that in most cases, using reused software components resulted in a considerably lower number of software defects and better productivity. Several of the studies implied that reusing software is also beneficial for software complexity and product time-to-market. However, it should be noted that since the overview only addresses case studies, its results should not be considered universally applicable.
 
 Although reusing software is often said to decrease the effort needed \citep{mcilroy_mass-produced_1969, boehm_managing_1999, mohagheghi_empirical_2008} \fixme{there must be many more sources for this available}, concrete evidence for this is difficult to find \citep{mohagheghi_empirical_2008}.
 
-Given its lucrative advantages, software reuse is definitely beneficial for many software systems. However, according to \citet{krueger_software_1992}, software reuse can be problematic and even disadvantageous. Learning to use a specific piece of reusable software often takes considerable effort. Moreover, finding suitable code fragments may also prove to be a challenge. For uncomplicated software systems and especially reusable components, it may not be worth the effort. Therefore, developer needs to carefully consider all sides of reusing when building a software system. \fixme{This needs a lot more flesh.} 
+Given its lucrative advantages, software reuse is definitely beneficial for many software systems. However, according to \citet{krueger_software_1992}, software reuse can be problematic and even disadvantageous. Learning to use a specific piece of reusable software often takes considerable effort. Moreover, finding suitable code fragments may also prove to be a challenge. For uncomplicated software systems and especially reusable components, it may not be worth the effort. Therefore, developer needs to carefully consider all sides of reusing when building a software system; according to \citet[chap.~1.3]{krueger_software_1992}, for successful software reuse scenario, the amount of intellectual effort between the concept and implementation of the system must be as low as possible. In practice, this means that the value of the reused component must be as high as possible for the developed system, while the implementation cost (resources needed to take the reusable component into use) should be relatively low. 
 
-\fixme{Advantages and disadvantages in general about reuse, not about different methods as those are described in the reuse methods chapter. Software reuse metrics research \citep{mohagheghi_empirical_2008,frakes_software_1996,selby_enabling_2005} probably has some good points. Also, \citet{johnson_frameworkscomponents+_1997} may have something.}
+\subsection{Factors for Successful Software Reuse}
+\citet{frakes_success_1994} state that for successful software reuse, the procedure must be planned beforehand and evaluated with a cost-benefit analysis. \fixme{They also present several other factors, add them here.} \fixme{This needs a lot more flesh. Add some general principles etc. ``How to make reusable software''}
 
-\subsection{Software Reuse Methods}
-
-% Probably not needed as a separate subsection?
-% \subsection{Dimensions for Software Reuse}
-
-Different reuse methods excel at different areas. In order to analyze different methods, it is first needed to analyze reusing software in general. \citep{krueger_software_1992} separates making reusable software into four areas, or dimensions: abstraction, selection, specialization and integration. Different reuse methods use these dimensions to a varying degree. The dimensions are presented in more detail below.
+\subsection{Analyzing Software Reuse}
+According to \citet{krueger_software_1992}, in order to analyze reusing software, the reuse process to be studied should be separated into four \emph{dimensions}. The dimensions are presented below.
 
 ~
 
-\textbf{Abstraction} is the process of making a piece of software more generic, thus making it applicable to a wider range of software projects. Software reuse is almost always based on abstraction, but according to \citep{krueger_software_1992}, raising the abstraction level has proven to be difficult, thus making building reusable software a nontrivial process.\newline
+\textbf{Abstraction} is the process of making a piece of software more generic, thus making it applicable to a wider range of software projects. Software reuse is almost always based on abstraction, but according to \citet{krueger_software_1992}, raising the abstraction level has proven to be difficult, thus making building reusable software a nontrivial process.\newline
 
 \textbf{Selection} facilitates finding, comparing and choosing suitable pieces of software. For example, libraries or frameworks aid selection by bundling and structuring the software components.\newline
 
@@ -154,14 +151,81 @@ Different reuse methods excel at different areas. In order to analyze different 
 
 \textbf{Integration} facilitates providing the software with reusable components, for example with a mechanism to import relevant modules or functions to the software.\newline
 
-Libraries, components, frameworks... Use \citet{krueger_software_1992}. Also why choose framework? \citet{johnson_frameworkscomponents+_1997} has some reasons.
+\fixme{Add advantages and disadvantages in general about reuse, not about different methods as those are described in the reuse methods chapter. Software reuse metrics research \citep{mohagheghi_empirical_2008,frakes_software_1996,selby_enabling_2005} probably has some good points. Also, \citet{johnson_frameworkscomponents+_1997} may have something.}
 
-\citet{krueger_software_1992} has a list of different methods along with their advantages and disadvantages. Includes frameworks in chapter 10. \citet{johnson_frameworkscomponents+_1997} extends the description. Using the characteristics along with praise of \citet{johnson_frameworkscomponents+_1997}, it should be possible to reason about going with frameworks.
+\subsection{Software Reuse Methods}
 
-\subsection{Software Frameworks}
+%Here should be analysis about libraries, components, frameworks... Use \citet{krueger_software_1992}. Also why choose framework? \citet{johnson_frameworkscomponents+_1997} has some reasons.
 
-Frameworks more in depth. Maybe how to build them.
+%\citet{krueger_software_1992} has a list of different methods along with their advantages and disadvantages. Includes frameworks in chapter 10. \citet{johnson_frameworkscomponents+_1997} extends the description. Using the characteristics along with praise of \citet{johnson_frameworkscomponents+_1997}, it should be possible to reason about going with frameworks.
 
-\section{Evaluating Software Framework Effectiveness}
+~
+
+Software reuse is not a single, uniform procedure or technique. Several different reuse techniques exist to cater different needs. Consequently, different reuse methods excel at different areas. In order to describe the advantages and disadvantages of the methods, we describe the using the reuse dimensions presented in the previous section.
+
+\citet{krueger_software_1992} and \citet{johnson_frameworkscomponents+_1997}, among others, present and analyze software reuse methods. From these, we have selected the most relevant for web environment, presenting those below.
+
+% High-level languages, design and code scavenging, source code components, software schemas, application generators, very high-level languages, transformational systems, software architectures
+
+\subsubsection{High-Level Languages}
+High-level languages denote programming languages which are designed to be on a high abstraction level and thus contain features which are not necessary for a programming language but benefit or speed up the development. Traditional examples of these kind of features are automatic memory allocation \citep{krueger_software_1992} and language constructs such as exceptions \citep{mitchell_concepts_2003}. More modern high-level language features are value type checking systems and abstracted support for parallel operations using futures \citep{totoo_haskell_2012}. It should be noted that the high-levelness of a language is a \emph{relative} property, i.e. it is not possible to determine the requirements for a high-level language per se, only high-levelness of languages compared to other languages. For example, \citet{krueger_software_1992} considers all programming languages above the abstraction level of the assembly language high-level languages, while \citet{carro_high-level_2006} consider e.g. lack of automatic memory management or type system a sign of lower-level language.
+
+High-level languages \emph{abstract} frequently used procedures into seemingly uncomplicated operations, thus reducing the work and cognitive capacity needed for developing the application. \citep[chap.~3]{krueger_software_1992}
+
+As the number of elementary high-level language constructs is usually relatively low it is possible for programmers to master the use of those constructs with sufficiently little effort, rendering \emph{selection} unproblematic. \citep[chap.~3]{krueger_software_1992}
+
+\emph{Specialization} of high-level language features is usually achieved by parameterizing the constructs, either implicitly or explicitly. For example, when instantiating a class in Java, the only parameterization needed for memory management is the actual object instance. However, e.g. exception handling always requires at least the logic needed for handling the exception. \citep[chap.~3]{krueger_software_1992}
+
+\emph{Integration} of high-level language features is automatically done when compiling the software code. However, due to the nature of high-level languages, it is usually not possible to mix-and-match different programming languages easily in the same program. \citep[chap.~3]{krueger_software_1992}
+
+The advantages of high-level languages are mainly related to the decreased need for developing frequently needed procedures manually, such as allocating or deallocating memory, case-by-case. These operations in high-level languages can be mapped into more complex procedures in some lower-level languages, effectively making them reusable software components. In practice, using high-level languages can yield a productivity gain up to 500 \%. \citep[chap.~3]{krueger_software_1992}
+
+The main disadvantage of using high-level languages is the potential decrease in performance. As with any software reuse, high-level programming languages abstract the supported procedures by making them more generic. This often leads to additional complexity and unnecessary operations on the compiled program. However, the decrease can often be minimized by using additional compile-time optimizations. \citep{carro_high-level_2006}
+
+On the web, the technologies used on the client-side are inherently fixed to descendants of HTML, CSS and JavaScript \citep{world_wide_web_consortium_html5_2014,world_wide_web_consortium_cascading_2011,ecma_ecmascript_2011}. Therefore, web application languages are relatively high-level by definition. However, it is still possible to raise the abstraction level by using e.g. CoffeeScript \citep{ashkenas_coffeescript_2009} instead of JavaScript or LESS \citep{sellier_less_2009} instead of CSS.
+
+\subsubsection{Design and Code Scavenging}
+
+\fixme{Add similarly structured content as in the previous subsubsection}
+
+\subsubsection{Source Code Components}
+
+\fixme{Add similarly structured content as in the previous subsubsection}
+
+\subsubsection{Design and Code Scavenging}
+
+\fixme{Add similarly structured content as in the previous subsubsection}
+
+\subsubsection{Software Schemas}
+
+\fixme{Add similarly structured content as in the previous subsubsection}
+
+\subsubsection{Application Generators}
+
+\fixme{Add similarly structured content as in the previous subsubsection}
+
+\subsubsection{Very High Level Languages}
+
+\fixme{Add similarly structured content as in the previous subsubsection}
+
+\subsubsection{Transformational Systems}
+
+\fixme{Add similarly structured content as in the previous subsubsection. Or maybe drop?}
+
+\subsubsection{Software Architectures}
+
+\fixme{Add similarly structured content as in the previous subsubsection}
+
+\subsubsection{Software Frameworks}
+
+\fixme{Add similarly structured content as in the previous subsubsection. Are frameworks the same as architectures? If, drop.}
+
+%\subsection{Software Frameworks}
+
+%Frameworks more in depth. Maybe how to build them.
+
+%\fixme{Is it OK to describe frameworks in depth, but not other means of reuse? How to reason about this? Could it be done so that frameworks do not have a separate chapter (here), but instead go through all methods. Then, in the implementation chapter, reason about which methods to use (most likely more than just framework here)}
+
+\section{Evaluating Software Reuse Effectiveness}
 
 Here should be the whole research on how to measure if it is beneficial to reuse software instead of writing from scratch. At least \citet{mohagheghi_empirical_2008,frakes_software_1996,selby_enabling_2005} are useful here.
