@@ -3,11 +3,45 @@
 \chapter{Methodology}
 \label{chapter:methods}
 
-% About 5-10 pages long?
+\section{Evaluating Software Reuse Effectiveness}
 
-In this thesis, we are going to use method X (cost-benefit analysis with Y for calculating costs and benefits?) for evaluating the effect the framework has on the visualizing, because according to N.N (2014), it is applicable to this kind of problem. Also something why it is the best format for this, and while it is not perfect, it is not reasonable or feasible to accomplish more precise measurements.
+Several methods for analyzing software reuse exist. \citet{frakes_software_1996} present six general types of software reuse analysis models: cost-benefit analysis models, maturity assessment models, amount-of-reuse models, failure modes analysis, reusability assessment models and reuse library metrics. 
 
-For gathering data, we implemented three(?) map visualizations with and without the framework. The first visualization is a simple use case which concentrates on the display of a custom map. The second visualization highlights POI data on a map, and the third one is the most complex, consisting of POI data, relations between POIs and a custom backend serving the data with real-time updates from a mobile client. The types of visualizations were selected to obtain data about a wide variety of different map visualizations.
+Cost-benefit analysis models consider both development costs for the reusable component and the reuse productivity and quality benefits. Maturity assessment models categorize the matureness of a systematic software reuse program. Amount of reuse metrics assess the proportion of reused software in the software system created. Software reuse failure modes model introduces a set of reuse failures which are then used to assess a systematic reuse program. Reusability assessment models aim to analyze various software attributes to assess the reusability of a piece of code. Reuse library metrics concentrate on the reusability of software component libraries instead of single components.
+
+Not all the models discussed above are applicable to this type of research. For instance, as maturity assessment models assess a reuse program as a whole instead of single reusable piece of software, it can not be used for this type of work. Moreover, it should be noted that these models are high-level analysis tools which do not take a stance on how to measure the detailed data required by the measurements.
+
+In their review of multiple case studies, \citet{mohagheghi_quality_2007} list several methods as alternatives for analyzing software reuse. Of them, notable ones include \emph{controlled experiments}, \emph{case studies}, \emph{surveys} and \emph{experience reports}. However, as the scope of this work does not allow for large sample sizes required by controlled experiment method, it is not a feasible alternative for this study. Moreover, using experience reports requires a considerable experience on creating and using reusable software.
+
+According to \citet{kitchenham_evaluating_1998}, one method for conducting a case study is using a \emph{sister project} comparison. In sister project comparison, a minimum of two different, but sufficiently similar software projects observed. In at least one of the projects, a new method is employed, while in at least one project, the old method is in use. All other practices and aspects should be left unchanged. \citet{mohagheghi_quality_2007} argue that this kind of comparison is applicable for analyzing software reuse effectiveness for a specific piece of software. The sister project case study is appropriate when no systematic reuse program exists or when there are other barriers impeding the use of models presented by \citet{frakes_software_1996}. Moreover, it is possible to create the sister project synthetically by building the same kind of application twice, once with and once without the reusable component.
+
+As presented above, in the higher abstraction level, analyzing projects is fairly straightforward. However, the actual low-level measurements for reusing software are much more complex. \citet{mohagheghi_quality_2007} argue that measuring software reuse effectiveness precisely is difficult due to a number of factors: 1) Metrics are difficult to validate since there is no universally accepted definition of ``quality'' in software products, and 2) the productivity of development is difficult to measure and therefore highly subjective, vague or even erroneous metrics are utilized.
+
+Both \citet{frakes_software_1996} and \citet{mohagheghi_quality_2007} agree that the size of the code needed to be written correlates inversely to the development productivity. Moreover, research by \citet{banker_software_1993,gill_cyclomatic_1991} show that software code complexity correlates inversely to the software maintenance productivity. Due to the nature of software maintenance and the fact that it is often hard to distinguish small-scale software development and maintenance \citep{chapin_types_2001}, it is likely that this principle applies to developing new software to some degree as well. Therefore, it seems evident that in order to enable productive use of reusable software, the new code to be written (outside the reusable components) should be made simple and concise.
+
+The conciseness of the code can be measured by several different metrics. According to \citet{fenton_software_1998}, the number of lines in program source code is only one perspective. It can be complemented by measuring the functionality and complexity of the program.
+
+According to \citet{fenton_software_1998}, the most commonly used metric for program size is its length, i.e., the number of lines of source code. The metric can be refined by only considering effective lines, ignoring lines consisting of comments and whitespace. However, \citet{fenton_software_1998} encourages the use of both effective and physical line counts to determine the size of a program.
+
+The functionality of the program can be determined with several different metrics. \citet{fenton_software_1998} presents the function point approach, which uses the number and complexity of external inputs and outputs, object point approach which uses the number of different screens and reports involved in the application, and so-called ``bang metrics'' which use the total number of primitives in the data-flow diagram of the program. It should be noted that all of these methods are highly subjective and only provide speculative metrics.
+
+Also the complexity of the program can be determined with several different techniques. According to \citet{fenton_software_1998}, the complexity of the program (solution) should ideally be not higher than the problem complexity. According to them, in the ideal case it is possible to determine the complexity of the program by determining the complexity of the program. However, this is not usually the case in real-life applications. \citet{mccabe_complexity_1976} presents a computational approach for determining the complexity of an application implementation. His approach is used by counting the number of cycles in the program flow graph. The advantage of this approach when compared to the method presented by \citet{fenton_software_1998} is that it can be used to compute complexity differences of multiple implementations of the problem.
+
+\fixme{Halstead measurements?}
+
+\section{Research Method Chosen for the Analysis}
+
+For this work, we considered both the methods presented by \citet{frakes_software_1996} and \citet{mohagheghi_quality_2007}. As stated in the previous section, several of the methods are only applicable for assessing large-scale reuse programs or cases with large sample size and therefore were not considered for this work. Of the remaining methods, a cost-benefit analysis was selected. For studying costs and benefits of the reuse, a case study with sister project comparison approach was deemed most applicable. 
+
+For comparing the projects, software size and complexity metrics by \citet{fenton_software_1998} were used, with the exception that measuring software complexity is done with the method by \citet{mccabe_complexity_1976} as it allows comparing different implementations of similar applications. \fixme{Add specifics about tools, restrictions etc. See chapter 7.1 of achy}
+
+For gathering data, we implemented three \fixme{confirm the number} map visualizations with and without the framework. The first visualization is a simple use case which concentrates on the display of a custom map. The second visualization highlights POI data on a map, and the third one is the most complex, consisting of POI data, relations between POIs and a custom backend serving the data with real-time updates from a mobile client. The types of visualizations were selected to obtain data about a wide variety of different map visualizations. \fixme{Probably the visualizations ought to a bit more complex than this}
+
+\fixme{How are the measurements combined? (1st viz without framework + 2nd viz without framework + 3rd wiz without framework) <=> (1st viz with framework + 2nd viz with framework + 3rd wiz with framework + framework)? Or should the framework be excluded?}
+
+% TODO move to implementation? or have some "how we use the method in practice" section here?
+
+
 
 % You have now stated your problem, and you are ready to do something
 % about it!  \emph{How} are you going to do that? What methods do you
@@ -84,16 +118,4 @@ S-38.3184 & Network Traffic Measurements and Analysis
 % Place the label just after the caption to make the link work
 \label{table:courses}
 \end{table} % table makes a floating object with a title
-
-If you have not yet done any (real) metholodogical courses (but chosen
-introduction courses of different areas that are listed in the
-methodological courses list), now is the time to do so or at least
-check through material of suitable methodological courses. Good
-methodologial courses that consentrates especially to methods are
-presented in Table~\ref{table:courses}. Remember to explain the
-content of the tables (as with figures). In the table, the last column
-gives the research area where the methods are often used. Here we used
-table to give an example of tables. Abbreviations and Acronyms is also
-a long table. The difference is that longtables can continue to next
-page.
 
