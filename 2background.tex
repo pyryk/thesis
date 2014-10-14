@@ -1,9 +1,5 @@
 %!TEX root = thesis.tex
 
-% Also known as ``literature review''/``Kirjallisuuskatsaus''. About 20 pages long.
-
-In order to build an efficient framework for visualizing geographical data, it is needed to study (a) how to visualize geodata and (b) how to build frameworks. We are going to tackle this problem by first studying the basics of data visualization with an emphasis on geographical data, maps and the visualization process. After visualization, we are going to study the essence of software reuse, focusing on building and evaluating reusable software, also known as software frameworks.
-
 \chapter{Data Visualization}
 \label{chapter:dataviz}
 
@@ -19,7 +15,7 @@ According to \citet[chap.~3]{kosara_visualization_2007}, there is no universally
 
 According to him, while visualizations can also have other properties or qualities, such as interaction or visual efficiency, the requirements above are the ones needed for technical definition of the term. Moreover, it should be emphasized that according to this definition, visualization is the \emph{process} itself, not the result of it.
 
-\citet[chap.~4]{kosara_visualization_2007} argues that visualization is separated into two types, \emph{pragmatic} and \emph{artistic} visualization. Pragmatic visualization focuses on the analysis of the data in order to show its relevant characteristics as efficiently as possible. Artistic visualization on the other hand concentrates on the communication of the concern behind the data, not the display of the actual data. \citeauthor{kosara_visualization_2007} states that while these types focus on the opposite sides of the visualization spectrum, it may be possible to close the gap using e.g. interaction.
+\citet[chap.~4]{kosara_visualization_2007} argues that visualization is separated into two types, \emph{pragmatic} and \emph{artistic} visualization. Pragmatic visualization focuses on the analysis of the data in order to show its relevant characteristics as efficiently as possible. Artistic visualization on the other hand concentrates on the communication of the concern behind the data, not the display of the actual data. \citeauthor{kosara_visualization_2007} states that while these types focus on the opposite sides of the visualization spectrum, it may be possible to close the gap using, e.g., interaction.
 
 The first requirement for visualizations by \citet{kosara_visualization_2007} dictates that the visualization is based on data. This is an essential characteristic of \emph{data} visualizations: the visualization is a function which takes data as an input and produces a visual object as an output. In less technical terms, this means that the visualization turns data into visual, effortlessly and efficiently digestible format.
 
@@ -32,7 +28,7 @@ This leads to the fact that the data and visualization are not inherently tied t
 
 \section{Principles for Successful Data Visualization}
 
-The requirements presented in the previous section are sufficient for the definition of data visualization. However, they do not convey any information about visualization quality. In order to discover the characteristics for successful data visualization, additional principles are needed. \citet[p.~13]{tufte_visual_1986} states that excellent graphics (i.e. results of visualizations) consist of ``complex ideas communicated with clarity, precision and efficiency''. In practice, this means that the graphics should emphasize the actual data and its nuances above everything else, while serving a clear purpose.
+The requirements presented in the previous section are sufficient for the definition of data visualization. However, they do not convey any information about visualization quality. In order to discover the characteristics for successful data visualization, additional principles are needed. \citet[p.~13]{tufte_visual_1986} states that excellent graphics (i.e., results of visualizations) consist of ``complex ideas communicated with clarity, precision and efficiency''. In practice, this means that the graphics should emphasize the actual data and its nuances above everything else, while serving a clear purpose.
 
 In addition to graphics principles presented in the previous paragraph, \citet[p.~93]{tufte_visual_1986} presents the concept of \emph{data-ink}. Data-ink represents the ink used for displaying the data in a visualization. He argues that in an excellent visualization, most, if not all, ink used should contribute to display of the data. However, research by \citet{inbar_minimalism_2007} suggests that maximizing the share of data-ink may not be beneficial to the user experience of the visualization. 
 
@@ -49,13 +45,14 @@ The principles presented above are essential, but too abstract in order to be us
 The most natural way of visualizing geographical data is by using a map\citep[chap.~1]{kraak_cartographic_1998,kraak_cartography_2011}. This technique is called \emph{thematic mapping} \citep[chap.~1]{slocum_thematic_2014}. Thematic mapping does not require any specific format of data, except for the geographical dimension \citep[chap.~1]{kraak_cartography_2011}. However, the nature of the data has a great effect on the method, or type, of thematic mapping.
 
 \subsection{Methods for Thematic Mapping}
+\label{subsection:mappingmethods}
 
 As stated above, there are several types of geographical data, many of which are fundamentally different requiring different visualization methods. Therefore, several different thematic mapping methods have been developed. \citet[chap.~14-18]{slocum_thematic_2014} list some of the most typical ones: \fixme{rephrase the descriptions below}
 
 \begin{itemize}
 	\item Choropleth map - Shows data aggregated for a set of predefined areas (countries, regions etc)
 	\item Isarithmic map - Maps with areas separated by contour lines.
-	\item Dasymetric map - \fixme{what's this?}
+	\item Dasymetric map - Like choropleth, but areas are calculated by consolidating areas with relatively homogeneous values
 	\item Proportional symbol map - like dot map, but replaces dots with relevant symbols of sizes proportional to the data
 	\item Dot map - simple maps with dots on relevant locations
 	\item Multivariate mapping - A map that shows data of several dimensions (in addition to location).
@@ -74,7 +71,7 @@ Even a single thematic map is often used for multiple different purposes \citep[
 
 \fixme{To Do}
 \begin{itemize}
-	\item Geographic visualization (e.g. in relation to scientific visualization)
+	\item Geographic visualization (e.g., in relation to scientific visualization)
 	\item Map visualization vs. map (thematic map vs general-reference map) \citep{bartz_petchenik_place_1979}
 	\item How do the principles introduced in the previous subsection apply to geographical data? Is there anything else to consider?
 	\item Thematic map interactivity \citep{andrienko_interactive_1999} (Where should this go? Is this an env related thing or here somewhere)
@@ -108,7 +105,7 @@ Local Ensembles & Supporting topemes with multiple properties (such as the numbe
 \hline
 Multilocal Ensembles & Supporting topemes with multiple geographical properties (such as spatial distribution of people)  \\
 \hline
-Addable and Non-Addable Quantities & Differentiating addable and non-addable properties. Typically absolute quantitative properties are addable while relative and qualitative properties are non-addable. Addable properties should be visualized in a way that cognitively supports addition (e.g. with sizes of elements) while non-addable quantities should be visualized without said feature (e.g. with colors.) \\
+Addable and Non-Addable Quantities & Differentiating addable and non-addable properties. Typically absolute quantitative properties are addable while relative and qualitative properties are non-addable. Addable properties should be visualized in a way that cognitively supports addition (e.g., with sizes of elements) while non-addable quantities should be visualized without said feature (e.g., with colors.) \\
 \hline
 The Surface Illusion & Creating an illusion of surface on the map. This can be achieved for example by using illumination and shadowing. These visual traits can convey a meaning themselves and often naturally do so. \\
 \hline
@@ -167,13 +164,13 @@ Software reuse is not a single, uniform procedure or technique. Several differen
 % High-level languages, design and code scavenging, source code components, software schemas, application generators, very high-level languages, transformational systems, software architectures
 
 \subsection{High-Level Languages}
-High-level languages denote programming languages which are designed to be on a high abstraction level and thus contain features which are not necessary for a programming language but benefit or speed up the development. Traditional examples of these kind of features are automatic memory allocation \citep{krueger_software_1992} and language constructs such as exceptions \citep{mitchell_concepts_2003}. More modern high-level language features are value type checking systems and abstracted support for parallel operations using futures \citep{totoo_haskell_2012}. It should be noted that the high-levelness of a language is a \emph{relative} property, i.e. it is not possible to determine the requirements for a high-level language per se, only high-levelness of languages compared to other languages. For example, \citet{krueger_software_1992} considers all programming languages above the abstraction level of the assembly language high-level languages, while \citet{carro_high-level_2006} consider e.g. lack of automatic memory management or type system a sign of lower-level language.
+High-level languages denote programming languages which are designed to be on a high abstraction level and thus contain features which are not necessary for a programming language but benefit or speed up the development. Traditional examples of these kind of features are automatic memory allocation \citep{krueger_software_1992} and language constructs such as exceptions \citep{mitchell_concepts_2003}. More modern high-level language features are value type checking systems and abstracted support for parallel operations using futures \citep{totoo_haskell_2012}. It should be noted that the high-levelness of a language is a \emph{relative} property, i.e., it is not possible to determine the requirements for a high-level language per se, only high-levelness of languages compared to other languages. For example, \citet{krueger_software_1992} considers all programming languages above the abstraction level of the assembly language high-level languages, while \citet{carro_high-level_2006} consider e.g., lack of automatic memory management or type system a sign of lower-level language.
 
 High-level languages \emph{abstract} frequently used procedures into seemingly uncomplicated operations, thus reducing the work and cognitive capacity needed for developing the application. \citep[chap.~3]{krueger_software_1992}
 
 As the number of elementary high-level language constructs is usually relatively low it is possible for programmers to master the use of those constructs with sufficiently little effort, rendering \emph{selection} unproblematic. \citep[chap.~3]{krueger_software_1992}
 
-\emph{Specialization} of high-level language features is usually achieved by parameterizing the constructs, either implicitly or explicitly. For example, when instantiating a class in Java, the only parameterization needed for memory management is the actual object instance. However, e.g. exception handling always requires at least the logic needed for handling the exception. \citep[chap.~3]{krueger_software_1992}
+\emph{Specialization} of high-level language features is usually achieved by parameterizing the constructs, either implicitly or explicitly. For example, when instantiating a class in Java, the only parameterization needed for memory management is the actual object instance. However, e.g., exception handling always requires at least the logic needed for handling the exception. \citep[chap.~3]{krueger_software_1992}
 
 \emph{Integration} of high-level language features is automatically done when compiling the software code. However, due to the nature of high-level languages, it is usually not possible to mix-and-match different programming languages easily in the same program. \citep[chap.~3]{krueger_software_1992}
 
@@ -181,11 +178,11 @@ The advantages of high-level languages are mainly related to the decreased need 
 
 The main disadvantage of using high-level languages is the potential decrease in performance. As with any software reuse, high-level programming languages abstract the supported procedures by making them more generic. This often leads to additional complexity and unnecessary operations on the compiled program. However, the decrease can often be minimized by using additional compile-time optimizations. \citep{carro_high-level_2006}
 
-On the web, the technologies used on the client-side are inherently fixed to descendants of HTML, CSS and JavaScript \citep{world_wide_web_consortium_html5_2014,world_wide_web_consortium_cascading_2011,ecma_ecmascript_2011}. Therefore, web application languages are relatively high-level by definition. However, it is still possible to raise the abstraction level by using e.g. CoffeeScript \citep{ashkenas_coffeescript_2009} instead of JavaScript or LESS \citep{sellier_less_2009} instead of CSS.
+On the web, the technologies used on the client-side are inherently fixed to descendants of HyperText Markup Language (HTML), Cascading Style Sheets (CSS) and JavaScript \citep{world_wide_web_consortium_html5_2014,world_wide_web_consortium_cascading_2011,ecma_ecmascript_2011}. Therefore, web application languages are relatively high-level by definition. However, it is still possible to raise the abstraction level by using e.g., CoffeeScript \citep{ashkenas_coffeescript_2009} instead of JavaScript or LESS \citep{sellier_less_2009} instead of CSS.
 
 \subsection{Design and Code Scavenging}
 
-Design and Code scavenging refers to the technique of scavenging pieces of software \emph{ad hoc} from existing software systems and using the pieces as parts for a new software system  \citep[chap.~4]{krueger_software_1992}. The aim of this technique is to reduce the amount of work needed to build the system. For example, when building an UI component for choosing a date, the developer may scavenge the code for a calendar from an older software system.
+Design and Code scavenging refers to the technique of scavenging pieces of software \emph{ad hoc} from existing software systems and using the pieces as parts for a new software system  \citep[chap.~4]{krueger_software_1992}. The aim of this technique is to reduce the amount of work needed to build the system. For example, when building an user interface (UI) component for choosing a date, the developer may scavenge the code for a calendar from an older software system.
 
 Scavenging can be done without modifications to the code in the target code base (code scavenging) or by modifying the details of the scavenged code (design scavenging) \citep[chap.~4]{krueger_software_1992}. The \emph{abstraction} gained by scavenging is therefore mostly informal and in some cases even its existence is questionable \citep[chap.~3]{sametinger_software_1997}. Usually, there is no ``hidden part'' of the abstraction but the developer must maintain the functionality of all the code himself \citep[chap.~3]{sametinger_software_1997}.
 
@@ -203,13 +200,13 @@ However, finding suitable pieces of software for scavenging is hard. Moreover, s
 
 Using source code components is a type of reuse that chooses and uses software components from a component repository \citep[chap.~3]{sametinger_software_1997}. Software component can be any piece of code, but in practice, components usually consist of one or more functions, modules or classes \citep[chap.~3]{sametinger_software_1997}. An example of a source code component is a trigonometry module which contains functions for sine, cosine and tangent calculations. When a developer needs to calculate sines in her program, she searches a component repository for trigonometry components and utilizes the component found in her own program \citep[chap.~5]{krueger_software_1992}.
 
-Ideally, source code components \emph{abstract} the implementation details of the component inside. This means that the required cognitive distance between the concept and the implementation of the software system is lower when using source code components instead of e.g. code scavenging. 
+Ideally, source code components \emph{abstract} the implementation details of the component inside. This means that the required cognitive distance between the concept and the implementation of the software system is lower when using source code components instead of e.g., code scavenging. 
 
 In order to be \emph{selectable}, source code components should be accompanied by abstract names (function names) and descriptions of the functionality provided \citep[chap.~5]{krueger_software_1992}. The names should describe \emph{what} the components does instead of \emph{how} it does it \citep[chap.~5]{krueger_software_1992}. These names can then be used for reasoning about the purpose of the component and finding the component in source code component repositories -- in order to use the component, the developer must be able to find it and to know what it does \citep[chap.~5]{krueger_software_1992}.
 
 Source code components can be \emph{specialized} by modifying the source code \citet[chap.~5]{krueger_software_1992}. However, as this technique yields unwanted consequences explained in the previous section, many components support specialization by parameterization. For example, the programmer could provide the sine function the angle in question. Additionally, when integrating the trigonometry module to her software system, the programmer could specify if the functions should use degrees or radians. In some components, specialization can also be achieved via subclassing \citep[chap.~5]{krueger_software_1992}.
 
-All modern programming languages support \emph{integration} of reusable source code components written in the same language. Usually, the procedure is a very simple addition of source code files, which requires little to no effort on the programmer side. However, all source code components can't be used in the same program due to conflicts e.g. in naming and value types \citep[chap.~5]{krueger_software_1992}.
+All modern programming languages support \emph{integration} of reusable source code components written in the same language. Usually, the procedure is a very simple addition of source code files, which requires little to no effort on the programmer side. However, all source code components can't be used in the same program due to conflicts e.g., in naming and value types \citep[chap.~5]{krueger_software_1992}.
 
 The main advantages of using source code components are the abstraction provided and organized nature of the component repositories. Ideally, the repositories provide a search functionality so that even developers with no previous experience on the component domain can find the components needed. Moreover, the abstraction level and the hiding of implementation details decreases the cognitive distance between the concept and the implementation of the system and reduce the source code needed to be written.
 
