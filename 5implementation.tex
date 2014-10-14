@@ -5,13 +5,20 @@
 
 % 10-15 pages?
 
-You have now explained how you are going to tackle your problem. 
-Go do that now! Come back when the problem is solved!
+% You have now explained how you are going to tackle your problem. 
+% Go do that now! Come back when the problem is solved!
 
-Now, how did you solve the problem? 
-Explain how you implemented your solution, be it a software component, a
-custom-made FPGA, a fried jelly bean, or whatever.
-Describe the problems you encountered with your implementation work.
+% Now, how did you solve the problem? 
+% Explain how you implemented your solution, be it a software component, a
+% custom-made FPGA, a fried jelly bean, or whatever.
+% Describe the problems you encountered with your implementation work.
+
+As discussed in the chapter \ref{chapter:reuse}, reusing software typically leads to increased productivity and better quality. Therefore, to achieve the targets of this thesis, we decided to implement a reusable visualization tool. Our main target was to create multiple different visualizations both with and without the tool in order to analyze its benefits.
+
+We started the implementation process by analyzing the requirements of the different geographic visualization methods presented in chapter \ref{subsection:mappingmethods}. Specifically, we analyzed the underlying structure of the visualizations in order to abstract the applicable parts as reusable components.
+
+\section{Supported visualization methods}
+As discussed in the chapter \ref{subsection:mappingmethods}, several different thematic mapping methods exist. As some of these methods are fundamentally different in implementation, it is needed to explicitly consider the requirements of each method. It is also necessary to decide whether to implement support for each method, as it may be necessary to drop support for some of the methods in order to manage the application complexity and the scope of this work.
 
 
 \begin{itemize}
