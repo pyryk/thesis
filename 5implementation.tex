@@ -13,12 +13,49 @@
 % custom-made FPGA, a fried jelly bean, or whatever.
 % Describe the problems you encountered with your implementation work.
 
-As discussed in the chapter \ref{chapter:reuse}, reusing software typically leads to increased productivity and better quality. Therefore, to achieve the targets of this thesis, we decided to implement a reusable visualization tool. Our main target was to create multiple different visualizations both with and without the tool in order to analyze its benefits.
+As discussed in the chapter \ref{chapter:reuse}, reusing software typically leads to increased productivity and better quality. Therefore, to achieve the targets of this thesis, we decided to implement a reusable visualization tool. Our target was to create multiple different visualizations both with and without the tool in order to analyze its benefits.
+
+\section{Problem Setting}
+
+Currently, when building a visualization for geographical data, it is unnecessarily laborious to develop the visualization from the beginning using low abstraction level APIs provided by mapping libraries. This leads to the situation when using especially more complicated visualization methods such as isarithmic maps, it is not feasible to create an effective visualization, encouraging to use a simpler, yet more ineffective methods such as dot maps.
+
+Second, when building web-based geographical visualizations, it is typically needed to build the whole visualization architecture using web technology such as HTML \citep{world_wide_web_consortium_html5_2014} and JavaScript \citep{ecma_ecmascript_2011}. Therefore, an astonishing amount of knowledge of such technology is required to develop a map visualization. 
+
+\fixme{Do these require some concrete or literature proof?}
+
+\section{Implementation Requirements}
 
 We started the implementation process by analyzing the requirements of the different geographic visualization methods presented in chapter \ref{subsection:mappingmethods}. Specifically, we analyzed the underlying structure of the visualizations in order to abstract the applicable parts as reusable components.
 
-\section{Supported visualization methods}
+\subsection{Forms of Reuse}
+
+We gathered the analyzed data about the requirements in addition to problems discussed in the previous chapter, and determined the forms of reuse applicable in this case. Since the techniques are not mutually exclusive and each has its own benefits, we decided to use a combination of multiple techniques. \fixme{What methods are used and for what purpose? Example: We used source code component approach for implementing mapping methods in order to achieve composability of the features.}
+
+In order to solve both problems presented in the previous section, we decided to implement a dual approach for visualization. First, as one of the problems related to visualizations is the amount of application architecture work needed, the framework should provide a so-called whole-page scaffold architecture \citep{jazayeri_trends_2007}. Second, 
+
+\subsection{Supported visualization methods}
+
 As discussed in the chapter \ref{subsection:mappingmethods}, several different thematic mapping methods exist. As some of these methods are fundamentally different in implementation, it is needed to explicitly consider the requirements of each method. It is also necessary to decide whether to implement support for each method, as it may be necessary to drop support for some of the methods in order to manage the application complexity and the scope of this work.
+
+\section{Application Architecture}
+
+\section{Supported Platforms}
+
+\section{Implemented Functionality}
+
+\subsection{Choropleth Maps}
+
+\subsection{Isarithmic Maps}
+
+\subsection{Dot Maps}
+
+(and so on...)
+
+\subsection{Input Formats}
+
+\subsection{Value Normalization}
+
+\subsection{Modularity and Extendability}
 
 
 \begin{itemize}
