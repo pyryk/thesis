@@ -17,3 +17,34 @@ For now, the Aalto logo variants are shown in Figure~\ref{fig:aaltologo}.
 \label{fig:aaltologo}
 \end{center}
 \end{figure}
+
+\chapter{Flat Dot Format}
+\label{appendix:flatdotformat}
+
+Flat dot format is a simple, but non-standard format used by a number of web mapping applications such as the Store Finder of Alko\footnote{\url{http://www.alko.fi/myymalat/}}. Format consists of a JSON file representing an array of zero or more objects. The objects must contain latitude and longitude properties, and may contain a number of other properties. An example of the format is depicted below.
+
+\begin{lstlisting}[language=json]
+[
+  {
+    "_id": "51b9f04d27eaa49f4a0001cc",
+    "number": 2,
+    "name": "Destination",
+    "latitude": 60.314322,
+    "longitude": 24.554067
+  },
+  {
+    "_id": "51b9f0f3127ceac8db000263",
+    "number": 0,
+    "name": "Departure",
+    "latitude": 60.314041,
+    "longitude": 24.551678
+  },
+  {
+    "_id": "51b9fa600752f83f720003c3",
+    "number": 1,
+    "name": "Pit stop",
+    "latitude": 60.316474,
+    "longitude": 24.556554
+  }
+]
+\end{lstlisting}
