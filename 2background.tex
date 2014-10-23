@@ -49,19 +49,39 @@ The most natural way of visualizing geographical data is by using a map\citep[ch
 
 As stated above, there are several types of geographical data, many of which are fundamentally different requiring different visualization methods. Therefore, several different thematic mapping methods have been developed. \citet[chap.~14-18]{slocum_thematic_2014} list some of the most typical ones: \fixme{rephrase the descriptions below}
 
-\begin{itemize}
-	\item Choropleth map - Shows data aggregated for a set of predefined areas (countries, regions etc)
-	\item Isarithmic map - Maps with areas separated by contour lines.
-	\item Dasymetric map - Like choropleth, but areas are calculated by consolidating areas with relatively homogeneous values
-	\item Proportional symbol map - like dot map, but replaces dots with relevant symbols of sizes proportional to the data
-	\item Dot map - simple maps with dots on relevant locations
-	\item Multivariate mapping - A map that shows data of several dimensions (in addition to location).
-	\item Flow map - a map that shows ``flows'' from one area to another. Napoleon Russian campaign map.
-\end{itemize}
+\paragraph{Choropleth Map}
 
-When designing a software framework for geovisualization, it is not necessary to support every method above. However, as those are some of the most used ones, omitting any must be a conscious decision.
+According to \citet[chap.~14]{slocum_thematic_2014}, choropleth maps are used primarily for visualizing data which coincides with predefined enumeration units. This method is most naturally used for situations when the enumeration units are directly linked to data results, such as votes in an election for each voting area. However, choropleth maps are also used to depict ``typical'' values for an area even when in reality, the area is heterogeneous in relation to the measured quality. Choropleth maps are commonly visualized grouping a specified area using a constant color or a common symbol.
 
-\fixme{describe the use cases for each type}
+\paragraph{Isarithmic Map}
+
+\citet[chap.~15]{slocum_thematic_2014} describes isarithmic maps as maps depicting continuous or smooth phenomena. Therefore, isarithmic maps excel at visualizing natural properties such as elevation. The most commonly used type of isarithmic mapping is contour map which consists of the measured property visualized as gradient colors in addition to \emph{contour lines} used as value symbolization.
+
+\paragraph{Dasymetric Map}
+
+According to \citet[chap.~16]{slocum_thematic_2014}, dasymetric mapping is closely related to choropleth mapping, with the exception that in dasymetric mapping, the enumeration units are not predefined, but rather defined by the data coherency. While creating exact dasymetric maps computationally, the properties can be approximated using a number of techniques, as presented in chapter \ref{subsection:supportedvisualizationmethods}. Dasymetric mapping is most naturally used for data which consists of a set of internally cohesive blocks of area, such as land use (i.e. the distribution of roads, cities, forests etc.)
+
+\paragraph{Dot Map}
+
+\citet[chap.~17]{slocum_thematic_2014} states that dot maps are used to represent data which is associated with locations. With dot maps, the data used can be \emph{true} (truly associated with a single point) or \emph{conceptual} (aggregated to a point). Moreover, dots can be clustered or combined. In practice, dot maps can be used for visualizing, e.g., store locations or the number of homicides in different cities.
+
+\paragraph{Proportional Symbol Map}
+
+Proportional symbol maps are closely related to dot maps. They are typically used for visualizing numerical data associated with a location, but unlike with dot maps, the symbols on a map are resized proportionally to the data. Symbols can be geometric or pictorial, and the sizes can be determined using several different methods, e.g., purely mathematical scaling or perceptual scaling which takes human visual inaccuracy into account. \citep[chap.~17]{slocum_thematic_2014}
+
+\paragraph{Multivariate Mapping}
+
+According to \citet[chap.~18]{slocum_thematic_2014}, multivariate mapping denotes displaying multiple attributes simultaneously. Multivariate mapping can be achieved in several ways. The visualized attributes can be either visualized using a single map or a map for each attribute. Additionally, the attributes can be either overlaid (placed on top of each other) or combined (use a single symbol depicting all attributes).
+
+\paragraph{Cartogram}
+
+According to \citet[chap.~19]{slocum_thematic_2014}, cartograms are used to distort the map based on the data. Thus, cartograms may be used to communicate relative sizes of an attribute in several areas, such as population in each country. This is advantageous when the geographical sizes and attribute values do not correlate, e.g., when some areas with high attribute value are extremely small in size.
+
+\paragraph{Flow Map}
+
+\citet[chap.~19]{slocum_thematic_2014} describes flow maps as maps with lines or arrows of varying width from one location to another. Therefore, flow maps excel at displaying movement-related attributes such as immigration from one country to another or wind speed and direction.
+
+~
 
 Even a single thematic map is often used for multiple different purposes \citep[chap.~2]{schlichtmann_visualization_2002}. For instance, a single map can be read on the \emph{overall level} (``where are the primary schools located in Helsinki metropolitan area?'') and \emph{elementary level} (``is there a primary school in Punavuori?''). Furthermore, some possible uses for a thematic map are ``what is the ratio and distribution of Finnish schools compared to Swedish schools in Helsinki'' or ``what is the spatial distribution of sizes of schools in Helsinki''. Therefore, an efficient map visualization should not lock the user to any single perspective. \fixme{maybe move somewhere? Create a separate (sub)section for interactivity?} \fixme{Interactivity could help here? See \citep{andrienko_interactive_1999}}
 
@@ -155,8 +175,6 @@ According to \citet{krueger_software_1992}, in order to analyze reusing software
 
 %\citet{krueger_software_1992} has a list of different methods along with their advantages and disadvantages. Includes frameworks in chapter 10. \citet{johnson_frameworkscomponents+_1997} extends the description. Using the characteristics along with praise of \citet{johnson_frameworkscomponents+_1997}, it should be possible to reason about going with frameworks.
 
-~
-
 Software reuse is not a single, uniform procedure or technique. Several different reuse techniques exist to cater different needs. Consequently, different reuse methods excel at different areas. In order to describe the advantages and disadvantages of the methods, we describe the using the reuse dimensions presented in the previous section.
 
 \citet{krueger_software_1992} and \citet{johnson_frameworkscomponents+_1997}, among others, present and analyze software reuse methods. From these, we have selected the most relevant for web environment, presenting those below.
@@ -234,36 +252,29 @@ One of the main advantages of the application generators is the abstraction they
 
 However, application generators require an unambiguous mapping between the specifications and implementation details \citep[chap.~7]{krueger_software_1992}. Moreover, building application generators requires a reliable, generic implementation and user interfaces for developers \citep{cleaveland_building_1988}. Therefore, building application generators requires comprehensive domain-specific knowledge in addition to extensive software development expertise.
 
-\subsection{Very High Level Languages}
-
-\fixme{Or domain-specific languages? Add similarly structured content as in the previous subsubsection}
-
-\subsection{Transformational Systems}
-
-\fixme{Add similarly structured content as in the previous subsubsection. Or maybe drop?}
-
-\subsection{Software Architectures}
+\subsection{Design Patterns}
 
 \fixme{Add similarly structured content as in the previous subsubsection}
 
 \subsection{Software Frameworks}
 
-\fixme{Add similarly structured content as in the previous subsubsection. Are frameworks the same as architectures? If, drop.}
+Software frameworks are a reuse technique which combines the use of software components and programming patterns \citep{johnson_frameworkscomponents+_1997}. Therefore, it can be argued that software frameworks enable creating reusable software design. Another definition of software frameworks is a collection of consolidated components, i.e., components which share the design, interfaces, and, to some degree, implementations \citep{johnson_frameworkscomponents+_1997}. It should also be noted that software frameworks are typically strictly object-oriented reuse technique \citep{johnson_frameworkscomponents+_1997}.
 
-%\subsection{Software Frameworks}
+Largely, software frameworks \emph{abstract} the implementation details the same way that components do, i.e., providing a higher-level interface for the low-level operations. In addition to that, frameworks abstract software \emph{design patterns} used to provide a more complete architecture and functionality.
 
-%Frameworks more in depth. Maybe how to build them.
+\emph{Selection} of frameworks can be regarded as straightforward, since typically, the number of applicable frameworks is considerably smaller than, e.g., the number of applicable source code components. However, as frameworks are by definition more complex than single software components \citep{johnson_frameworkscomponents+_1997}, selecting the right framework of a purpose may be considerably more difficult \citep{fayad_enterprise_2000}.
 
-%\fixme{Is it OK to describe frameworks in depth, but not other means of reuse? How to reason about this? Could it be done so that frameworks do not have a separate chapter (here), but instead go through all methods. Then, in the implementation chapter, reason about which methods to use (most likely more than just framework here)}
+\emph{Specializing} frameworks is greatly dependent on the purpose and design of the framework. As some frameworks are designed as domain-specific \citep{johnson_frameworkscomponents+_1997}, it is typically not needed to specialize the system extensively. According to \citet{brugali_framework_1997}, frameworks are usually specialized in an object-oriented fashion: using parameters and subclasses to fine-tune functionality \citep{brugali_framework_1997}.
+
+Typically, software frameworks are \emph{integrated} to other frameworks and to larger software systems. However, as frameworks are generally designed for adaptation instead of integration \citep{mattsson_framework_1999}, this leads to integration problems. \citet{mattsson_framework_1999} describe several framework integration problems, e.g., architecture, design and pattern mismatches. Nonetheless, most of the problems can be overcome by using a number of solutions, such as separating the concerns cleanly and wrapping the functionality to compliant components \citep{mattsson_framework_1999}.
+
+One of the main advantages of frameworks is that they enable a complete, potentially opinionated approach for reusing software while preserving the possibility for customization \citep{johnson_frameworkscomponents+_1997}. The main disadvantages of using software frameworks consist of occasional steep learning curve and challenges in integration \citep{fayad_object-oriented_1997}.
 
 \chapter{Research Gap}
 \label{chapter:researchgap}
 
-Currently, research on geographic or map visualization is abundant \fixme{Use a bunch of geoviz references to prove this? Or some other way?}. Moreover, according to the visualization definition by \citet{kosara_visualization_2007}, it may be possible to abstract parts of the visualization implementation in order to achieve visualization process which requires less effort and technical knowledge. However, both research about geovisualization-related software reuse and actual reusable geovisualization components are scant. This implies that there is room for improvement in both research and implementation related to geovisualization software. \fixme{IMHO this is way too short for a chapter. How to fix?}
+Currently, research on geographic or map visualization is abundant \fixme{Use a bunch of geoviz references to prove this? Or some other way?}. Moreover, according to the visualization definition by \citet{kosara_visualization_2007}, it may be possible to abstract parts of the visualization implementation in order to achieve visualization process which requires less effort and technical knowledge. However, both research about geovisualization-related software reuse and actual reusable geovisualization components are scant. This implies that there is room for improvement in both research and implementation related to geovisualization software.
 
-\begin{itemize}
-	\item Current research does not completely cover the field of this thesis
-	\item There is research about visualizing geographic content (generally or on the web)
-	\item According to literature, it is possible to abstract parts of the implementation of web geovisualization.
-	\item However, there is little (or no) research on how to make geovisualization more efficiently
-\end{itemize}
+To address this shortcoming, we decided to attempt creating a reusable geovisualization tool for the web. We also evaluated the tool in order to obtain knowledge about its benefits when compared to building geographic visualizations from the beginning.
+
+\fixme{IMHO this is a bit too short for a chapter. How to fix?}
