@@ -17,7 +17,7 @@ According to him, while visualizations can also have other properties or qualiti
 
 \citet[chap.~4]{kosara_visualization_2007} argues that visualization is separated into two types, \emph{pragmatic} and \emph{artistic} visualization. Pragmatic visualization focuses on the analysis of the data in order to show its relevant characteristics as efficiently as possible. Artistic visualization on the other hand concentrates on the communication of the concern behind the data, not the display of the actual data. \citeauthor{kosara_visualization_2007} states that while these types focus on the opposite sides of the visualization spectrum, it may be possible to close the gap using, e.g., interaction.
 
-The first requirement for visualizations by \citet{kosara_visualization_2007} dictates that the visualization is based on data. This is an essential characteristic of \emph{data} visualizations: the visualization is a function which takes data as an input and produces a visual object as an output. In less technical terms, this means that the visualization turns data into visual, effortlessly and efficiently digestible format.
+The first requirement for visualizations by \citet{kosara_visualization_2007} dictates that the visualization is based on data. This is in alignment with the principle of \citet{tufte_visual_1986} which states that visualizations should, above all else, show the data. This is an essential characteristic of \emph{data} visualizations: the visualization is a function which takes data as an input and produces a visual object as an output. In less technical terms, this means that the visualization turns data into visual, effortlessly and efficiently digestible format.
 
 This leads to the fact that the data and visualization are not inherently tied to each other; the visualization ``function'' can be independent of the data and thus it may be possible to create a visualization framework or platform which is able to function on a potentially wide range of data.
 
@@ -27,27 +27,23 @@ This leads to the fact that the data and visualization are not inherently tied t
 % ``As this thesis concentrates on the display of data, the analysis of data is considered mainly outside the scope.''
 
 \section{Principles for Successful Data Visualization}
+\label{section:visualizationprinciples}
 
 The requirements presented in the previous section are sufficient for the definition of data visualization. However, they do not convey any information about visualization quality. In order to discover the characteristics for successful data visualization, additional principles are needed. \citet[p.~13]{tufte_visual_1986} states that excellent graphics (i.e., results of visualizations) consist of ``complex ideas communicated with clarity, precision and efficiency''. In practice, this means that the graphics should emphasize the actual data and its nuances above everything else, while serving a clear purpose.
 
 In addition to graphics principles presented in the previous paragraph, \citet[p.~93]{tufte_visual_1986} presents the concept of \emph{data-ink}. Data-ink represents the ink used for displaying the data in a visualization. He argues that in an excellent visualization, most, if not all, ink used should contribute to display of the data. However, research by \citet{inbar_minimalism_2007} suggests that maximizing the share of data-ink may not be beneficial to the user experience of the visualization. 
 
-The principles presented above are essential, but too abstract in order to be used as a sole basis for defining a good visualization. However, when combined with the data visualization definition stated above, the principles become considerably more useful and concrete. \citet{azzam_j-b_2013} propose an adapted version of the definition by \citet{kosara_visualization_2007}, complementing the second requirement by requiring the produced image to represent the data truthfully. This definition effectively combines the definition by \citet{kosara_visualization_2007} with the principle of showing data introduced by \citet{tufte_visual_1986}. The adapted definition facilitates the process of creating a successful data visualizations by offering a more concrete version of Tufte's principles. It gives the developer of the visualization a concrete checklist for representing the data: make sure it does not (a) omit or (b) overrepresent any information \citep{azzam_j-b_2013}.
-
-% \fixme{This section could really use some more content}
-
-\fixme{If desperately in need of more background, add human perception in relation to information visualization (from Ware).}
+The principles presented above are essential, but too abstract in order to be used as a sole basis for defining a good visualization. However, when combined with \citeauthor{kosara_visualization_2007}'s data visualization definition stated above, the principles become considerably more useful and concrete. \citet{azzam_j-b_2013} propose an adapted version of the definition by \citet{kosara_visualization_2007}, complementing the second requirement by requiring the produced image to represent the data truthfully. This definition effectively combines the definition by \citet{kosara_visualization_2007} with the principle of showing data introduced by \citet{tufte_visual_1986}. The adapted definition facilitates the process of creating a successful data visualizations by offering a more concrete version of Tufte's principles. It gives the developer of the visualization a concrete checklist for representing the data: make sure it does not (a) omit or (b) overrepresent any information \citep{azzam_j-b_2013}.
 
 \section{Visualizing Geographical Data}
 
-\fixme{Visualization - Scientific Visualization - Map Visualization - \citet{kraak_cartographic_1998} has a good overview.}
-
-The most natural way of visualizing geographical data is by using a map\citep[chap.~1]{kraak_cartographic_1998,kraak_cartography_2011}. This technique is called \emph{thematic mapping} \citep[chap.~1]{slocum_thematic_2014}. Thematic mapping does not require any specific format of data, except for the geographical dimension \citep[chap.~1]{kraak_cartography_2011}. However, the nature of the data has a great effect on the method, or type, of thematic mapping.
+As geographic data is associated with a specific location, the most natural way of visualizing it is by using a map \citep[chap.~1]{kraak_cartographic_1998,kraak_cartography_2011}. This technique is called \emph{thematic mapping} \citep[chap.~1]{slocum_thematic_2014}. Thematic mapping does not require any specific format of data, except for the geographical dimension \citep[chap.~1]{kraak_cartography_2011}. However, the nature of the data has a great effect on the method, or type, of thematic mapping.
+As geographic data is associated with a specific location, the most natural way of visualizing it is by using a map \citep[chap.~1]{kraak_cartographic_1998,kraak_cartography_2011}. This technique is called \emph{thematic mapping} \citep[chap.~1]{slocum_thematic_2014}. Thematic mapping does not require any specific format of data, except for the geographical dimension \citep[chap.~1]{kraak_cartography_2011}. However, the nature of the data has a great effect on the method, or type, of thematic mapping.
 
 \subsection{Methods for Thematic Mapping}
 \label{subsection:mappingmethods}
 
-As stated above, there are several types of geographical data, many of which are fundamentally different requiring different visualization methods. Therefore, several different thematic mapping methods have been developed. \citet[chap.~14-18]{slocum_thematic_2014} list some of the most typical ones: \fixme{rephrase the descriptions below}
+As stated above, there are several types of geographical data, many of which are fundamentally different requiring different visualization methods. Therefore, several different thematic mapping methods have been developed. \citet[chap.~14-18]{slocum_thematic_2014} list some of the most typical ones: 
 
 \paragraph{Choropleth Map}
 
@@ -85,22 +81,18 @@ According to \citet[chap.~19]{slocum_thematic_2014}, cartograms are used to dist
 
 Even a single thematic map is often used for multiple different purposes \citep[chap.~2]{schlichtmann_visualization_2002}. For instance, a single map can be read on the \emph{overall level} (``where are the primary schools located in Helsinki metropolitan area?'') and \emph{elementary level} (``is there a primary school in Punavuori?''). Furthermore, some possible uses for a thematic map are ``what is the ratio and distribution of Finnish schools compared to Swedish schools in Helsinki'' or ``what is the spatial distribution of sizes of schools in Helsinki''. Therefore, an efficient map visualization should not lock the user to any single perspective. \fixme{maybe move somewhere? Create a separate (sub)section for interactivity?} \fixme{Interactivity could help here? See \citep{andrienko_interactive_1999}}
 
-\fixme{Analysis part of geovisualization - ``...is considered out of the scope of this work.''}
+\subsection{Effective Thematic Maps}
+
+While the map visualizations adhere to general visualization principles, the principles can be refined by specifying a set of guidelines for maps specifically. \citeauthor{koeman_het_1969} (\citeyear{koeman_het_1969} quoted by \citealt[p.~12]{kraak_cartographic_1998}) defines the guidelines for map visualization process as \emph{``How do I say what to whom''}. \emph{How} refers to the mapping methods and techniques used. \emph{What} refers to the data used and its characteristics. \emph{Whom} refers to the target audience of the visualization. \citet{kraak_cartographic_1998} complements the guidelines with \emph{``and is it effective''}, referring to the self-reflective and iterative nature of visualization.
+
+All the elements above are important to acknowledge when creating a thematic map. While they do not provide an exact formula for determining the effectiveness of a visualization, the elements are incredibly beneficial for creating an effective visualization. Therefore, created visualizations can also be examined with the help of the elements.
 
 ~
 
-\fixme{To Do}
-\begin{itemize}
-	\item Geographic visualization (e.g., in relation to scientific visualization)
-	\item Map visualization vs. map (thematic map vs general-reference map) \citep{bartz_petchenik_place_1979}
-	\item How do the principles introduced in the previous subsection apply to geographical data? Is there anything else to consider?
-	\item Thematic map interactivity \citep{andrienko_interactive_1999} (Where should this go? Is this an env related thing or here somewhere)
-\end{itemize}
-
-\citet[p.~16]{tufte_visual_1986} May help here as well.
+\fixme{Something about thematic map interactivity \citep[p.~12]{andrienko_interactive_1999,kraak_cartographic_1998} could be relevant in this chapter}
 
 \section{How Thematic Maps Are Made}
-\citet{schlichtmann_visualization_2002} describes making thematic maps as a six-step process. The first four steps involve deciding on and obtaining the data which are not relevant when building a software framework for visualization. Therefore, we ignore those steps. The step five consists of selecting the visualization method and using it to produce a meaningful visualization from the data. The step six involves explaining the visualization in legend. \fixme{Schlichtmann not concerned with the step 6, find some other source of displaying the legend.}
+\citet{schlichtmann_visualization_2002} describes making thematic maps as a six-step process. The first four steps involve deciding on and obtaining the data which are not relevant when building a software framework for visualization. Therefore, we ignore those steps. The step five consists of selecting the visualization method and using it to produce a meaningful visualization from the data. The step six involves explaining the visualization in legend.
 
 In the map visualization process, several identified objectives for the resulting graphic exist \citep{schlichtmann_visualization_2002}. The objectives are presented in the table below.
 
@@ -152,34 +144,37 @@ Although reusing software is often said to decrease the effort needed \citep{mci
 Given its lucrative advantages, software reuse is definitely beneficial for many software systems. However, according to \citet{krueger_software_1992}, software reuse can be problematic and even disadvantageous. Learning to use a specific piece of reusable software often takes considerable effort. Moreover, finding suitable code fragments may also prove to be a challenge. For uncomplicated software systems and especially reusable components, it may not be worth the effort. Therefore, developer needs to carefully consider all sides of reusing when building a software system; according to \citet[chap.~1.3]{krueger_software_1992}, for successful software reuse scenario, the amount of intellectual effort between the concept and implementation of the system must be as low as possible. In practice, this means that the value of the reused component must be as high as possible for the developed system, while the implementation cost (resources needed to take the reusable component into use) should be relatively low. 
 
 \section{Factors for Successful Software Reuse}
-\citet{frakes_success_1994} state that for successful software reuse, the procedure must be planned beforehand and evaluated with a cost-benefit analysis. \fixme{They also present several other factors, add them here.} \fixme{This needs a lot more flesh. Add some general principles etc. ``How to make reusable software''}
+\label{section:successfullreusefactors}
+\citet{frakes_success_1994} present six critical factors for successful software reuse: management, measurement, legal, economics, design for reuse, and libraries. Some of the factors are relevant only for a corporate-level reuse program, but many are critical for smaller scale reuse as well.
+
+Successful reuse requires the \textbf{management} to commit to a long-term, top-down support, because reusing software may require years to pay off the costs. Also, \textbf{measurement} of reuse is vital to reuse software successfully. Both \emph{reuse level} (the ratio of reused software to total software) and \emph{reuse factors} (things affecting the increase of reuse) should be measured.
+
+\textbf{Legal} issues are also important to consider when reusing software. Specifically, the rights and responsibilities of providers and consumers of reusable software should be agreed on. Moreover, using software with conflicting licenses may cause problems.
+
+\textbf{Economics} present a challenge in systematic reuse scenarios. Measuring reuse costs is not straightforward as often costs of creating a reusable component are compensated by benefits in some other project using the component.
+
+In order to \textbf{design for reuse}, a degree of domain knowledge is required. This necessitates the study of the domain when creating a \emph{domain-specific} reusable software. In addition to that, reusable software design requires effort on encapsulation, abstraction and interfaces.
+
+Lastly, reusable software \textbf{libraries} are required to fully benefit from the reusability effort. Libraries enable storing, retrieving and finding the reusable software.
 
 \section{Analyzing Software Reuse}
 According to \citet{krueger_software_1992}, in order to analyze reusing software, the reuse process to be studied should be separated into four \emph{dimensions}. The dimensions are presented below.
 
 ~
 
-\textbf{Abstraction} is the process of making a piece of software more generic, thus making it applicable to a wider range of software projects. Software reuse is almost always based on abstraction, but according to \citet{krueger_software_1992}, raising the abstraction level has proven to be difficult, thus making building reusable software a nontrivial process.\newline
+\paragraph{Abstraction} is the process of making a piece of software more generic, thus making it applicable to a wider range of software projects. Software reuse is almost always based on abstraction, but according to \citet{krueger_software_1992}, raising the abstraction level has proven to be difficult, thus making building reusable software a nontrivial process.
 
-\textbf{Selection} facilitates finding, comparing and choosing suitable pieces of software. For example, libraries or frameworks aid selection by bundling and structuring the software components.\newline
+\paragraph{Selection} facilitates finding, comparing and choosing suitable pieces of software. For example, libraries or frameworks aid selection by bundling and structuring the software components.
 
-\textbf{Specialization} is the process of making the abstracted component more specific, usually by parameterizing the software or making it transformable.\newline
+\paragraph{Specialization} is the process of making the abstracted component more specific, usually by parameterizing the software or making it transformable.
 
-\textbf{Integration} facilitates providing the software with reusable components, for example with a mechanism to import relevant modules or functions to the software.\newline
-
-\fixme{Add advantages and disadvantages in general about reuse, not about different methods as those are described in the reuse methods chapter. Software reuse metrics research \citep{mohagheghi_empirical_2008,frakes_software_1996,selby_enabling_2005} probably has some good points. Also, \citet{johnson_frameworkscomponents+_1997} may have something.}
+\paragraph{Integration} facilitates providing the software with reusable components, for example with a mechanism to import relevant modules or functions to the software.
 
 \section{Software Reuse Methods}
-
-%Here should be analysis about libraries, components, frameworks... Use \citet{krueger_software_1992}. Also why choose framework? \citet{johnson_frameworkscomponents+_1997} has some reasons.
-
-%\citet{krueger_software_1992} has a list of different methods along with their advantages and disadvantages. Includes frameworks in chapter 10. \citet{johnson_frameworkscomponents+_1997} extends the description. Using the characteristics along with praise of \citet{johnson_frameworkscomponents+_1997}, it should be possible to reason about going with frameworks.
 
 Software reuse is not a single, uniform procedure or technique. Several different reuse techniques exist to cater different needs. Consequently, different reuse methods excel at different areas. In order to describe the advantages and disadvantages of the methods, we describe the using the reuse dimensions presented in the previous section.
 
 \citet{krueger_software_1992} and \citet{johnson_frameworkscomponents+_1997}, among others, present and analyze software reuse methods. From these, we have selected the most relevant for web environment, presenting those below.
-
-% High-level languages, design and code scavenging, source code components, software schemas, application generators, very high-level languages, transformational systems, software architectures
 
 \subsection{High-Level Languages}
 High-level languages denote programming languages which are designed to be on a high abstraction level and thus contain features which are not necessary for a programming language but benefit or speed up the development. Traditional examples of these kind of features are automatic memory allocation \citep{krueger_software_1992} and language constructs such as exceptions \citep{mitchell_concepts_2003}. More modern high-level language features are value type checking systems and abstracted support for parallel operations using futures \citep{totoo_haskell_2012}. It should be noted that the high-levelness of a language is a \emph{relative} property, i.e., it is not possible to determine the requirements for a high-level language per se, only high-levelness of languages compared to other languages. For example, \citet{krueger_software_1992} considers all programming languages above the abstraction level of the assembly language high-level languages, while \citet{carro_high-level_2006} consider e.g., lack of automatic memory management or type system a sign of lower-level language.
