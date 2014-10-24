@@ -45,13 +45,13 @@ As discussed in the chapter \ref{subsection:mappingmethods}, several different t
 
 \begin{itemize}
 	\item Choropleth maps
-	\item Dasymetric maps (\fixme{Is DotChoropleth actually almost this?})
+	\item Dasymetric maps
 	\item Isarithmic maps
 	\item Dot maps
 	\item Proportional Symbol maps
 \end{itemize}
 
-\fixme{Should this include a little about why choosing these?}
+\fixme{Should this include a little about why choosing these? Or is it enough to state the reasons in visualization chapter?}
 
 Of the visualization methods presented in the chapter \ref{subsection:mappingmethods}, we decided to exclude explicit multivariate maps, cartograms and flow maps. The decision was made primarily due to the fact that of the methods presented in chapter \ref{subsection:mappingmethods}, these are the least frequently used. Moreover, since there are several fundamentally different design options for those methods, it is considerably more difficult to abstract the implementation details to provide a general-purpose visualization module. However, it should be noted that the modular architecture of the application enables easy extendability to support these type of visualizations in the future. Additionally, multivariate maps can be achieved to some degree by using several of the map methods simultaneously.
 

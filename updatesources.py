@@ -21,7 +21,7 @@ def get_all_sources():
 		# print('Chunk {0} full, getting another one with items {1}-{2}'.format(len(chunks), start, start+limit))
 		chunks.append(get_sources(config['user'], config['key'], start, limit))
 	print('Successfully fetched {0} items.'.format((len(chunks)-1) * limit + len(bibtexparser.loads(chunks[-1]).entries)))
-	return '\n'.join(chunks)
+	return '\n'.join(chunks).replace(".libproxy.aalto.fi", "") # replace is a terrible hack but works for now
 
 # print(get_all_sources())
 
