@@ -3,7 +3,24 @@
 \chapter{Evaluation}
 \label{chapter:evaluation}
 
-% 5 pages?
+In this chapter, we describe the evaluation of the tool built. The evaluation is performed by using two separate methods: we evaluate the efficiency of development process with the software effort and complexity metrics presented in chapter \ref{chapter:methods}, and visualization effectiveness with principles and guidelines by \citet{tufte_visual_1986}, \citet{azzam_j-b_2013} and \citet{kraak_cartographic_1998} presented in chapter \ref{section:visualizationprinciples}. As using either of the methods requires a baseline project, we decided to implement a number of sister projects as defined by \citet{kitchenham_evaluating_1998}.
+
+\section{Defining the Evaluated Cases}
+
+The visualization tool should be able to visualize a large variety of data. Moreover, the benefits of reusable software are typically emphasized when examining a large number of relatively similar cases \citep{frakes_software_1996}. However, in order to keep the scope of this work manageable, we decided to evaluate a set of visualization cases listed below. While the visualized data is arbitrarily selected, the cases are picked to reflect the typical usage of visualizations.
+
+\begin{itemize}
+	\item 1 \textbf{dot map visualization}: locations of Alko stores in Finland
+	\item 1 \textbf{proportional symbol map visualization}: \fixme{what to visualize?}
+	\item 3 \textbf{choropleth map visualizations}: regional circulation of the biggest Finnish newspapers
+	\item 1 \textbf{dasymetric map visualization}: \fixme{what to visualize?}
+	\item \fixme{Add Isarithmic? Then would cover all methods}
+\end{itemize}
+
+We selected a different number of cases for some mapping methods. This was done to reflect the approximate relative use frequency of methods; choropleth map is the most frequenly used thematic mapping method \citet[chap.~14]{slocum_thematic_2014}, while dot map and proportional symbol maps are 
+
+In order to better model typical real-life use cases, and to be usable on the web, the visualization cases include also a generic application structure and HTML features \fixme{such as...} which are required by a web application.
+
 \section{Implementing Sister Projects}
 
 \section{Evaluating Efficiency of Development}
