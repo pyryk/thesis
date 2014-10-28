@@ -131,7 +131,7 @@ Typically, the data is fetched from an external resource (external API or a sepa
 
 When visualizing a metric such as average temperature of an area, the scale of values is completely different from when visualizing, say, population density. Therefore, in order to provide general-purpose map visualization tools, it is necessary to support displaying a wide variety of values and scales.
 
-For this application, we decided to implement a highly versatile normalization functionality which allows the visualizer to work on virtually any scale. Instead of transforming the input values into a predefined value set, the application transforms the input values directly to a visualizable value, such as ``red'' on a choropleth map, or ``10px'' on a proportional symbol map. Moreover, this mechanism is compatible with, e.g., scaling functionality of D3.js\footnote{\url{http://d3js.org/}} visualization library, so the visualizer can leverage the sophisticated scaling functionality of external libraries.
+For this application, we decided to implement a highly versatile normalization functionality which allows the visualizer to work on virtually any scale. Instead of transforming the input values into a predefined value set, the application transforms the input values directly to a visualizable value, such as ``red'' on a choropleth map, or ``10px'' on a proportional symbol map. Moreover, this mechanism is compatible with, e.g., scaling functionality of D3.js\footnote{\url{http://d3js.org/}, \url{https://github.com/mbostock/d3/wiki/Scales}} visualization library, so the visualizer can leverage the sophisticated scaling functionality of external libraries.
 
 \subsection{Modularity and Extendability}
 
