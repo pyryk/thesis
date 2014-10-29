@@ -35,6 +35,8 @@ We decided to examine whether the reusable visualization tool is advantageous to
 
 The principles by \citet{tufte_visual_1986}, such as data-ink ratio presented in section \ref{section:visualizationprinciples} can be used to evaluate the visualization. Another method for evaluation is presented by \citet{azzam_j-b_2013}. In this method, data representation truthfulness if emphasized. In other words, the visualization is evaluated based on how truthfully the visualization represents the data. Third method for evaluation is presented by \citet{kraak_cartographic_1998}, concentrating on the phrase ``\emph{how} do I say \emph{what} \emph{to whom} and \emph{is it effective}''. The phrase encourages the evaluator to evaluate the selected method and its relation to the data and the target audience.
 
+Visualization heuristics by \citet{zuk_heuristics_2006} presented in section \ref{section:visualizationprinciples} and objectives by \citet{schlichtmann_visualization_2002} presented in section \ref{subsection:effectivemaps} can also be used to evaluate the visualization. When compared to methods mentioned in the previous paragraph, there are arguably more concrete and thus enable easier evaluation.
+
 It is notable that none of the methods presented above provide concrete, computable means for determining the effectiveness. Indeed, \citet{kraak_cartographic_1998} states that evaluating map visualization effectiveness is predominantly done by estimating the visualization subjectively in relation to its context. However, the methods presented above can still be used as a basis when examining the visualizations.
 
 \section{Research Methods Chosen for the Analysis}
@@ -43,7 +45,7 @@ For examining the success of the reusable component, we considered both the meth
 
 For comparing the projects, software size and complexity metrics by \citet{fenton_software_1998} were used, with the exception that measuring software complexity is done with the method by \citet{mccabe_complexity_1976} as it allows comparing different implementations of similar applications. \fixme{Add specifics about tools, restrictions etc. See chapter 7.1 of achy}
 
-For examining the visualization effectiveness, we decided to use all methods presented above in combination to achieved the best possible result.
+For examining the visualization effectiveness, all the methods presented above could be used in combination. However, to keep the scope of this work manageable, we decided to concentrate on the concrete heuristics by \citet{zuk_heuristics_2006} and objectives by \citet{schlichtmann_visualization_2002}, complementing the evaluation with a more generic approach by \citet{kraak_cartographic_1998}.
 
 For gathering data, we implemented three \fixme{confirm the number} map visualizations with and without the framework. The first visualization is a simple use case which concentrates on the display of a custom map. The second visualization highlights POI data on a map, and the third one is the most complex, consisting of POI data, relations between POIs and a custom backend serving the data with real-time updates from a mobile client. The types of visualizations were selected to obtain data about a wide variety of different map visualizations. \fixme{Probably the visualizations ought to a bit more complex than this}
 
