@@ -94,6 +94,9 @@
 % finnish, swedish; and so on.
 \usepackage[finnish,swedish,english]{babel}
 
+% enable more precise float placements with "H" placement option
+ \usepackage{float}
+
 
 % Font selection
 % ------------------------------------------------------------------
@@ -196,6 +199,23 @@
       {\}}{{{\color{delim}{\}}}}}{1}
       {[}{{{\color{delim}{[}}}}{1}
       {]}{{{\color{delim}{]}}}}{1},
+}
+
+% use smaller line spacing in lists
+\let\oldenumerate\enumerate
+\renewcommand{\enumerate}{
+  \oldenumerate
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}
+
+\let\olditemize\itemize
+\renewcommand{\itemize}{
+  \olditemize
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
 }
 
 
