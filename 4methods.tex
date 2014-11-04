@@ -27,7 +27,9 @@ The functionality of the program can be determined with several different metric
 
 Also the complexity of the program can be determined with several different techniques. According to \citet{fenton_software_1998}, the complexity of the program (solution) should ideally be not higher than the problem complexity. According to them, in the ideal case it is possible to determine the complexity of the program by determining the complexity of the program. However, this is not usually the case in real-life applications. \citet{mccabe_complexity_1976} presents a computational approach for determining the complexity of an application implementation. His approach is used by counting the number of cycles in the program flow graph. The advantage of this approach when compared to the method presented by \citet{fenton_software_1998} is that it can be used to compute complexity differences of multiple implementations of the problem.
 
-\fixme{Halstead measurements? Esp. effort}
+In addition to the metrics presented above \citet{halstead_elements_1977} presents a number of complexity measures. These measures can be used to estimate software size, difficulty level and the needed effort solely based on the code. These measures do not conflict with the metrics presented above, and when determining software reuse effectiveness, the measures -- especially needed effort -- facilitate the process considerably.
+
+\fixme{Use \citet{mendes_web_2001} for HTML metrics, or argue why it is not relevant. Also Mendes and Kitchenham maybe.}
 
 \section{Evaluating the Effectiveness of a Visualization}
 
@@ -43,7 +45,7 @@ It is notable that none of the methods presented above provide concrete, computa
 
 For examining the success of the reusable component, we considered both the methods presented by \citet{frakes_software_1996} and \citet{mohagheghi_quality_2007}. As stated in the previous section, several of the methods are only applicable for assessing large-scale reuse programs or cases with large sample size and therefore were not considered for this work. Of the remaining methods, a cost-benefit analysis was selected. For studying costs and benefits of the reuse, a case study with sister project comparison approach was deemed most applicable. 
 
-For comparing the projects, software size and complexity metrics by \citet{fenton_software_1998} were used, with the exception that measuring software complexity is done with the method by \citet{mccabe_complexity_1976} as it allows comparing different implementations of similar applications. \fixme{Add specifics about tools, restrictions etc. See chapter 7.1 of achy}
+In order to measure the effort needed as reliably as possible, we decided to use a diverse sets of different metrics. Software size and complexity metrics by \citet{fenton_software_1998} were used, with the exception that measuring software complexity is done with the method by \citet{mccabe_complexity_1976} as it allows comparing different implementations of similar applications. The metrics were complemented with Halstead measurements for difficulty and effort.
 
 For examining the visualization effectiveness, all the methods presented above could be used in combination. However, to keep the scope of this work manageable, we decided to concentrate on the concrete heuristics by \citet{zuk_heuristics_2006} and objectives by \citet{schlichtmann_visualization_2002}, complementing the evaluation with a more generic approach by \citet{kraak_cartographic_1998}.
 
