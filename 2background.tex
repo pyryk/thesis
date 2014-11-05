@@ -35,37 +35,43 @@ In addition to graphics principles presented in the previous paragraph, \citet[p
 
 The principles presented above are essential, but too abstract in order to be used as a sole basis for defining a good visualization. However, when combined with \citeauthor{kosara_visualization_2007}'s data visualization definition stated above, the principles become considerably more useful and concrete. \citet{azzam_j-b_2013} propose an adapted version of the definition by \citet{kosara_visualization_2007}: ``Data visualization is a process that (a) is based on qualitative or quantitative data and (b) results in an image that is representative of raw data, which is (c) readable by viewers and supports exploration, examination and communication of the data''. The most significant differences are that the definition complements the second requirement of \citeauthor{kosara_visualization_2007} (``It produces an image'') by requiring the produced image to represent the data truthfully, and requires the visualization to be enlightening instead of just readable. This definition effectively combines the definition by \citet{kosara_visualization_2007} with the principle of showing data introduced by \citet{tufte_visual_1986}. The adapted definition facilitates the process of creating a successful data visualizations by offering a more concrete version of Tufte's principles. It gives the developer of the visualization slightly more concrete checklist for representing the data: make sure the representation does not (a) omit or (b) overrepresent any information, and (c) helps the viewer gain knowledge \citep{azzam_j-b_2013}.
 
-For the most concrete principles, \citet{zuk_heuristics_2006} provide a list of heuristics for visualizations established in perceptual, cognitive and usability research. The list combines several heuristics from multiple heuristics sets by \citet{shneiderman_eyes_1996,zuk_theoretical_2006,amar_best_2004}. While the combination results in potentially conflicting or redundant heuristics, it nevertheless results in a concrete checklist for making successful visualizations. The heuristics are presented below.
+For the most concrete principles, \citet{zuk_heuristics_2006} provide a list of heuristics for visualizations established in perceptual, cognitive and usability research. The list combines several heuristics from multiple heuristics sets by \citet{shneiderman_eyes_1996,zuk_theoretical_2006,amar_best_2004}. While the combination results in potentially conflicting or redundant heuristics, it nevertheless results in a concrete checklist for making successful visualizations. The heuristics, along with generated identifiers for easier referring, are presented in table \ref{table:heuristics}.
 
-\begin{enumerate} \itemsep1pt \parskip0pt \parsep0pt
-	\item Ensure visual variable has sufficient length
-	\item Don't expect a reading order from color
-	\item Color perception varies with size of colored item
-	\item Local contrast affects color
-	\item Consider people with color blindness
-	\item Preattentive benefits increase with field of view
-	\item Quantitative assessment requires position or size variation
-	\item Preserve data to graphic dimensionality
-	\item Put the most data in the least space
-	\item Remove the extraneous (ink)
-	\item Consider Gestalt Laws
-	\item Provide multiple levels of detail
-	\item Integrate text wherever relevant
-	\item {[}Provide{]} overview first
-	\item Zoom and filter [out uninteresting data]
-	\item {[}Provide{]} details on demand
-	\item Relate (consider relationships among items)
-	\item Extract (allow extraction of data and its subsets)
-	\item {[}Keep{]} history [of actions]
-	\item Expose uncertainty
-	\item Concretize relationships
-	\item Determination of Domain Parameters
-	\item Multivariate Explanation
-	\item Formulate cause \& effect
-	\item Confirm Hypotheses
-\end{enumerate}
-
-\fixme{The list is ugly. Move to an appendix?}
+\begin{table}
+\begin{tabular}{|p{4.2cm}|p{8.8cm}|}
+\hline
+\textbf{Identifier} & \textbf{Description} \\ 
+\hline
+Visual variable & Ensure visual variable has sufficient length \\
+Color order & Don't expect a reading order from color \\
+Color size & Color perception varies with size of colored item \\
+Local contrast & Local contrast affects color \\
+Color blindness & Consider people with color blindness \\
+Preattentive benefits & Preattentive benefits increase with field of view \\
+Size variation & Quantitative assessment requires position or size variation \\
+Graphic dimensionality & Preserve data to graphic dimensionality \\
+Most data & Put the most data in the least space \\
+No extra ink & Remove the extraneous (ink) \\
+Gestalt laws & Consider Gestalt Laws \\
+Levels of detail & Provide multiple levels of detail \\
+Integrate text & Integrate text wherever relevant \\
+Overview first & Provide overview first \\
+Zoom and filter & Zoom and filter out uninteresting data \\
+Details on demand & Provide details on demand \\
+Relate &  Consider relationships among items \\
+Extract & Allow extraction of data and its subsets \\
+History & Keep history of actions \\
+Uncertainty & Expose uncertainty \\
+Relationships & Concretize relationships \\
+Domain Parameters & Determination of domain parameters \\
+Multivariate & Provide multivariate explanation \\
+Cause \& effect & Formulate cause \& effect \\
+Hypotheses & Confirm Hypotheses \\
+\hline
+\end{tabular}
+\caption{Heuristics presented by \citet{zuk_heuristics_2006} with generated identifiers.}
+\label{table:heuristics}
+\end{table}
 
 \section{Visualizing Geographical Data}
 
