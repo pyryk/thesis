@@ -1,6 +1,6 @@
 %!TEX root = thesis.tex
 
-\chapter{Methodology}
+\chapter{Methods}
 \label{chapter:methods}
 
 \section{Evaluating Software Reuse Effectiveness}
@@ -47,9 +47,7 @@ For examining the success of the reusable component, we considered both the meth
 
 In order to measure the effort needed as reliably as possible, we decided to use a diverse sets of different metrics. Software size and complexity metrics by \citet{fenton_software_1998} were used, with the exception that measuring software complexity is done with the method by \citet{mccabe_complexity_1976} as it allows comparing different implementations of similar applications. The metrics were complemented with Halstead measurements for difficulty and effort.
 
-For examining the visualization effectiveness, all the methods presented above could be used in combination. However, to keep the scope of this work manageable, we decided to concentrate on the concrete heuristics by \citet{zuk_heuristics_2006} and objectives by \citet{schlichtmann_visualization_2002}, complementing the evaluation with a more generic approach by \citet{kraak_cartographic_1998}.
+For examining the visualization effectiveness, all the methods presented above could be used in combination. However, to keep the scope of this work manageable, we decided to concentrate on the concrete data visualization heuristics by \citet{zuk_heuristics_2006}, complementing the evaluation with geovisualization-specific perspective by using thematic mapping objectives by \citet{schlichtmann_visualization_2002}. The visualization effectiveness cannot be evaluated by comparing the implementation to sister projects, because the resulting visualizations are planned to be as similar as possible. Therefore, we decided to evaluate the implementation qualitatively by examining whether the implementation benefits the visualizer in terms of conforming to the heuristics and achieving the objectives.
 
-For gathering data, we implemented three \fixme{confirm the number} map visualizations with and without the framework. The first visualization is a simple use case which concentrates on the display of a custom map. The second visualization highlights POI data on a map, and the third one is the most complex, consisting of POI data, relations between POIs and a custom backend serving the data with real-time updates from a mobile client. The types of visualizations were selected to obtain data about a wide variety of different map visualizations. \fixme{Probably the visualizations ought to a bit more complex than this}
-
-\fixme{How are the measurements combined? (1st viz without framework + 2nd viz without framework + 3rd wiz without framework) <=> (1st viz with framework + 2nd viz with framework + 3rd wiz with framework + framework)? Or should the framework be excluded?}
+For gathering data, we implemented several typical map visualizations with and without the framework. The types of visualizations were selected to obtain data about a wide variety of different map visualizations while still concentrating to the most frequently used methods.
 
