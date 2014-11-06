@@ -6,6 +6,7 @@
 In this chapter, we describe the evaluation of the tool built. The evaluation is performed by using two separate methods: we evaluate the efficiency of development process with the software effort and complexity metrics presented in chapter \ref{chapter:methods}, and visualization effectiveness with guidelines by \citet{kraak_cartographic_1998} complemented by visualization heuristics by \citet{zuk_heuristics_2006} and map objectives by \citet{schlichtmann_visualization_2002} presented in chapter \ref{section:visualizationprinciples}. As using either of the methods requires a baseline project, we decided to implement a number of sister projects as defined by \citet{kitchenham_evaluating_1998}. In this chapter, the visualizations built during sister projects are referred to with the term ``reference visualization'' while the visualizations built with Thematic.js are referred to with ``Thematic.js visualization''. \fixme{Are these terms clear enough?}
 
 \section{Defining the Evaluated Cases}
+\label{section:evaluatedcases}
 
 The visualization tool should be able to visualize a large variety of data. Moreover, the benefits of reusable software are typically emphasized when examining a large number of relatively similar cases \citep{frakes_software_1996}. However, in order to keep the scope of this work manageable, we decided to evaluate a set of visualization cases listed below.
 
@@ -53,7 +54,7 @@ We began the evaluation by measuring the aforementioned metrics for the visualiz
 \LTcapwidth=\textwidth
 \begin{longtable}{|l|c|c|c|c|c|}
 \hline
-\textbf{Visualization} & \textbf{LOC} & \textbf{LLOC} & \textbf{CC} & \textbf{HD} & \textbf{HE} \\ 
+\textbf{Visualization} & \textbf{LOC} & \textbf{LLOC} & \textbf{CC} & \textbf{HD} & \textbf{HE} \\
 \hline
 Thematic.js store & 12 & 12 & 1 & 7.31 & 4600 \\
 Reference store & 126 & 85 & 10 & 23.6 & 96500 \\
@@ -102,7 +103,7 @@ In the education map case, using Thematic.js yields slightly greater benefits th
 
 Both travel time maps yield highly similar results in measurements. This is likely due to the fact that both maps use isarithmic mapping method with relatively similar data, the only difference being the need for combining several data sources in the complex case. The data combining likely results in slightly lower values in Halstead difficulty and effort. However, in these cases, the Halstead effort metric is notably low, indicating that the effort for visualizing with Thematic.js taking only 5 \% of the effort of the reference implementation. This is probably due to the fact that even approximated isarithmic visualization requires a complex graphics implementation not supported directly by any mapping library.
 
-Across all cases, the Thematic.js measurements indicate more significant differences in physical lines of code than logical lines of code. This is likely due to the fact that Thematic.js API is designed to encourage functional-style, chainable operations while traditional JavaScript APIs typically are imperative non-chainable. This is demonstrated in listing \ref{listing:chainableapi}. The chainable version can be used without line breaks, resulting in only 1 physical line of code, while with the API format in second example, it is not customary to combine the lines using only source code line. However, in practice, this has little effect on the actual effort needed as the underlying functionality stays largely similar.
+Across all cases, the Thematic.js measurements indicate more significant differences in physical lines of code than logical lines of code. This is likely due to the fact that Thematic.js API is designed to encourage functional-style, chainable operations while traditional JavaScript APIs typically are imperative and non-chainable. This is demonstrated in listing \ref{listing:chainableapi}. The chainable version can be used without line breaks, resulting in only 1 physical line of code, while with the API format in second example, it is not customary to combine the lines using only source code line. However, in practice, this has little effect on the actual effort needed as the underlying functionality stays largely similar.
 
 \begin{lstlisting}[caption=Thematic.js API format. The code has been simplified to increase readability.,language=JavaScript,label=listing:chainableapi]
 // chainable API supported by Thematic.js
@@ -110,7 +111,7 @@ map.addModule('voting', new Choropleth('percentage')
         .setScale(scale)
         .setData(data));
 
-// non-chainable API typical for traditional 
+// non-chainable API typical for traditional
 // JavaScript libraries
 var module = new Choropleth('percentage');
 module.setScale(scale);
@@ -130,71 +131,42 @@ In order to allow as reliable effort comparison as possible, we decided to imple
 
 \subsection{Visualization Heuristics}
 
-\citet{zuk_heuristics_2006} provide a list of heuristics for data visualizations. These heuristics are described in more detail in section \ref{section:visualizationprinciples}. We decided to use the heuristics as a basis for evaluating the created visualizations and Thematic.js functionality. We evaluated Thematic.js using a three-step scale: positive if the system has a positive effect (encourages creating effective visualizations) when compared to using no visualization library, neutral if the system has no effect, and negative if the system encourages creating ineffective visualizations. The full evaluation results can be seen in table \ref{table:heuristicsevaluation}.
+\citet{zuk_heuristics_2006} provide a list of heuristics for data visualizations. These heuristics are described in more detail in section \ref{section:visualizationprinciples}. We decided to use the heuristics as a basis for evaluating the created visualizations and Thematic.js functionality. We evaluated Thematic.js using a three-step scale: positive if the system has a positive effect (encourages creating effective visualizations) when compared to using no visualization library, neutral if the system has no effect, and negative if the system encourages creating ineffective visualizations. The evaluation results are outlined here. The full results, along with the reasoning, can be seen in appendix \ref{appendix:heuristicsevaluation}.
 
-% \begin{table}
-\begin{longtable}{|p{3cm}|p{2.2cm}|p{7.8cm}|}
+Almost all heuristics yield a nonnegative result. According to the results, Thematic.js encourages the visualizer to conform to the heuristic in 12 of the 25 cases, such as preserving action history and displaying details of the data on demand using popups. Using Thematic.js has no effect on conforming to the heuristic in another 12 cases. Only one case was deemed negative: in some cases, Thematic.js encourages the visualizer to increase graphical dimensionality by visualizing scalar data in a non-scalar fashion, such as when using the proportional symbol method. The overview of the heuristics evaluation can be seen in table \ref{table:heuristicsevaluationoverview}. \fixme{Any insight on why the results are like this?}
+
+The heuristics evaluation indicates that using Thematic.js may be beneficial to the effectiveness of the visualization. However, this is likely dependent on the visualizer. An experienced visualizer will probably conform to the heuristics as well or even better without the library. However, for inexperienced visualizers, using the library is likely beneficial for building effective visualizations. 
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|c|c|c|c|}
 \hline
-\textbf{Heuristic} & \textbf{Evaluation} & \textbf{Reasoning} \\ 
+ & \textbf{Positive} & \textbf{Neutral} & \textbf{Negative} & \textbf{Total} \\ 
 \hline
-Visual variable & Neutral & Of map visualizations, this concerns mostly choropleth maps. Thematic.js choropleth maps do not ensure minimum geographical size for areas. However, using the default line weight ensures a minimum screen size of several pixels. \\[0.5em] % Ensure visual variable has sufficient length \\
-Color order & Neutral & Thematic.js choropleth, dasymetric and isarithmic maps are primarily based on coloring the map. Moreover, the visualizer is given the possibility of freely choosing the colors. This may lead to situations when the visualizer chooses the colors inappropriately for displaying order. However, this situation is not different from the alternative situation of the visualizer creating the visualization without using a visualization library. \\[0.5em] % Don't expect a reading order from color \\
-Color size & Neutral & Thematic.js does not provide any color-adjusting mechanisms based on the size of the element. \\[0.5em] % Color perception varies with size of colored item
-Local contrast & Neutral & Thematic.js does not provide any color-adjusting mechanisms based on contrast. \\[0.5em] % Local contrast affects color
-Color blindness & Neutral & Thematic.js does not provide any advice regarding color blindness. \\[0.5em] % Consider people with color blindness
-Preattentive benefits & Neutral & Thematic.js provides and enforces spacial positioning of the data. However, this is fundamental to any geovisualization, and therefore, cannot be considered a positive trait of the library. \\[0.5em] % Preattentive benefits increase with field of view
-Size variation & Positive & Thematic.js provides size variation in proportional symbol mapping to encourage the visualizer to emphasize quantitative variation in data. \\[0.5em] % Quantitative assessment requires position or size variation
-Graphic dimensionality & Negative & Thematic.js does not enforce preserving dimensionality of the data, and in some cases, such as when using a proportional symbol map, it encourages the visualizer to increase dimensionality by displaying scala values using proportional symbols. \\[0.5em] % Preserve data to graphic dimensionality
-Most data & Positive & Thematic.js encourages the visualizer to maximize data shown by providing support for several different mapping methods suitable for different kind of data. \\[0.5em] % Put the most data in the least space
-No extra ink & Positive & Thematic.js provides data aggregation functionality to combine the relevant data. \\[0.5em] % Remove the extraneous (ink)
-Gestalt laws & Positive & Thematic.js provides functionality to support Gestalt laws of grouping, such as using different symbols and sizes for different data points. However, not all Gestalt laws are considered. \\[0.5em] % Consider Gestalt Laws
-Levels of detail & Positive & Thematic.js provides clustering functionality of dots and symbols. While currently there is no support for levels of detail for other mapping methods, the library does not prevent implementing this in the future. \\[0.5em] % Provide multiple levels of detail
-Integrate text & Positive & Thematic.js supports attaching popups with textual content to data points, such as markers or choropleth areas. \\[0.5em]
-Overview first & Positive & Thematic.js supports overview-first approach in most of the mapping methods. Dot and proportional symbol maps support marker clustering and choropleth, isarithmic and dasymetric maps support zooming in to show the details. \\[0.5em] % Provide overview first
-Zoom and filter & Neutral & Thematic.js supports zooming of the map. However, support for filtering data on view-level is not provided. \\[0.5em]
-Details on demand & Positive & Thematic.js supports attaching popups to data points for displaying additional details. \\[0.5em]
-Relate & & Consider relationships among items \\[0.5em]
-Extract & & Allow extraction of data and its subsets \\[0.5em]
-History & & Keep history of actions \\[0.5em]
-Uncertainty & & Expose uncertainty \\[0.5em]
-Relationships & & Concretize relationships \\[0.5em]
-Domain Parameters & & Determination of domain parameters \\[0.5em]
-Multivariate & & Provide multivariate explanation \\[0.5em]
-Cause \& effect & & Formulate cause \& effect \\[0.5em]
-Hypotheses & & Confirm Hypotheses \\[0.5em]
+\textbf{Count} & 12 & 12 & 1 & 25 \\
 \hline
-\caption{Evaluation of Thematic.js according to heuristics presented by \citet{zuk_heuristics_2006}.}
-\label{table:heuristicsevaluation}
-\end{longtable}
-% \end{table}
+\end{tabular}
+\caption{The overview of evaluation based on heuristics presented by \citet{zuk_heuristics_2006}.}
+\label{table:heuristicsevaluationoverview}
+\end{table}
 
-\fixme{Move the table to appendices. Add overview here.}
+\subsection{Thematic Mapping Objectives}
 
-\begin{itemize}
-	\item Heuristics by \citet{zuk_heuristics_2006}
-	\item Objectives by \citet{schlichtmann_visualization_2002}
-	\item Guidelines in \citet{kraak_cartographic_1998} (how do i say what to whom and is it effective)
-\end{itemize}
+\citet{schlichtmann_visualization_2002} provide a list of objectives for thematic mapping. These objectives are covered in more detail in section \ref{section:thematicmaps}. We evaluated the Thematic.js library by examining whether the library encourages the visualizer to achieve the objectives or not. Like in the previous section with heuristics, we employed a three-step scale for evaluation. Result for each objective is regarded as \emph{positive} if the library encourages achieving the objectives better than typical non-visualization mapping library does. Result is regarded as \emph{neutral} if using Thematic.js has no effect on achieving the objective, and \emph{negative} if Thematic.js discourages the visualizer to achieve the objective. The results are presented in full detail in appendix \ref{appendix:objectivesevaluation}, with overview below.
 
-You have done your work, but that's\footnote{By the way, do \emph{not} use
-shorthands like this in your text! It is not professional! Always write out all
-the words: ``that is''.} not enough. 
+Table \ref{table:objectivesevaluationoverview} displays the number of positive, neutral and negative results related to the objectives. Most of the results are regarded as neutral. This is likely due to the fact that many mapping libraries, such as Leaflet.js, already provide satisfactory level of support for many of the objectives. Therefore, using Thematic.js provides no additional benefit related to these objectives. Nevertheless, Thematic.js achieves a positive result for 4 out of 10 objectives. These are mostly due to providing explicit support for features encouraging effective visualizations, such as defining different symbols for different topeme types. It is also notable that none of the results are regarded as negative.
 
-You also need to evaluate how well your implementation works.  The
-nature of the evaluation depends on your problem, your method, and
-your implementation that are all described in the thesis before this
-chapter.  If you have created a program for exact-text matching, then
-you measure how long it takes for your implementation to search for
-different patterns, and compare it against the implementation that was
-used before.  If you have designed a process for managing software
-projects, you perhaps interview people working with a waterfall-style
-management process, have them adapt your management process, and
-interview them again after they have worked with your process for some
-time. See what's changed.
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+ & \textbf{Positive} & \textbf{Neutral} & \textbf{Negative} & \textbf{Total} \\ 
+\hline
+\textbf{Count} & 4 & 6 & 0 & 10 \\
+\hline
+\end{tabular}
+\caption{The overview of evaluation based on objectives presented by \citet{schlichtmann_visualization_2002}.}
+\label{table:objectivesevaluationoverview}
+\end{table}
 
-The important thing is that you can evaluate your success somehow.
-Remember that you do not have to succeed in making something spectacular; a
-total implementation failure may still give grounds for a very good master's
-thesis---if you can analyze what went wrong and what should have been done.
-
- 
+The evaluation results hint that using Thematic.js may be beneficial to the effectiveness of resulting visualizations. However, as with the heuristics results, this does not imply that Thematic.js is beneficial for every visualizer. An experienced visualizer may not benefit from the library in terms of effectiveness. However, especially for less experienced visualizers who might not recognize the objectives by heart, Thematic.js is probably beneficial.

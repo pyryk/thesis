@@ -53,3 +53,85 @@ Flat dot format is a simple, but non-standard format used by a number of web map
 \label{appendix:escomplex}
 
 \fixme{Add the final results for ESComplex.}
+
+\chapter{Visualization Heuristics Evaluation}
+\label{appendix:heuristicsevaluation}
+
+Thematic.js evaluation results based on the visualization heuristics presented by \citet{zuk_heuristics_2006} are displayed in table \ref{table:heuristicsevaluation}. The evaluation is done using a tree-step scale. Heuristic is evaluated \emph{positive} if Thematic.js encourages conforming to the heuristic when compared to using no visualization library, \emph{neutral} if using Thematic.js has no effect, and \emph{negative} if Thematic.js discourages conforming to the heuristic.
+
+\begin{longtable}{|p{3cm}|p{2.2cm}|p{7.8cm}|}
+\hline
+\textbf{Heuristic} & \textbf{Evaluation} & \textbf{Reasoning} \\
+\hline
+\endhead
+\hline
+\endfoot
+\endlastfoot
+Visual variable & Neutral & Of map visualizations, this concerns mostly choropleth maps. Thematic.js choropleth maps do not ensure minimum geographical size for areas. However, using the default line weight ensures a minimum screen size of several pixels. \\[0.5em] % Ensure visual variable has sufficient length \\
+Color order & Neutral & Thematic.js choropleth, dasymetric and isarithmic maps are primarily based on coloring the map. Moreover, the visualizer is given the possibility of freely choosing the colors. This may lead to situations when the visualizer chooses the colors inappropriately for displaying order. However, this situation is not different from the alternative situation of the visualizer creating the visualization without using a visualization library. \\[0.5em] % Don't expect a reading order from color \\
+Color size & Neutral & Thematic.js does not provide any color-adjusting mechanisms based on the size of the element. \\[0.5em] % Color perception varies with size of colored item
+Local contrast & Neutral & Thematic.js does not provide any color-adjusting mechanisms based on contrast. \\[0.5em] % Local contrast affects color
+Color blindness & Neutral & Thematic.js does not provide any advice regarding color blindness. \\[0.5em] % Consider people with color blindness
+Preattentive benefits & Neutral & Thematic.js provides and enforces spacial positioning of the data. However, this is fundamental to any geovisualization, and therefore, cannot be considered a positive trait of the library. \\[0.5em] % Preattentive benefits increase with field of view
+Size variation & Positive & Thematic.js provides size variation in proportional symbol mapping to encourage the visualizer to emphasize quantitative variation in data. \\[0.5em] % Quantitative assessment requires position or size variation
+Graphic dimensionality & Negative & Thematic.js does not enforce preserving dimensionality of the data, and in some cases, such as when using a proportional symbol map, it encourages the visualizer to increase dimensionality by displaying scalar values using proportional symbols. \\[0.5em] % Preserve data to graphic dimensionality
+Most data & Positive & Thematic.js encourages the visualizer to maximize data shown by providing support for several different mapping methods suitable for different kind of data. \\[0.5em] % Put the most data in the least space
+No extra ink & Positive & Thematic.js provides data aggregation functionality to combine the relevant data. \\[0.5em] % Remove the extraneous (ink)
+Gestalt laws & Positive & Thematic.js provides functionality to support Gestalt laws of grouping, such as using different symbols and sizes for different data points. However, not all Gestalt laws are considered. \\[0.5em] % Consider Gestalt Laws
+Levels of detail & Positive & Thematic.js provides clustering functionality of dots and symbols. While currently there is no support for levels of detail for other mapping methods, the library does not prevent implementing this in the future. \\[0.5em] % Provide multiple levels of detail
+Integrate text & Positive & Thematic.js supports attaching popups with textual content to data points, such as markers or choropleth areas. \\[0.5em]
+Overview first & Positive & Thematic.js supports overview-first approach in most of the mapping methods. Dot and proportional symbol maps support marker clustering and choropleth, isarithmic and dasymetric maps support zooming in to show the details. \\[0.5em] % Provide overview first
+Zoom and filter & Neutral & Thematic.js supports zooming of the map. However, support for filtering data on view-level is not provided. \\[0.5em]
+Details on demand & Positive & Thematic.js supports attaching popups to data points for displaying additional details. \\[0.5em]
+Relate & Neutral & Thematic.js does not support any method of emphasizing relationships between entries other than spacial distribution. \\[0.5em] % Consider relationships among items
+Extract & Positive & While Thematic.js does not support physical saving of data subsets, it provides bookmarking and linking support which effectively provide similar benefits. \\[0.5em] % Allow extraction of data and its subsets
+History & Positive & Thematic.js supports using the back and forward buttons of the browser to undo and redo actions. \\[0.5em] % Keep history of actions
+Uncertainty & Neutral & Thematic.js does not encourage the visualizer to display the uncertainties in data. \\[0.5em] % Expose uncertainty
+Relationships & Neutral & Thematic.js does not encourage concretizing relations between data points. \\[0.5em] % Concretize relationships
+Domain Parameters & Neutral & While Thematic.js modules require explicitly stating the used parameters, there is no guarantee about the importance of selected parameters. \\[0.5em] % Determination of domain parameters
+Multivariate & Positive & Thematic.js provides aggregation functionality in order enable easy experimenting about relationships between variables. Moreover, the modular structure of the library results in the possibility to easily combine several visualization methods to highlight different aspects of the data. \\[0.5em] % Provide multivariate explanation
+Cause \& effect & Neutral & Thematic.js does not provide additional means for determining or displaying cause and effect. \\[0.5em] % Formulate cause & effect
+Hypotheses & Positive & The availability of several different mapping methods of Thematic.js encourage the visualizer to better display and evaluate hypotheses. \\[0.5em] % Confirm Hypotheses
+\hline
+\caption{Evaluation of Thematic.js according to heuristics presented by \citet{zuk_heuristics_2006}.}
+\label{table:heuristicsevaluation}
+\end{longtable}
+
+\chapter{Mapping Objectives Evaluation}
+\label{appendix:objectivesevaluation}
+
+Evaluation results of Thematic.js regarding thematic mapping objectives of \citet{schlichtmann_visualization_2002} are presented in table \ref{table:objectivesevaluation}. The evaluation was performed with a three-step scale. Result for each objective is regarded as \emph{positive} if the library encourages achieving the objectives better than typical mapping library does. Result is regarded as \emph{neutral} if using Thematic.js has no effect on achieving the objective, and \emph{negative} if Thematic.js discourages the visualizer to achieve the objective.
+
+\LTcapwidth=\textwidth
+\begin{longtable}{|p{3cm}|p{2.5cm}|p{7.5cm}|}
+\hline
+\textbf{Name} & \textbf{Evaluation} & \textbf{Reasoning} \\ 
+\hline
+\endhead
+\hline
+\endfoot
+\endlastfoot
+% Making the map clear and readable. In practice, this means that the topemes (symbols) in a map should be easily detectable and distinguishable from each other
+Clarification & Positive & Thematic.js benefits the clarification of the visualization by, e.g., providing clustering functionality of the markers \\[0.5em]
+% Making topemes and other important characteristics of the visualization to stand out visually
+Emphasis & Neutral & Thematic.js uses visual markers in dot maps. However, this is typically achieved with any mapping library even with no visualization library. \\[0.5em]
+% Having a clearly distinguishable type for each topeme.
+Types of Entries & Positive & Thematic.js provides support for using different markers for different types of topemes. \\[0.5em]
+% Grouping data points and symbols with similar traits in order to make them belong together visually. Ideally, the visual similarity should be related to the conceptual similarity.
+Sets of Types & Neutral & Thematic.js does neither encourage nor discourage consolidating types of topemes according to mutual similarities. \\[0.5em]
+% Visually indicating the potential relations and similarities between different types or between entries of different types.
+Cross-Relations & Positive & Several of the mapping methods, especially proportional symbol method, support indicating similarities between different types of entries. \\[0.5em]
+% Aligning visual properties of the topemes to prevent unintentional emphasis of single topemes.
+Local Syntax & Neutral & Thematic.js pays no special attention to managing lower-order units within topemes. \\[0.5em]
+% Supporting topemes with multiple properties (such as the numbers of children and adults in an area) so that the topeme visually reflect both the individual properties and the combination of all properties.
+Local Ensembles & Neutral & Local ensembles are not supported in any of the current mapping methods of Thematic.js. \\[0.5em]
+% Supporting topemes with multiple geographical properties (such as spatial distribution of people)
+Multilocal Ensembles & Neutral &  Multilocal ensembles are not supported in any of the current mapping methods of Thematic.js. \\[0.5em]
+% Differentiating addable and non-addable properties. Typically absolute quantitative properties are addable while relative and qualitative properties are non-addable. Addable properties should be visualized in a way that cognitively supports addition (e.g., with sizes of elements) while non-addable quantities should be visualized without said feature (e.g., with colors.)
+Addable and Non-Addable Quantities & Positive & Thematic.js separates between addable and non-addable quantities by separating between different mapping methods. \\[0.5em]
+% Creating an illusion of surface on the map. This can be achieved for example by using illumination and shadowing. These visual traits can convey a meaning themselves and often naturally do so.
+The Surface Illusion & Neutral & Thematic.js provides no additional means of achieving the surface illusion when compared to, e.g. the underlying Leaflet.js mapping library. \\[0.5em]
+\hline
+\caption{Evaluation of map visualization objectives of \citet{schlichtmann_visualization_2002}.}
+\label{table:objectivesevaluation}
+\end{longtable}
