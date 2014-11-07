@@ -25,5 +25,6 @@ def get_all_sources():
 
 # print(get_all_sources())
 
+sources = get_all_sources()
 f = open('sources.bib', 'w')
-f.write(get_all_sources())
+f.write(sources)
