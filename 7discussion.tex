@@ -3,20 +3,64 @@
 \chapter{Discussion}
 \label{chapter:discussion}
 
+In this chapter, we discuss the validity of the thesis along with its potential shortcomings. By internal validity, we mean the validity and appropriateness of the used methods for evaluating the use cases. By external validity, we mean the generalizability of the results, i.e., whether the evaluation results can be generalized for other use cases. We also define a number of relevant aspects not covered by this research to be further studied in the future.
+
+\section{Interpretation of Results}
+
+\begin{itemize}
+	\item What has been found? (A library for building visualizations can be created?)
+	\item Interpretation of the findings: it makes sense to use the reusable thingy in certain situations
+	\item Are the findings in line with the literature? (Yes, the literature also hints that the findings are appropriate) \fixme{How about literature about effective visualizations? Does using a library benefit the effectiveness? Maybe use some GIS studies related to the effectiveness?}
+\end{itemize}
+
+\section{Internal Validity of the Study}
+
+According to most of the literature presented in chapter \ref{chapter:reuse}, measuring software reuse is extraordinarily difficult. We identified several aspects potentially hindering the reusability evaluation and its validity.
+
+The evaluation metrics used assume that the visualizer is equally acquainted with all the libraries and APIs used. However, in practice, this is unlikely. Typically, visualizers creating web geovisualizations possess at least an elementary knowledge of JavaScript APIs. Some visualizers also have experience on using Leaflet or other mapping libraries. On the contrary, it can safely be assumed that most developers do not possess knowledge of Thematic.js beforehand. Therefore, it is likely that for typical visualizer, difference in effort between using and not using Thematic.js is smaller than what is indicated in the evaluation results.
+
+\begin{itemize}
+	\item Evaluation assumes that all APIs are equally known for the visualizer
+	\begin{itemize}
+		\item This likely not true
+		\item The difference between known and unknown APIs -- if JS (and Leaflet) is known, but Thematic.js is not? How does this affect the true effort?
+		\item Would need research on the average visualizer -- does she know JS or Leaflet?
+	\end{itemize}
+	\item Different evaluation methods yield different results (should the framework be included in calculations? how?) What measurements are used? Etc.
+	\begin{itemize}
+		\item Building the library incurred costs
+		\item The library itself likely needs maintenance etc.
+		\item From the visualizer perspective, these do not affect much
+	\end{itemize}
+	\item Framework is reusable - how is that taken into account when calculating results (can be used in the future infinity times)
+	\item At the moment not comparing HTML, CSS etc.
+	\item Now all the implementations were done by the same guy -- the one who nows the library API and its capabilities
+	\begin{itemize}
+		\item Better option would be to try this with external developers -- some with the tool and some without
+		\item However, external developers likely have varying experience on JS, mapping etc.
+		\item In order for this kind of study (with ext devs) to be reliable, sample size should be several (dozen) people (reference for this page 34 of this thesis?). This was not feasible in the scope of the thesis.
+	\end{itemize}
+	\item How about using this long term? If the visualizer gets to know the library, he will be more productive with it.
+\end{itemize}
+
+\section{External Validity of the Study}
+
+\begin{itemize}
+	\item The library was built using the same literature as the evaluated cases defined -- this likely makes it so that the library suits particularly well the cases.
+	\item The nature of cases picked for evaluation affects the results considerably - e.g. choosing really similar cases yields more positive results, really different cases yield more negative results - a note from one of the reuse sources that mention reuse evaluation being really hard
+	\item These are inherently simple visualizations - with more complex data or need, benefits are likely to diminish.
+\end{itemize}
+
+\section{Further Research}
+
+\begin{itemize}
+	\item Framework likely affects other properties of visualizations - quality, maintainability etc. These could be studied in the future.
+	\item Interaction not covered. Software does not provide any complex interaction etc. These still need some manual coding.
+	\item Analysis on average visualizers -- are they cartographers, web developers, laymen? These qualities likely affect the library requirements (and most suitable metrics)
+\end{itemize}
+
 At this point, you will have some insightful thoughts on your implementation
 and you may have ideas on what could be done in the future. 
 This chapter is a good place to discuss your thesis as a whole and to show your
 professor that you have really understood some non-trivial aspects of the
 methods you used\ldots
-
-\fixme{Stuff to discuss}
-\begin{itemize}
-	\item Different evaluation methods yield different results (should the framework be included in calculations? how?) What measurements are used? Etc.
-	\item The nature of cases picked for evaluation affects the results considerably - e.g. choosing really similar cases yields more positive results, really different cases yield more negative results - a note from one of the reuse sources that mention reuse evaluation being really hard
-	\item Framework is reusable - how is that taken into account when calculating results (can be used in the future infinity times)
-	\item Framework likely affects other properties of visualizations - quality, maintainability etc. These could be studied in the future.
-	\item At the moment not comparing HTML, CSS etc.
-	\item Used metrics are not telling the whole truth - using a library developer has no experience on (e.g. vs. using plain JavaScript) has its drawbacks etc.
-	\item Software does not provide any complex interaction etc. These still need some manual coding.
-	\item These are inherently simple visualizations - with more complex data or need, benefits are likely to diminish.
-\end{itemize}
