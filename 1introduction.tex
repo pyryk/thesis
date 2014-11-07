@@ -8,17 +8,15 @@
 
 Geographical data is data with geospatial dimension, such as Point of Interest (POI) with location data as coordinates \citep[chap.~1.2]{kraak_cartography_2011}. The most natural method for visualizing geographical data is usually with various maps. In the past, geographical data was predominantly visualized by cartographers, but it has been recognized \citep{kraak_visualization_1999} that the situation has changed, with people from increasing number of fields having a need -- and the possibility \citep[chap.~1]{slocum_thematic_2014} -- for visualizing geographical data. Moreover, the popularity of Google Maps \citep{google_maps_2005-1} along with its Application Programming Interface (API) \citep{google_maps_2005} has proved that in addition to experts of other academic fields, there is a definite demand for web map visualizations within consumers as well. 
 
-The web makes publishing and bundling map visualizations extraordinarily straightforward when compared to traditional desktop-based Geographic Information System (GIS) applications: traditional desktop-based GIS system requires an installation of the GIS application and often additional tools and accounts for publishing the visualization, while using web-based mapping software ideally requires no additional software or tools or even accounts. This is especially important when the visualizations are made by non-cartographers who only make visualizations occasionally and lack the needed resources and experience for more complex publishing process. \fixme{find a reference for this maybe}. However, as the web platform is primarily designed for static documents \citep{berners-lee_information_1989,berners-lee_world-wide_1992} instead of dynamic applications \citep{jazayeri_trends_2007}, there are some additional concerns to address when making a complex data visualization on the web.
+The web makes publishing and bundling map visualizations extraordinarily straightforward when compared to traditional desktop-based Geographic Information System (GIS) applications: traditional desktop-based GIS system requires an installation of the GIS application and often additional tools and accounts for publishing the visualization, while using web-based mapping software ideally requires no additional software or tools or even accounts. This is especially important when the visualizations are made by non-cartographers who only make visualizations occasionally and lack the needed resources and experience for more complex publishing process \citep{miller_beast_2006}. However, as the web platform is primarily designed for static documents \citep{berners-lee_information_1989,berners-lee_world-wide_1992} instead of dynamic applications \citep{jazayeri_trends_2007}, there are some additional concerns to address when making a complex data visualization on the web.
 
-\fixme{Why geodata should be visualized? \citet[chap.~1.1]{kraak_cartography_2011} or \citet{bartz_petchenik_place_1979} should help.}
-
-\fixme{Needs more flesh}
+Data visualization enables the users to obtain insight about data quickly and efficiently \citep{van_wijk_value_2005}. Visualizing geographical data helps users perceive geospatial relationships and patterns. Maps can be used for determining information on distances, directions and areas \citep[chap.~1.1]{kraak_cartography_2011}. Also, using geographical visualizations, it is also possible to organize data spatially and visually, allowing more efficient memorization of data.
 
 \section{Problem Statement}
 
 Currently, there are several libraries available for displaying maps and simple visualizations \citep{google_maps_2005,agafonkin_leaflet_2011,metacarta_openlayers_2006}. However, the problem is that none of the mainstream libraries is of sufficiently high abstraction level for building map visualizations efficiently, resulting in the need for writing \emph{boilerplate} code that does not directly contribute to the visualization. Moreover, the libraries are not designed primarily for visualizations and therefore do not encourage or push the visualizer to create visually and cognitively effective visualizations, resulting in subpar visualizations \citep[chap.~1]{slocum_thematic_2014}.
 
-In the scope of this thesis, we make the difference between an efficient and an effective process. By an efficient process, we mean a process which requires as little as possible effort and other resources to complete. By an effective process, we mean a process which reaches its target results sufficiently. Therefore, building a visualization efficiently indicates that the building process is as effortless as possible, and building effective visualization indicates that the resulting visualization conveys its intended message appropriately. \fixme{Would it make sense to use ``productive'' instead of ``efficient''?}
+In the scope of this thesis, we adopt the process definitions of \citet{van_wijk_value_2005} by making the difference between an efficient and an effective process. By an efficient process, we mean a process which requires as little as possible effort and other resources to complete. By an effective process, we mean a process which reaches its target results sufficiently. Therefore, building a visualization efficiently indicates that the building process is as effortless as possible, and building effective visualization indicates that the resulting visualization conveys its intended message appropriately.
 
 \section{Objectives and Scope}
 
@@ -26,24 +24,21 @@ Our objective is to make creating map visualizations for the web more efficient 
 
 In order to find the solution for the problem, it is necessary to study geographical visualizations and software reuse. The process of making geographical visualizations should be studied to ensure that the system enables creating \emph{effective} visualizations. In addition, software reuse should be studied in order to be able to create visualizations \emph{efficiently}. Therefore, we select the following research questions for this thesis:
 
+% \begin{enumerate}
+% 	\item[RQ1] What is an effective geographical visualization? \fixme{Is it ok to answer this mainly with literature?}
+% 	\item[RQ2] Does building a reusable software system enable creating effective geographical visualizations efficiently?
+% \end{enumerate}
+% \fixme{Ensure that these are in line with methodology, implementation etc. Is RQ1 even needed?}
+
 \begin{enumerate}
-	\item[RQ1] What is an effective geographical visualization? \fixme{Is it ok to answer this mainly with literature?}
-	\item[RQ2] Does building a reusable software system enable creating effective geographical visualizations efficiently?
+	\item[RQ1] Does a reusable software system enable creating geographical visualizations \emph{efficiently}?
+	\item[RQ2] Does a reusable software system enable creating \emph{effective} geographical visualizations?
 \end{enumerate}
-\fixme{Ensure that these are in line with methodology, implementation etc. Is RQ1 even needed?}
+
 
 \section{Approach}
 
-In order to build an efficient system for visualizing geographical data, it is needed to study (a) how to visualize geographical data and (b) how to build reusable software. We are going to begin by first studying the basics of data visualization with an emphasis on geographical data, maps and the visualization process. After visualization, we are going to study the essence of software reuse, focusing on building and evaluating reusable software. \fixme{Remove this section?}
-
-% TODO remove
-% \section{Helpful hints}
-
-% Read the information from the university master's thesis
-% pages~\citep{ThesisInstructions} before starting the thesis.  You
-% should also go through the thesis grading
-% instructions~\citep{ThesisGrading} together with your instructor and/or
-% supervisor in the beginning of your work.
+In order to build an efficient system for visualizing geographical data, it is needed to study (a) how to visualize geographical data and (b) how to build reusable software. We begin by first studying the basics of data visualization with an emphasis on geographical data, maps and the visualization process. After visualization, we study the essence of software reuse, focusing on building and evaluating reusable software. Then, we create a reusable visualization system and evaluate its effect on visualization effectiveness and efficiency of the building process. \fixme{Remove this section?}
 
 \section{Structure of the Thesis}
 \label{section:structure} 
