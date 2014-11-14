@@ -7,60 +7,96 @@ In this chapter, we discuss the validity of the thesis along with its potential 
 
 \section{Interpretation of Results}
 
-\begin{itemize}
-	\item What has been found? (A library for building visualizations can be created?)
-	\item Interpretation of the findings: it makes sense to use the reusable thingy in certain situations
-	\item Are the findings in line with the literature? (Yes, the literature also hints that the findings are appropriate) \fixme{How about literature about effective visualizations? Does using a library benefit the effectiveness? Maybe use some GIS studies related to the effectiveness?}
-\end{itemize}
+Thematic.js proves that it is possible to create a reusable tool for geographical visualization. Moreover, the results of the evaluation indicate that such tool can benefit a) the effectiveness, and b) the efficiency of visualizations. Therefore, using a tool such as Thematic.js is most likely beneficial in typical visualization cases, such as the ones demonstrated in chapter \ref{chapter:evaluation}.
+
+As \citet{boehm_managing_1999} and \citet{mohagheghi_quality_2007}, among others, conclude, software reuse is likely to benefit the resulting software in terms of effort. This is in line with our findings. However, we could not find any literature support regarding visualization effectiveness and reuse. This is likely related to the fact that reuse is not extensively studied in the field of data visualizations. Nonetheless, our evaluation indicates that by considering the visualization effectiveness when building the visualization tool, it is possible to enable visualizers using the tool to build better visualizations on average.
+
+%\begin{itemize}
+%	\item What has been found? (A library for building visualizations can be created?)
+%	\item Interpretation of the findings: it makes sense to use the reusable thingy in certain situations
+%	\item Are the findings in line with the literature? (Yes, the literature also hints that the findings are appropriate) \fixme{How about literature about effective visualizations? Does using a library benefit the effectiveness? Maybe use some GIS studies related to the effectiveness?}
+% \end{itemize}
+
+\section{Applicability of Results}
+
+Thematic.js provides two primary benefits for the visualizer. First, it makes building the visualization more efficient. This quality is emphasized for less-experienced web developers as discussed in chapter \ref{section:evaluatingefficiency}. Second, it enables more effective visualizations. These characteristics make using the library beneficial especially for less-experienced visualizers as discussed in chapter \ref{section:evaluatingeffectiveness}.
+
+Due to the fact that at its current state, Thematic.js provides only a predefined set of visualization methods, it is not suitable for all visualization cases. Therefore, Thematic.js is most effectively used in a project with fairly conventional geovisualization needs. However, in those cases, it is highly effective in reducing the effort needed and providing high quality visualization methods. Typically reduced effort needed also reduces software development costs, making Thematic.js beneficial for business purposes. 
+
+According to study by \citet{nambisan_technical_1999}, a major adoption barrier for web technology is the lack of knowledge about the requirements for development. Moreover, \citet{butler_barriers_2002} describe time to learn new technology and difficulty in using the technology as major obstacle for adopting new technology. Therefore, it is possible that enabling easy creation of quality visualizations may increase the number of visualizations built for all purposes. In the bigger picture, this likely benefits the general understanding of complex geographical phenomena.
+
+Furthermore, the evaluation results related to benefits for effectiveness of Thematic.js suggest that visualization reuse may be highly beneficial also in the general level. It may be possible for the developer of reusable visualization tool to enforce ``good'' visualization practices like it is possible for the developer for reusable software to enforce good software practices such as architecture \citep{mohagheghi_quality_2007}.
+
+% Sami: ``Eli mihin niitä vois soveltaa... esim. minkälaisiin projekteihin?, business näkökulma (koodauksesta nopeampaa?), laaja soveltaminen voi lisätä karttasovellusten tarjontaa?''
 
 \section{Internal Validity of the Study}
+\label{section:internalvalidity}
 
 According to most of the literature presented in chapter \ref{chapter:reuse}, measuring software reuse is extraordinarily difficult. We identified several aspects potentially hindering the reusability evaluation and its validity.
 
-The evaluation metrics used assume that the visualizer is equally acquainted with all the libraries and APIs used. However, in practice, this is unlikely. Typically, visualizers creating web geovisualizations possess at least an elementary knowledge of JavaScript APIs. Some visualizers also have experience on using Leaflet or other mapping libraries. On the contrary, it can safely be assumed that most developers do not possess knowledge of Thematic.js beforehand. Therefore, it is likely that for typical visualizer, difference in effort between using and not using Thematic.js is smaller than what is indicated in the evaluation results.
+The evaluation metrics used assume that the visualizer is equally acquainted with all the libraries and APIs used. However, in practice, this is unlikely. We assume that a typical visualizer creating web geovisualizations possesses at least an elementary knowledge of JavaScript APIs. Some visualizers may also have experience on using Leaflet or other mapping libraries. On the other hand, it can safely be assumed that most developers do not possess knowledge of Thematic.js beforehand. 
 
-\begin{itemize}
-	\item Evaluation assumes that all APIs are equally known for the visualizer
-	\begin{itemize}
-		\item This likely not true
-		\item The difference between known and unknown APIs -- if JS (and Leaflet) is known, but Thematic.js is not? How does this affect the true effort?
-		\item Would need research on the average visualizer -- does she know JS or Leaflet?
-	\end{itemize}
-	\item Different evaluation methods yield different results (should the framework be included in calculations? how?) What measurements are used? Etc.
-	\begin{itemize}
-		\item Building the library incurred costs
-		\item The library itself likely needs maintenance etc.
-		\item From the visualizer perspective, these do not affect much
-	\end{itemize}
-	\item Framework is reusable - how is that taken into account when calculating results (can be used in the future infinity times)
-	\item At the moment not comparing HTML, CSS etc.
-	\item Now all the implementations were done by the same guy -- the one who nows the library API and its capabilities
-	\begin{itemize}
-		\item Better option would be to try this with external developers -- some with the tool and some without
-		\item However, external developers likely have varying experience on JS, mapping etc.
-		\item In order for this kind of study (with ext devs) to be reliable, sample size should be several (dozen) people (reference for this page 34 of this thesis?). This was not feasible in the scope of the thesis.
-	\end{itemize}
-	\item How about using this long term? If the visualizer gets to know the library, he will be more productive with it.
-\end{itemize}
+Therefore, it is likely that for typical visualizer, difference in effort between using and not using Thematic.js is smaller than what is indicated in the evaluation results. In order to address this issue, a study of typical web visualizers' experience would be needed. However, due to the scope of this work, we were unable to conduct this study.
+
+Furthermore, as literature (e.g., \citealt{frakes_success_1994,mohagheghi_quality_2007}) indicates, it is unclear how the reusable parts of software should be taken into consideration when measuring characteristics of a software system. While some sources (including, e.g., \citealt{frakes_software_1996,selby_enabling_2005}) advocate including (parts of) reused software in the calculations, we decided to exclude third-party libraries. This was primarily done because we assumed that Thematic.js or other libraries were not to be modified internally, and therefore, to an external developer, they appear similar to, e.g., the standard JavaScript API. In order for this assumption to be reasonable, the documentation and functionality of the library must be thorough and reliable. Secondarily, the costs incurred while developing the library are considered as sunken and therefore do not affect the calculations.
+
+We also decided to exclude any HTML or CSS code from the calculations. This was done primarily due to two reasons. First, in the example cases, the HTML and CSS included was almost identical due to similar requirements and the fact that Thematic.js does not provide almost any HTML-level functionality. Second, in reality, the requirements for HTML and CSS may vary considerably due to, e.g., integrating the visualizations to an existing web application. Additionally, no widely established method for measuring effort needed for building single-page web applications exists: while, e.g., \citet{mendes_web_2001} propose a metric for estimating total web development effort, the metric is mainly suitable for traditional multi-page web documents instead of single-page web applications.
+
+For evaluation, we implemented several different geovisualizations. However, all evaluation cases were implemented a developer who knows the library functionality along with evaluation methods and metrics. This introduces a potential selection bias which may have an influence on the results as \citet{kitchenham_evaluating_1998} correctly observe. A better alternative for this would be repeating the evaluation with several external developers. However, different developers likely have different abilities and experience on JavaScript, mapping and geovisualizations. Therefore, as \citet{mohagheghi_quality_2007} argue, for this kind of study to be reliable, the sample size should be increased considerably. This was deemed infeasible in the scope of this thesis.
+
+%\begin{itemize}
+	%\item Evaluation assumes that all APIs are equally known for the visualizer DONE
+	%\begin{itemize}
+	%	\item This likely not true
+	%	\item The difference between known and unknown APIs -- if JS (and Leaflet) is known, but Thematic.js is not? How does this affect the true effort?
+	%	\item Would need research on the average visualizer -- does she know JS or Leaflet?
+	%\end{itemize}
+	% \item Different evaluation methods yield different results (should the framework be included in calculations? how?) What measurements are used? Etc.
+	%\begin{itemize}
+	%	\item Building the library incurred costs
+	%	\item The library itself likely needs maintenance etc.
+	%	\item From the visualizer perspective, these do not affect much
+	%\end{itemize}
+	%\item Framework is reusable - how is that taken into account when calculating results (can be used in the future infinity times)
+	%\item At the moment not comparing HTML, CSS etc.
+	%\item Now all the implementations were done by the same guy -- the one who nows the library API and its capabilities
+	%\begin{itemize}
+	%	\item Better option would be to try this with external developers -- some with the tool and some without
+	%	\item However, external developers likely have varying experience on JS, mapping etc.
+	%	\item In order for this kind of study (with ext devs) to be reliable, sample size should be several (dozen) people (reference for this page 34 of this thesis?). This was not feasible in the scope of the thesis.
+	%\end{itemize}
+	%\item How about using this long term? If the visualizer gets to know the library, he will be more productive with it.
+%\end{itemize}
 
 \section{External Validity of the Study}
 
-\begin{itemize}
-	\item The library was built using the same literature as the evaluated cases defined -- this likely makes it so that the library suits particularly well the cases.
-	\item The nature of cases picked for evaluation affects the results considerably - e.g. choosing really similar cases yields more positive results, really different cases yield more negative results - a note from one of the reuse sources that mention reuse evaluation being really hard
-	\item These are inherently simple visualizations - with more complex data or need, benefits are likely to diminish.
-\end{itemize}
+In addition to potential issues with the methods used, we have identified a number of potential issues regarding the generalizability of the results. These issues are discussed below.
+
+Thematic.js along with its visualization methods were built using geovisualization literature to determine the visualization methods and functionality. We also used partly the same literature to evaluate the library. Therefore, the results are likely slightly biased towards preferring Thematic.js. While this is unfortunate, it is an essential side-effect for using the most comprehensive literature for both implementing and assessing the functionality. Moreover, for the evaluation, we complemented the criteria with additional literature sources, namely heuristics of \citet{zuk_heuristics_2006}, to minimize the bias.
+
+Second, the selection of visualization cases for evaluation likely has an effect on the results. For the evaluation of Thematic.js, we selected a rather small number of cases using different mapping methods in order to keep the scope manageable. However, as \citet{frakes_success_1994} point out, benefits of software reuse typically increase with larger sample sets. Therefore, using, e.g., a large number of relatively similar visualization cases, the perceived benefits of the library would likely increase considerably. On the other hand, using a number of cases with more rarely used mapping methods not supported directly by Thematic.js, the perceived benefits would diminish. We did not discover means to overcome this issue. Instead, we decided to keep the number of cases rather small, while ensuring large variety among cases, and address the concern here.
+
+Third, the visualization cases represented in evaluation are inherently simple. None of the cases employ multiple different mapping methods. Furthermore, none of the cases require complex interaction. These have also an effect on the evaluation results. With more complex visualization and interaction methods, the perceived relative benefits of the library will likely diminish as visualization implementations need additional functionality to cover the complexity and interaction. This concern could be addressed by developing more advanced mapping module functionality to the library.
+
+%\begin{itemize}
+%	\item The library was built using the same literature as the evaluated cases defined -- this likely makes it so that the library suits particularly well the cases.
+%	\item The nature of cases picked for evaluation affects the results considerably - e.g. choosing really similar cases yields more positive results, really different cases yield more negative results - a note from one of the reuse sources that mention reuse evaluation being really hard
+%	\item These are inherently simple visualizations - with more complex data or need, benefits are likely to diminish.
+%\end{itemize}
 
 \section{Further Research}
 
-\begin{itemize}
-	\item Framework likely affects other properties of visualizations - quality, maintainability etc. These could be studied in the future.
-	\item Interaction not covered. Software does not provide any complex interaction etc. These still need some manual coding.
-	\item Analysis on average visualizers -- are they cartographers, web developers, laymen? These qualities likely affect the library requirements (and most suitable metrics)
-\end{itemize}
+According to software reuse literature (e.g., \citealt{mohagheghi_quality_2007,frakes_success_1994}), reuse typically benefits other software (process) properties than effort, such as quality or maintainability. The evaluation of the cases in this work also suggested that this could apply in this case. However, we did not conduct an extensive study or analysis related to these qualities. However, as, e.g., \citet{kitchenham_software_1996} point out, software quality and maintainability are essential characteristics of a successful software system. Therefore, it would be highly beneficial to study the effect of reuse on these properties in the future.
 
-At this point, you will have some insightful thoughts on your implementation
-and you may have ideas on what could be done in the future. 
-This chapter is a good place to discuss your thesis as a whole and to show your
-professor that you have really understood some non-trivial aspects of the
-methods you used\ldots
+Thematic.js library does not provide means for implementing interaction other than navigating the map. However, \citet{andrienko_interactive_1999}, and \citet[chap.~21]{slocum_thematic_2014}, among others, argue that visualization interaction greatly benefits especially exploratory data analysis. Due to the scope of this work, we decided not to consider interactions when defining or implementing Thematic.js. Therefore, it would be valuable to extend the tool in terms of interactivity in the future.
+
+As concluded in chapter \ref{chapter:evaluation}, the profile of visualizer affects the suitability of Thematic.js for visualization. When evaluating the tool, we made assumptions about the potential users of the tool: we assumed that visualizers possess an elementary level of web development experience, along with at least minimal cartography experience. However, we did not base these assumptions on any specific study. While, e.g., \citet{slocum_thematic_2014} argue that the typical geovisualizer is no longer necessarily a cartographer, they do not provide any specific data about visualizers. Therefore, it would benefit the development of reusable visualization tools to conduct a study on the demographics of geographic visualizers. 
+
+
+
+%\begin{itemize}
+	% \item Framework likely affects other properties of visualizations - quality, maintainability etc. These could be studied in the future.
+	% \item Interaction not covered. Software does not provide any complex interaction etc. These still need some manual coding.
+	% \item Analysis on average visualizers -- are they cartographers, web developers, laymen? These qualities likely affect the library requirements (and most suitable metrics) -- another option would be creating a separate libraries (interfaces) for all three groups
+	% \item How about using this long term? If the visualizer gets to know the library, he will be more productive with it.
+%\end{itemize}
