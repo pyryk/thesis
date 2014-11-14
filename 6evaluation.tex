@@ -44,6 +44,7 @@ We implemented seven separate sister project visualizations with no visualizatio
 In order to better reflect the actual situations involving building visualizations, the sister projects were implemented in \emph{ad hoc} fashion, meaning that the design or architecture of the applications were not planned extensively beforehand. Also, no reuse of any form between visualizations was planned. However, during implementation, some design and code scavenging was done in order to speed up the development process. \fixme{The sister project code can be found in ...}
 
 \section{Evaluating Efficiency of Development}
+\label{section:evaluatingefficiency}
 
 We evaluated the efficiency of development by several metrics: software code length (number of physical (LOC) and logical (LLOC) lines of code), cyclomatic complexity (CC), Halstead difficulty (HD) and Halstead effort (HE). For measurements, we used ESComplex\footnote{\url{https://github.com/philbooth/escomplex}} for analyzing JavaScript programs. \fixme{What about HTML and CSS? Any way to measure these? Or is the effort for these considered equal in sister projects?}
 
@@ -121,9 +122,10 @@ Additionally, in all the cases, Halstead difficulty measurements in Thematic.js 
 
 Lastly, it should be noted that while the measurements are suitable for comparing different cases, as absolute metrics they are approximate at best. In practice, this means that it is not sensible to assume that using Thematic.js reduces the effort needed to 10 \% of the original. However, in light of these results, it seems extremely likely that using the library for visualizations similar to the evaluated cases yields considerable benefits over building the visualizations from the ground up. For more details about the measurements, see appendix \ref{appendix:escomplex}.
 
-\fixme{Should we try the evaluation with library code as part of Thematic.js numbers? If yes, add this here. If not, discuss this in discussion.}
+\fixme{Analyze statistical significance here}
 
 \section{Evaluating Effectiveness of Visualizations}
+\label{section:evaluatingeffectiveness}
 
 In order to allow as reliable effort comparison as possible, we decided to implement the same functionality to reference visualizations as in Thematic.js visualizations. In practice, this results in the reference visualization being as similar feature-wise and visually to the Thematic.js visualization as possible. Therefore, it is not reasonable to compare the effectiveness of the corresponding reference and Thematic.js visualizations. Instead, we decided to evaluate the Thematic.js visualizations qualitatively, concentrating on how the library encourages the visualizer to create effective visualizations.
 

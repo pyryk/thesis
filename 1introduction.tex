@@ -10,7 +10,7 @@ Geographical data is data with geospatial dimension, such as Point of Interest (
 
 The web makes publishing and bundling map visualizations extraordinarily straightforward when compared to traditional desktop-based Geographic Information System (GIS) applications: traditional desktop-based GIS system requires an installation of the GIS application and often additional tools and accounts for publishing the visualization, while using web-based mapping software ideally requires no additional software or tools or even accounts. This is especially important when the visualizations are made by non-cartographers who only make visualizations occasionally and lack the needed resources and experience for more complex publishing process \citep{miller_beast_2006}. However, as the web platform is primarily designed for static documents \citep{berners-lee_information_1989,berners-lee_world-wide_1992} instead of dynamic applications \citep{jazayeri_trends_2007}, there are some additional concerns to address when making a complex data visualization on the web.
 
-Data visualization enables the users to obtain insight about data quickly and efficiently \citep{van_wijk_value_2005}. Visualizing geographical data helps users perceive geospatial relationships and patterns. Maps can be used for determining information on distances, directions and areas \citep[chap.~1.1]{kraak_cartography_2011}. Also, using geographical visualizations, it is also possible to organize data spatially and visually, allowing more efficient memorization of data.
+Data visualization enables the users to obtain insight about data quickly and efficiently \citep{van_wijk_value_2005}. An estimated 95 \% of all digital data contains geographical references \citep{perkins_have_2010}. Visualizing this data helps users perceive geospatial relationships and patterns. Additionally, maps can be used for determining information on distances, directions and areas \citep[chap.~1.1]{kraak_cartography_2011}. Also, using geographical visualizations, it is also possible to organize data spatially and visually, allowing more efficient memorization of data.
 
 \section{Problem Statement}
 
@@ -24,12 +24,6 @@ Our objective is to make creating map visualizations for the web more efficient 
 
 In order to find the solution for the problem, it is necessary to study geographical visualizations and software reuse. The process of making geographical visualizations should be studied to ensure that the system enables creating \emph{effective} visualizations. In addition, software reuse should be studied in order to be able to create visualizations \emph{efficiently}. Therefore, we select the following research questions for this thesis:
 
-% \begin{enumerate}
-% 	\item[RQ1] What is an effective geographical visualization? \fixme{Is it ok to answer this mainly with literature?}
-% 	\item[RQ2] Does building a reusable software system enable creating effective geographical visualizations efficiently?
-% \end{enumerate}
-% \fixme{Ensure that these are in line with methodology, implementation etc. Is RQ1 even needed?}
-
 \begin{enumerate}
 	\item[RQ1] Does a reusable software system enable creating geographical visualizations \emph{efficiently}?
 	\item[RQ2] Does a reusable software system enable creating \emph{effective} geographical visualizations?
@@ -38,18 +32,11 @@ In order to find the solution for the problem, it is necessary to study geograph
 
 \section{Approach}
 
-In order to build an efficient system for visualizing geographical data, it is needed to study (a) how to visualize geographical data and (b) how to build reusable software. We begin by first studying the basics of data visualization with an emphasis on geographical data, maps and the visualization process. After visualization, we study the essence of software reuse, focusing on building and evaluating reusable software. Then, we create a reusable visualization system and evaluate its effect on visualization effectiveness and efficiency of the building process. \fixme{Remove this section?}
+In order to build an efficient system for visualizing geographical data, it is needed to study (a) how to visualize geographical data and (b) how to build reusable software. We begin by first studying the basics of data visualization with an emphasis on geographical data, maps and the visualization process. After visualization, we study the essence of software reuse, focusing on building and evaluating reusable software. Then, we create a reusable visualization system and evaluate its effect on visualization effectiveness and efficiency of the building process.
 
 \section{Structure of the Thesis}
 \label{section:structure} 
 
-\fixme{This section is an early draft and will change considerably.} Chapter 1 (this introduction) presents the motivation for this thesis as well as the problem statement. Chapter 2 describes the background of the work. In particular, the chapter describes how to visualize geographical data and the essence of web software reuse. Chapter 3 presents the web technology, standards and other needed material for building a web visualization as well as describing some existing map visualizations.
+Chapter \ref{chapter:intro} (this introduction) presents the motivation for this thesis as well as the problem statement. Chapter \ref{chapter:dataviz} describes the fundamentals of data visualizations with an emphasis on geographic data and thematic mapping. Chapter \ref{chapter:reuse} presents the essence of software reuse, concentrating on success factors and methods for reuse. In chapter \ref{chapter:researchgap}, we discuss the research on the topic of this work, and argue about the need for this research.
 
-In chapter 4, we discuss the methods used to examine the problem and evaluate solutions we will propose. In chapter 5, we describe the methods used to solve the problem. In chapter 6, we evaluate the implementation and its results. \fixme{Chapters 7 and 8 missing. Also, maybe elaborate description about chapters 4-6 a bit}
-
-\fixme{Rewrite. No active passive mixing etc.}
-
-% You should use transition in your text, meaning that you should help
-% the reader follow the thesis outline. Here, you tell what will be in
-% each chapter of your thesis. 
-
+In chapter \ref{chapter:methods}, we present some of the most prominent methods for evaluating software reuse and visualization effectiveness, selecting the most suitable methods for this work. In chapter \ref{chapter:implementation}, we describe the implementation of the tool designed to address the shortcomings presented in chapter \ref{chapter:researchgap}. In chapter \ref{chapter:evaluation}, we evaluate the implementation based on the methods presented in chapter \ref{chapter:methods} and analyze the evaluation results. In chapter \ref{chapter:discussion}, we interpret the evaluation results along with their applicability, shortcomings and generalizability. We also propose topics for further research based on this work. In chapter \ref{chapter:conclusions}, we conclude the findings and other implications of the thesis.
