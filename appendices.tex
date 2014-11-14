@@ -3,26 +3,23 @@
 \chapter{Flat Dot Format}
 \label{appendix:flatdotformat}
 
-Flat dot format is a simple, but non-standard format used by a number of web mapping applications such as the Store Finder of Alko\footnote{\url{http://www.alko.fi/myymalat/}}. Format consists of a JSON file representing an array of zero or more objects. The objects must contain latitude and longitude properties, and may contain a number of other properties. An example of the format is depicted below.
+Flat dot format is a simple, but non-standard format used by a number of web mapping applications such as the Store Finder of Alko\footnote{\url{http://www.alko.fi/myymalat/}}. Format consists of a JSON\footnote{\url{http://www.json.org/}} file representing an array of zero or more objects. The objects must contain latitude and longitude properties, and may contain a number of other properties. An example of the format is depicted below.
 
-\begin{lstlisting}[language=json]
+\begin{lstlisting}[language=JavaScript]
 [
   {
-    "_id": "51b9f04d27eaa49f4a0001cc",
     "number": 2,
     "name": "Destination",
     "latitude": 60.314322,
     "longitude": 24.554067
   },
   {
-    "_id": "51b9f0f3127ceac8db000263",
     "number": 0,
     "name": "Departure",
     "latitude": 60.314041,
     "longitude": 24.551678
   },
   {
-    "_id": "51b9fa600752f83f720003c3",
     "number": 1,
     "name": "Pit stop",
     "latitude": 60.316474,
@@ -33,6 +30,18 @@ Flat dot format is a simple, but non-standard format used by a number of web map
 
 \chapter{ESComplex Results for Visualizations}
 \label{appendix:escomplex}
+
+This appendix contains the full ESComplex\footnote{\url{https://github.com/philbooth/escomplex}} output for evaluated cases in JSON format. The format contains several measurements of which physical and logical lines of code, cyclomatic complexity, Halstead difficulty and Halstead effort were used.
+
+\fixme{this appendix would be 20+ pages long. Is it ok to just provide a link to the full results?}
+
+\section{Thematic.js implementations}
+
+\subsection{Store Map}
+
+% \lstinputlisting[language=JavaScript]{results/dot-thematic.json}
+
+\section{Reference implementations}
 
 \fixme{Add the final results for ESComplex.}
 
