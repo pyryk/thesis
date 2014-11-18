@@ -97,25 +97,17 @@ Choropleth maps are used for visualizing enumerated or areally aggregated data \
 
 To use choropleth mapping, visualizer uses the choropleth mapping module of the application. If the user already has the relevant data in GeoJSON format, nothing else is required. However, if the relevant data is stored separately of the designated area definitions, the user needs to use the \emph{combine} aggregator provided by the application. The aggregator associates the data with the area definition in question and outputs the data in GeoJSON format supported by the mapping module.
 
-\fixme{add screenshot of a choropleth map}
-
 \subsection{Dasymetric Maps}
 
 Dasymetric maps are supported in an approximated fashion: the dasymetric mapping module approximates dasymetric data by using the floating grid method as presented by \citet{langford_generating_1994}. The module is provided the grid of dots in GeoJSON format as data, and the data is used to generate appropriate dasymetric map approximation. The data can also be aggregated and converted using any of the supplied aggregators and converters.
-
-\fixme{add screenshot of a dasymetric map}
 
 \subsection{Isarithmic Maps}
 
 The application provides two isarithmic mapping modules: the Isarithmic module enables approximated isarithmic mapping while the Heatmap module enables heat map visualizations. Heatmap method is more accurate than the approximated isarithmic method, but requires a dot-like data set in order to provide best results. The approximated isarithmic module employs the floating grid method of \citet{langford_generating_1994}. 
 
-\fixme{add screenshot of an isarithmic map}
-
 \subsection{Dot Maps and Proportional Symbol Maps}
 
 The application supports producing dot and proportional symbol maps by providing the Symbol mapping module. With default configuration, the module produces dot maps, but it is possible to provide an option for calculating and using proportional symbol values. For enabling the user to get more information about data points, it is possible to provide the user information bubbles which are activated by clicking the symbol. The module also supports using customized symbols for data points, the default being a simple Leaflet marker.
-
-\fixme{add screenshot of a dot map}
 
 \subsection{Input Formats}
 
