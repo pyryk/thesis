@@ -1,11 +1,146 @@
 %!TEX root = thesis.tex
 
+\chapter{Software Reuse}
+\label{chapter:reuse}
+
+In order to create a reusable software framework for visualization, it is necessary to study software reuse along with different reuse techniques and their characteristics, advantages and disadvantages.
+
+\citet{krueger_software_1992} presents software reuse as a process of reusing existing software code (applications, libraries, functions or single lines) when building new software, while according to \citet{mohagheghi_empirical_2008}, reuse is not restricted to code, but can also refer to other software assets such as design. However, both agree that software reuse combines several different existing pieces of code (and possibly other assets) along with new assets which are specific for the application in question. According to \citet{mcilroy_mass-produced_1969} and \citet{boehm_managing_1999}, it is one of the most effective techniques of reducing the development time and cost of complex software products.
+
+\section{Software Reuse Advantages \& Disadvantages}
+
+When used appropriately, software reuse has several benefits. In their overview of multiple case studies, \citet{mohagheghi_empirical_2008} discovered that in most cases, using reused software components resulted in a considerably lower number of software defects and better productivity. Several of the studies implied that reusing software is also beneficial for software complexity and product time-to-market. However, it should be noted that since the overview only addresses case studies, its results should not be considered universally applicable.
+
+Although reusing software is often said to decrease the effort needed \citep{mcilroy_mass-produced_1969, boehm_managing_1999, mohagheghi_empirical_2008}, concrete evidence for this is difficult to find \citep{mohagheghi_empirical_2008}.
+
+Given its lucrative advantages, software reuse is definitely beneficial for many software systems. However, according to \citet{krueger_software_1992}, software reuse can be problematic and even disadvantageous. Learning to use a specific piece of reusable software often takes considerable effort. Moreover, finding suitable code fragments may also prove to be a challenge. For uncomplicated software systems and especially reusable components, it may not be worth the effort. Therefore, developer needs to carefully consider all sides of reusing when building a software system; according to \citet[chap.~1.3]{krueger_software_1992}, for successful software reuse scenario, the amount of intellectual effort between the concept and implementation of the system must be as low as possible. In practice, this means that the value of the reused component must be as high as possible for the developed system, while the implementation cost (resources needed to take the reusable component into use) should be relatively low. 
+
+\section{Factors for Successful Software Reuse}
+\label{section:successfullreusefactors}
+\citet{frakes_success_1994} present six critical factors for successful software reuse: management, measurement, legal, economics, design for reuse, and libraries. Some of the factors are relevant only for a corporate-level reuse program, but many are critical for smaller scale reuse as well.
+
+Successful reuse requires the \textbf{management} to commit to a long-term, top-down support, because reusing software may require years to pay off the costs. Also, \textbf{measurement} of reuse is vital to reuse software successfully. Both \emph{reuse level} (the ratio of reused software to total software) and \emph{reuse factors} (things affecting the increase of reuse) should be measured.
+
+\textbf{Legal} issues are also important to consider when reusing software. Specifically, the rights and responsibilities of providers and consumers of reusable software should be agreed on. Moreover, using software with conflicting licenses may cause problems.
+
+\textbf{Economics} present a challenge in systematic reuse scenarios. Measuring reuse costs is not straightforward as often costs of creating a reusable component are compensated by benefits in some other project using the component.
+
+In order to \textbf{design for reuse}, a degree of domain knowledge is required. This necessitates the study of the domain when creating a \emph{domain-specific} reusable software. In addition to that, reusable software design requires effort on encapsulation, abstraction and interfaces.
+
+Lastly, reusable software \textbf{libraries} are required to fully benefit from the reusability effort. Libraries enable storing, retrieving and finding the reusable software.
+
+\section{Analyzing Software Reuse}
+According to \citet{krueger_software_1992}, in order to analyze reusing software, the reuse process to be studied should be separated into four \emph{dimensions}. The dimensions are presented below.
+
+~
+
+\paragraph{Abstraction} is the process of making a piece of software more generic, thus making it applicable to a wider range of software projects. Software reuse is almost always based on abstraction, but according to \citet{krueger_software_1992}, raising the abstraction level has proven to be difficult, thus making building reusable software a nontrivial process.
+
+\paragraph{Selection} facilitates finding, comparing and choosing suitable pieces of software. For example, libraries or frameworks aid selection by bundling and structuring the software components.
+
+\paragraph{Specialization} is the process of making the abstracted component more specific, usually by parameterizing the software or making it transformable.
+
+\paragraph{Integration} facilitates providing the software with reusable components, for example with a mechanism to import relevant modules or functions to the software.
+
+\section{Software Reuse Methods}
+
+Software reuse is not a single, uniform procedure or technique. Several different reuse techniques exist to cater different needs. Consequently, different reuse methods excel at different areas. In order to describe the advantages and disadvantages of the methods, we describe the using the reuse dimensions presented in the previous section.
+
+\citet{krueger_software_1992} and \citet{johnson_frameworkscomponents+_1997}, among others, present and analyze software reuse methods. From these, we have selected the most relevant for web environment, presenting those below.
+
+\subsection{High-Level Languages}
+High-level languages denote programming languages which are designed to be on a high abstraction level and thus contain features which are not necessary for a programming language but benefit or speed up the development. Traditional examples of these kind of features are automatic memory allocation \citep{krueger_software_1992} and language constructs such as exceptions \citep{mitchell_concepts_2003}. More modern high-level language features are value type checking systems and abstracted support for parallel operations using futures \citep{totoo_haskell_2012}. It should be noted that the high-levelness of a language is a \emph{relative} property, i.e., it is not possible to determine the requirements for a high-level language per se, only high-levelness of languages compared to other languages. For example, \citet{krueger_software_1992} considers all programming languages above the abstraction level of the assembly language high-level languages, while \citet{carro_high-level_2006} consider e.g., lack of automatic memory management or type system a sign of lower-level language.
+
+High-level languages \emph{abstract} frequently used procedures into seemingly uncomplicated operations, thus reducing the work and cognitive capacity needed for developing the application. \citep[chap.~3]{krueger_software_1992}
+
+As the number of elementary high-level language constructs is usually relatively low it is possible for programmers to master the use of those constructs with sufficiently little effort, rendering \emph{selection} unproblematic. \citep[chap.~3]{krueger_software_1992}
+
+\emph{Specialization} of high-level language features is usually achieved by parameterizing the constructs, either implicitly or explicitly. For example, when instantiating a class in Java, the only parameterization needed for memory management is the actual object instance. However, e.g., exception handling always requires at least the logic needed for handling the exception. \citep[chap.~3]{krueger_software_1992}
+
+\emph{Integration} of high-level language features is automatically done when compiling the software code. However, due to the nature of high-level languages, it is usually not possible to mix-and-match different programming languages easily in the same program. \citep[chap.~3]{krueger_software_1992}
+
+The advantages of high-level languages are mainly related to the decreased need for developing frequently needed procedures manually, such as allocating or deallocating memory, case-by-case. These operations in high-level languages can be mapped into more complex procedures in some lower-level languages, effectively making them reusable software components. In practice, using high-level languages can yield a productivity gain up to 500 \%. \citep[chap.~3]{krueger_software_1992}
+
+The main disadvantage of using high-level languages is the potential decrease in performance. As with any software reuse, high-level programming languages abstract the supported procedures by making them more generic. This often leads to additional complexity and unnecessary operations on the compiled program. However, the decrease can often be minimized by using additional compile-time optimizations. \citep{carro_high-level_2006}
+
+On the web, the technologies used on the client-side are inherently fixed to descendants of HyperText Markup Language (HTML), Cascading Style Sheets (CSS) and JavaScript \citep{world_wide_web_consortium_html5_2014,world_wide_web_consortium_cascading_2011,ecma_ecmascript_2011}. Therefore, web application languages are relatively high-level by definition. However, it is still possible to raise the abstraction level by using e.g., CoffeeScript \citep{ashkenas_coffeescript_2009} instead of JavaScript or LESS \citep{sellier_less_2009} instead of CSS.
+
+\subsection{Design and Code Scavenging}
+
+Design and Code scavenging refers to the technique of scavenging pieces of software \emph{ad hoc} from existing software systems and using the pieces as parts for a new software system  \citep[chap.~4]{krueger_software_1992}. The aim of this technique is to reduce the amount of work needed to build the system. For example, when building an user interface (UI) component for choosing a date, the developer may scavenge the code for a calendar from an older software system.
+
+Scavenging can be done without modifications to the code in the target code base (code scavenging) or by modifying the details of the scavenged code (design scavenging) \citep[chap.~4]{krueger_software_1992}. The \emph{abstraction} gained by scavenging is therefore mostly informal and in some cases even its existence is questionable \citep[chap.~3]{sametinger_software_1997}. Usually, there is no ``hidden part'' of the abstraction but the developer must maintain the functionality of all the code himself \citep[chap.~3]{sametinger_software_1997}.
+
+Usually there is no formal mechanism or support for \emph{selecting} pieces of software to be scavenged. Therefore, the developer must rely on his memory, experience and word-of-mouth in order to find suitable pieces of software. \citep[chap.~3]{sametinger_software_1997}
+
+\emph{Specialization} is done by manually editing the scavenged source code. While it is often the fastest method of acquiring results, this requires the developer to deeply understand the scavenged implementation. It can also lead to fragmentation and maintainability issues in the future. \citep[chap.~4]{krueger_software_1992}
+
+\emph{Integration} of the scavenged code is done by copying and pasting the code to the target source code file. This may lead to namespace collisions between original and scavenged code which may result in the need for refactoring the code. \citep[chap.~4]{krueger_software_1992}
+
+The main advantages of design and code scavenging are the ability to quickly include existing functionality to new software systems \citep[chap.~4]{krueger_software_1992}. As it is usually not needed to prepare the code to be scavenged before scavenging it, the extent of possible pieces of software is often significantly larger than when using any other reuse method. 
+
+However, finding suitable pieces of software for scavenging is hard. Moreover, scavenging pieces of software often does not decrease the \emph{cognitive distance} between the target and implementation of the system. It may also create issues with maintainability of the software. \citep[chap.~4]{krueger_software_1992}
+
+\subsection{Source Code Components}
+
+Using source code components is a type of reuse that chooses and uses software components from a component repository \citep[chap.~3]{sametinger_software_1997}. Software component can be any piece of code, but in practice, components usually consist of one or more functions, modules or classes \citep[chap.~3]{sametinger_software_1997}. An example of a source code component is a trigonometry module which contains functions for sine, cosine and tangent calculations. When a developer needs to calculate sines in her program, she searches a component repository for trigonometry components and utilizes the component found in her own program \citep[chap.~5]{krueger_software_1992}.
+
+Ideally, source code components \emph{abstract} the implementation details of the component inside. This means that the required cognitive distance between the concept and the implementation of the software system is lower when using source code components instead of e.g., code scavenging. 
+
+In order to be \emph{selectable}, source code components should be accompanied by abstract names (function names) and descriptions of the functionality provided \citep[chap.~5]{krueger_software_1992}. The names should describe \emph{what} the components does instead of \emph{how} it does it \citep[chap.~5]{krueger_software_1992}. These names can then be used for reasoning about the purpose of the component and finding the component in source code component repositories -- in order to use the component, the developer must be able to find it and to know what it does \citep[chap.~5]{krueger_software_1992}.
+
+Source code components can be \emph{specialized} by modifying the source code \citet[chap.~5]{krueger_software_1992}. However, as this technique yields unwanted consequences explained in the previous section, many components support specialization by parameterization. For example, the programmer could provide the sine function the angle in question. Additionally, when integrating the trigonometry module to her software system, the programmer could specify if the functions should use degrees or radians. In some components, specialization can also be achieved via subclassing \citep[chap.~5]{krueger_software_1992}.
+
+All modern programming languages support \emph{integration} of reusable source code components written in the same language. Usually, the procedure is a very simple addition of source code files, which requires little to no effort on the programmer side. However, all source code components can't be used in the same program due to conflicts e.g., in naming and value types \citep[chap.~5]{krueger_software_1992}.
+
+The main advantages of using source code components are the abstraction provided and organized nature of the component repositories. Ideally, the repositories provide a search functionality so that even developers with no previous experience on the component domain can find the components needed. Moreover, the abstraction level and the hiding of implementation details decreases the cognitive distance between the concept and the implementation of the system and reduce the source code needed to be written.
+
+The main disadvantages of the source code components lie in the fact that the functionality must be deliberately designed to support reuse. The abstraction of the components is a major challenge \citep[chap.~5]{krueger_software_1992} in designing source code components. Additionally, the component repositories need administration and maintenance.
+
+\subsection{Software Schemas}
+
+\fixme{Add similarly structured content as in the previous subsubsection. Or maybe drop?}
+
+\subsection{Application Generators}
+
+Application generators are usually domain-specific generators which take very high level instructions (specifications) as input and then output significantly lower level software code (implementation) \citep[chap.~7]{cleaveland_building_1988,krueger_software_1992}. On fundamental level, application generators differ from high-level language compilers mainly by being designed to work on a narrow domain and thus being able to support considerably higher-level instructions \citep[chap.~7]{krueger_software_1992}. Unlike source code components, the reused components generated by application generators are usually not encapsulated or separated \citep[chap.~3]{sametinger_software_1997}.
+
+Application generators \emph{abstract} the concept or specification of the software system, hiding the actual implementation completely from the user of the generator \citep{cleaveland_building_1988}. However, in some cases it may be necessary to modify the output of the generator which essentially removes the abstraction.
+
+In principle, \emph{selecting} application generations is moderately easy since the abstraction level of application generators is usually very high, rendering reasoning about the purpose of the generator fairly easy \citep[chap.~7]{krueger_software_1992}. However, since application generators are usually suited for a very narrow domain, it is usually difficult to find a suitable generator \citep[chap.~7]{krueger_software_1992}.
+
+Typically, software systems generated with application generators consist of variant and invariant parts \citep[chap.~7]{krueger_software_1992}. Invariant part is the part of the program which the developer using the generator can't modify. The developer \emph{specializes} the program by modifying the variant part. There are several methods of modifying the variant part. One of the simplest may be straightforward parameterization: the developer chooses the parameters of the system from a predefined set of alternatives. This method makes using the generation extraordinarily easy. However, it also limits the resulting application considerably.
+
+On the other end of the spectrum, the application generator may require the variant parts to be inputted using a domain-specific or generic-purpose programming language. This makes the application generator incredibly versatile, but requires both more domain-specific and programming knowledge.
+
+Typically, application generators generate complete applications which do not require further \emph{integration} \citep[chap.~7]{krueger_software_1992}. However, occasionally, the resulting applications are not independent per se, but require integration to other systems. This may be an issue since often it is not possible to select the integration interfaces freely, but to use the ones provided by the generator.
+
+One of the main advantages of the application generators is the abstraction they provide. In some cases, the application generators may even require no programming language knowledge as long as the user has relevant domain-specific knowledge \citep{horowitz_survey_1985}. Moreover, application generators excel when there is a need for building multiple similar applications \citep[chap.~7]{krueger_software_1992}. 
+
+However, application generators require an unambiguous mapping between the specifications and implementation details \citep[chap.~7]{krueger_software_1992}. Moreover, building application generators requires a reliable, generic implementation and user interfaces for developers \citep{cleaveland_building_1988}. Therefore, building application generators requires comprehensive domain-specific knowledge in addition to extensive software development expertise.
+
+\subsection{Design Patterns}
+
+\fixme{Add similarly structured content as in the previous subsubsection}
+
+\subsection{Software Frameworks}
+
+Software frameworks are a reuse technique which combines the use of software components and programming patterns \citep{johnson_frameworkscomponents+_1997}. Therefore, it can be argued that software frameworks enable creating reusable software design. Another definition of software frameworks is a collection of consolidated components, i.e., components which share the design, interfaces, and, to some degree, implementations \citep{johnson_frameworkscomponents+_1997}. It should also be noted that software frameworks are typically strictly object-oriented reuse technique \citep{johnson_frameworkscomponents+_1997}.
+
+Largely, software frameworks \emph{abstract} the implementation details the same way that components do, i.e., providing a higher-level interface for the low-level operations. In addition to that, frameworks abstract software \emph{design patterns} used to provide a more complete architecture and functionality.
+
+\emph{Selection} of frameworks can be regarded as straightforward, since typically, the number of applicable frameworks is considerably smaller than, e.g., the number of applicable source code components. However, as frameworks are by definition more complex than single software components \citep{johnson_frameworkscomponents+_1997}, selecting the right framework of a purpose may be considerably more difficult \citep{fayad_enterprise_2000}.
+
+\emph{Specializing} frameworks is greatly dependent on the purpose and design of the framework. As some frameworks are designed as domain-specific \citep{johnson_frameworkscomponents+_1997}, it is typically not needed to specialize the system extensively. According to \citet{brugali_framework_1997}, frameworks are usually specialized in an object-oriented fashion: using parameters and subclasses to fine-tune functionality \citep{brugali_framework_1997}.
+
+Typically, software frameworks are \emph{integrated} to other frameworks and to larger software systems. However, as frameworks are generally designed for adaptation instead of integration \citep{mattsson_framework_1999}, this leads to integration problems. \citet{mattsson_framework_1999} describe several framework integration problems, e.g., architecture, design and pattern mismatches. Nonetheless, most of the problems can be overcome by using a number of solutions, such as separating the concerns cleanly and wrapping the functionality to compliant components \citep{mattsson_framework_1999}.
+
+One of the main advantages of frameworks is that they enable a complete, potentially opinionated approach for reusing software while preserving the possibility for customization \citep{johnson_frameworkscomponents+_1997}. The main disadvantages of using software frameworks consist of occasional steep learning curve and challenges in integration \citep{fayad_object-oriented_1997}.
+
 \chapter{Data Visualization}
 \label{chapter:dataviz}
 
-\fixme{Reorder data viz and reuse so that the order is consistent in thesis}
-
-\fixme{add intro}
+In this chapter, we define data visualizations and present several principles for successful data visualization. We also describe processes and methods for visualizing geographical data along with some guidelines for assessing the quality of geovisualizations.
 
 \section{Definition}
 
@@ -247,143 +382,6 @@ The Surface Illusion & Creating an illusion of surface on the map. This can be a
 
 
 The objectives above are important when visualizing geographical data on a map. Therefore, it is needed to take those into account when creating a visualization tool in order to enable or even encourage the visualizers to reach as many of the objectives as possible.
-
-\chapter{Software Reuse}
-\label{chapter:reuse}
-
-In order to create a reusable software framework for visualization, it is necessary to study software reuse along with different reuse techniques and their characteristics, advantages and disadvantages.
-
-\citet{krueger_software_1992} presents software reuse as a process of reusing existing software code (applications, libraries, functions or single lines) when building new software, while according to \citet{mohagheghi_empirical_2008}, reuse is not restricted to code, but can also refer to other software assets such as design. However, both agree that software reuse combines several different existing pieces of code (and possibly other assets) along with new assets which are specific for the application in question. According to \citet{mcilroy_mass-produced_1969} and \citet{boehm_managing_1999}, it is one of the most effective techniques of reducing the development time and cost of complex software products.
-
-\section{Software Reuse Advantages \& Disadvantages}
-
-When used appropriately, software reuse has several benefits. In their overview of multiple case studies, \citet{mohagheghi_empirical_2008} discovered that in most cases, using reused software components resulted in a considerably lower number of software defects and better productivity. Several of the studies implied that reusing software is also beneficial for software complexity and product time-to-market. However, it should be noted that since the overview only addresses case studies, its results should not be considered universally applicable.
-
-Although reusing software is often said to decrease the effort needed \citep{mcilroy_mass-produced_1969, boehm_managing_1999, mohagheghi_empirical_2008}, concrete evidence for this is difficult to find \citep{mohagheghi_empirical_2008}.
-
-Given its lucrative advantages, software reuse is definitely beneficial for many software systems. However, according to \citet{krueger_software_1992}, software reuse can be problematic and even disadvantageous. Learning to use a specific piece of reusable software often takes considerable effort. Moreover, finding suitable code fragments may also prove to be a challenge. For uncomplicated software systems and especially reusable components, it may not be worth the effort. Therefore, developer needs to carefully consider all sides of reusing when building a software system; according to \citet[chap.~1.3]{krueger_software_1992}, for successful software reuse scenario, the amount of intellectual effort between the concept and implementation of the system must be as low as possible. In practice, this means that the value of the reused component must be as high as possible for the developed system, while the implementation cost (resources needed to take the reusable component into use) should be relatively low. 
-
-\section{Factors for Successful Software Reuse}
-\label{section:successfullreusefactors}
-\citet{frakes_success_1994} present six critical factors for successful software reuse: management, measurement, legal, economics, design for reuse, and libraries. Some of the factors are relevant only for a corporate-level reuse program, but many are critical for smaller scale reuse as well.
-
-Successful reuse requires the \textbf{management} to commit to a long-term, top-down support, because reusing software may require years to pay off the costs. Also, \textbf{measurement} of reuse is vital to reuse software successfully. Both \emph{reuse level} (the ratio of reused software to total software) and \emph{reuse factors} (things affecting the increase of reuse) should be measured.
-
-\textbf{Legal} issues are also important to consider when reusing software. Specifically, the rights and responsibilities of providers and consumers of reusable software should be agreed on. Moreover, using software with conflicting licenses may cause problems.
-
-\textbf{Economics} present a challenge in systematic reuse scenarios. Measuring reuse costs is not straightforward as often costs of creating a reusable component are compensated by benefits in some other project using the component.
-
-In order to \textbf{design for reuse}, a degree of domain knowledge is required. This necessitates the study of the domain when creating a \emph{domain-specific} reusable software. In addition to that, reusable software design requires effort on encapsulation, abstraction and interfaces.
-
-Lastly, reusable software \textbf{libraries} are required to fully benefit from the reusability effort. Libraries enable storing, retrieving and finding the reusable software.
-
-\section{Analyzing Software Reuse}
-According to \citet{krueger_software_1992}, in order to analyze reusing software, the reuse process to be studied should be separated into four \emph{dimensions}. The dimensions are presented below.
-
-~
-
-\paragraph{Abstraction} is the process of making a piece of software more generic, thus making it applicable to a wider range of software projects. Software reuse is almost always based on abstraction, but according to \citet{krueger_software_1992}, raising the abstraction level has proven to be difficult, thus making building reusable software a nontrivial process.
-
-\paragraph{Selection} facilitates finding, comparing and choosing suitable pieces of software. For example, libraries or frameworks aid selection by bundling and structuring the software components.
-
-\paragraph{Specialization} is the process of making the abstracted component more specific, usually by parameterizing the software or making it transformable.
-
-\paragraph{Integration} facilitates providing the software with reusable components, for example with a mechanism to import relevant modules or functions to the software.
-
-\section{Software Reuse Methods}
-
-Software reuse is not a single, uniform procedure or technique. Several different reuse techniques exist to cater different needs. Consequently, different reuse methods excel at different areas. In order to describe the advantages and disadvantages of the methods, we describe the using the reuse dimensions presented in the previous section.
-
-\citet{krueger_software_1992} and \citet{johnson_frameworkscomponents+_1997}, among others, present and analyze software reuse methods. From these, we have selected the most relevant for web environment, presenting those below.
-
-\subsection{High-Level Languages}
-High-level languages denote programming languages which are designed to be on a high abstraction level and thus contain features which are not necessary for a programming language but benefit or speed up the development. Traditional examples of these kind of features are automatic memory allocation \citep{krueger_software_1992} and language constructs such as exceptions \citep{mitchell_concepts_2003}. More modern high-level language features are value type checking systems and abstracted support for parallel operations using futures \citep{totoo_haskell_2012}. It should be noted that the high-levelness of a language is a \emph{relative} property, i.e., it is not possible to determine the requirements for a high-level language per se, only high-levelness of languages compared to other languages. For example, \citet{krueger_software_1992} considers all programming languages above the abstraction level of the assembly language high-level languages, while \citet{carro_high-level_2006} consider e.g., lack of automatic memory management or type system a sign of lower-level language.
-
-High-level languages \emph{abstract} frequently used procedures into seemingly uncomplicated operations, thus reducing the work and cognitive capacity needed for developing the application. \citep[chap.~3]{krueger_software_1992}
-
-As the number of elementary high-level language constructs is usually relatively low it is possible for programmers to master the use of those constructs with sufficiently little effort, rendering \emph{selection} unproblematic. \citep[chap.~3]{krueger_software_1992}
-
-\emph{Specialization} of high-level language features is usually achieved by parameterizing the constructs, either implicitly or explicitly. For example, when instantiating a class in Java, the only parameterization needed for memory management is the actual object instance. However, e.g., exception handling always requires at least the logic needed for handling the exception. \citep[chap.~3]{krueger_software_1992}
-
-\emph{Integration} of high-level language features is automatically done when compiling the software code. However, due to the nature of high-level languages, it is usually not possible to mix-and-match different programming languages easily in the same program. \citep[chap.~3]{krueger_software_1992}
-
-The advantages of high-level languages are mainly related to the decreased need for developing frequently needed procedures manually, such as allocating or deallocating memory, case-by-case. These operations in high-level languages can be mapped into more complex procedures in some lower-level languages, effectively making them reusable software components. In practice, using high-level languages can yield a productivity gain up to 500 \%. \citep[chap.~3]{krueger_software_1992}
-
-The main disadvantage of using high-level languages is the potential decrease in performance. As with any software reuse, high-level programming languages abstract the supported procedures by making them more generic. This often leads to additional complexity and unnecessary operations on the compiled program. However, the decrease can often be minimized by using additional compile-time optimizations. \citep{carro_high-level_2006}
-
-On the web, the technologies used on the client-side are inherently fixed to descendants of HyperText Markup Language (HTML), Cascading Style Sheets (CSS) and JavaScript \citep{world_wide_web_consortium_html5_2014,world_wide_web_consortium_cascading_2011,ecma_ecmascript_2011}. Therefore, web application languages are relatively high-level by definition. However, it is still possible to raise the abstraction level by using e.g., CoffeeScript \citep{ashkenas_coffeescript_2009} instead of JavaScript or LESS \citep{sellier_less_2009} instead of CSS.
-
-\subsection{Design and Code Scavenging}
-
-Design and Code scavenging refers to the technique of scavenging pieces of software \emph{ad hoc} from existing software systems and using the pieces as parts for a new software system  \citep[chap.~4]{krueger_software_1992}. The aim of this technique is to reduce the amount of work needed to build the system. For example, when building an user interface (UI) component for choosing a date, the developer may scavenge the code for a calendar from an older software system.
-
-Scavenging can be done without modifications to the code in the target code base (code scavenging) or by modifying the details of the scavenged code (design scavenging) \citep[chap.~4]{krueger_software_1992}. The \emph{abstraction} gained by scavenging is therefore mostly informal and in some cases even its existence is questionable \citep[chap.~3]{sametinger_software_1997}. Usually, there is no ``hidden part'' of the abstraction but the developer must maintain the functionality of all the code himself \citep[chap.~3]{sametinger_software_1997}.
-
-Usually there is no formal mechanism or support for \emph{selecting} pieces of software to be scavenged. Therefore, the developer must rely on his memory, experience and word-of-mouth in order to find suitable pieces of software. \citep[chap.~3]{sametinger_software_1997}
-
-\emph{Specialization} is done by manually editing the scavenged source code. While it is often the fastest method of acquiring results, this requires the developer to deeply understand the scavenged implementation. It can also lead to fragmentation and maintainability issues in the future. \citep[chap.~4]{krueger_software_1992}
-
-\emph{Integration} of the scavenged code is done by copying and pasting the code to the target source code file. This may lead to namespace collisions between original and scavenged code which may result in the need for refactoring the code. \citep[chap.~4]{krueger_software_1992}
-
-The main advantages of design and code scavenging are the ability to quickly include existing functionality to new software systems \citep[chap.~4]{krueger_software_1992}. As it is usually not needed to prepare the code to be scavenged before scavenging it, the extent of possible pieces of software is often significantly larger than when using any other reuse method. 
-
-However, finding suitable pieces of software for scavenging is hard. Moreover, scavenging pieces of software often does not decrease the \emph{cognitive distance} between the target and implementation of the system. It may also create issues with maintainability of the software. \citep[chap.~4]{krueger_software_1992}
-
-\subsection{Source Code Components}
-
-Using source code components is a type of reuse that chooses and uses software components from a component repository \citep[chap.~3]{sametinger_software_1997}. Software component can be any piece of code, but in practice, components usually consist of one or more functions, modules or classes \citep[chap.~3]{sametinger_software_1997}. An example of a source code component is a trigonometry module which contains functions for sine, cosine and tangent calculations. When a developer needs to calculate sines in her program, she searches a component repository for trigonometry components and utilizes the component found in her own program \citep[chap.~5]{krueger_software_1992}.
-
-Ideally, source code components \emph{abstract} the implementation details of the component inside. This means that the required cognitive distance between the concept and the implementation of the software system is lower when using source code components instead of e.g., code scavenging. 
-
-In order to be \emph{selectable}, source code components should be accompanied by abstract names (function names) and descriptions of the functionality provided \citep[chap.~5]{krueger_software_1992}. The names should describe \emph{what} the components does instead of \emph{how} it does it \citep[chap.~5]{krueger_software_1992}. These names can then be used for reasoning about the purpose of the component and finding the component in source code component repositories -- in order to use the component, the developer must be able to find it and to know what it does \citep[chap.~5]{krueger_software_1992}.
-
-Source code components can be \emph{specialized} by modifying the source code \citet[chap.~5]{krueger_software_1992}. However, as this technique yields unwanted consequences explained in the previous section, many components support specialization by parameterization. For example, the programmer could provide the sine function the angle in question. Additionally, when integrating the trigonometry module to her software system, the programmer could specify if the functions should use degrees or radians. In some components, specialization can also be achieved via subclassing \citep[chap.~5]{krueger_software_1992}.
-
-All modern programming languages support \emph{integration} of reusable source code components written in the same language. Usually, the procedure is a very simple addition of source code files, which requires little to no effort on the programmer side. However, all source code components can't be used in the same program due to conflicts e.g., in naming and value types \citep[chap.~5]{krueger_software_1992}.
-
-The main advantages of using source code components are the abstraction provided and organized nature of the component repositories. Ideally, the repositories provide a search functionality so that even developers with no previous experience on the component domain can find the components needed. Moreover, the abstraction level and the hiding of implementation details decreases the cognitive distance between the concept and the implementation of the system and reduce the source code needed to be written.
-
-The main disadvantages of the source code components lie in the fact that the functionality must be deliberately designed to support reuse. The abstraction of the components is a major challenge \citep[chap.~5]{krueger_software_1992} in designing source code components. Additionally, the component repositories need administration and maintenance.
-
-\subsection{Software Schemas}
-
-\fixme{Add similarly structured content as in the previous subsubsection. Or maybe drop?}
-
-\subsection{Application Generators}
-
-Application generators are usually domain-specific generators which take very high level instructions (specifications) as input and then output significantly lower level software code (implementation) \citep[chap.~7]{cleaveland_building_1988,krueger_software_1992}. On fundamental level, application generators differ from high-level language compilers mainly by being designed to work on a narrow domain and thus being able to support considerably higher-level instructions \citep[chap.~7]{krueger_software_1992}. Unlike source code components, the reused components generated by application generators are usually not encapsulated or separated \citep[chap.~3]{sametinger_software_1997}.
-
-Application generators \emph{abstract} the concept or specification of the software system, hiding the actual implementation completely from the user of the generator \citep{cleaveland_building_1988}. However, in some cases it may be necessary to modify the output of the generator which essentially removes the abstraction.
-
-In principle, \emph{selecting} application generations is moderately easy since the abstraction level of application generators is usually very high, rendering reasoning about the purpose of the generator fairly easy \citep[chap.~7]{krueger_software_1992}. However, since application generators are usually suited for a very narrow domain, it is usually difficult to find a suitable generator \citep[chap.~7]{krueger_software_1992}.
-
-Typically, software systems generated with application generators consist of variant and invariant parts \citep[chap.~7]{krueger_software_1992}. Invariant part is the part of the program which the developer using the generator can't modify. The developer \emph{specializes} the program by modifying the variant part. There are several methods of modifying the variant part. One of the simplest may be straightforward parameterization: the developer chooses the parameters of the system from a predefined set of alternatives. This method makes using the generation extraordinarily easy. However, it also limits the resulting application considerably.
-
-On the other end of the spectrum, the application generator may require the variant parts to be inputted using a domain-specific or generic-purpose programming language. This makes the application generator incredibly versatile, but requires both more domain-specific and programming knowledge.
-
-Typically, application generators generate complete applications which do not require further \emph{integration} \citep[chap.~7]{krueger_software_1992}. However, occasionally, the resulting applications are not independent per se, but require integration to other systems. This may be an issue since often it is not possible to select the integration interfaces freely, but to use the ones provided by the generator.
-
-One of the main advantages of the application generators is the abstraction they provide. In some cases, the application generators may even require no programming language knowledge as long as the user has relevant domain-specific knowledge \citep{horowitz_survey_1985}. Moreover, application generators excel when there is a need for building multiple similar applications \citep[chap.~7]{krueger_software_1992}. 
-
-However, application generators require an unambiguous mapping between the specifications and implementation details \citep[chap.~7]{krueger_software_1992}. Moreover, building application generators requires a reliable, generic implementation and user interfaces for developers \citep{cleaveland_building_1988}. Therefore, building application generators requires comprehensive domain-specific knowledge in addition to extensive software development expertise.
-
-\subsection{Design Patterns}
-
-\fixme{Add similarly structured content as in the previous subsubsection}
-
-\subsection{Software Frameworks}
-
-Software frameworks are a reuse technique which combines the use of software components and programming patterns \citep{johnson_frameworkscomponents+_1997}. Therefore, it can be argued that software frameworks enable creating reusable software design. Another definition of software frameworks is a collection of consolidated components, i.e., components which share the design, interfaces, and, to some degree, implementations \citep{johnson_frameworkscomponents+_1997}. It should also be noted that software frameworks are typically strictly object-oriented reuse technique \citep{johnson_frameworkscomponents+_1997}.
-
-Largely, software frameworks \emph{abstract} the implementation details the same way that components do, i.e., providing a higher-level interface for the low-level operations. In addition to that, frameworks abstract software \emph{design patterns} used to provide a more complete architecture and functionality.
-
-\emph{Selection} of frameworks can be regarded as straightforward, since typically, the number of applicable frameworks is considerably smaller than, e.g., the number of applicable source code components. However, as frameworks are by definition more complex than single software components \citep{johnson_frameworkscomponents+_1997}, selecting the right framework of a purpose may be considerably more difficult \citep{fayad_enterprise_2000}.
-
-\emph{Specializing} frameworks is greatly dependent on the purpose and design of the framework. As some frameworks are designed as domain-specific \citep{johnson_frameworkscomponents+_1997}, it is typically not needed to specialize the system extensively. According to \citet{brugali_framework_1997}, frameworks are usually specialized in an object-oriented fashion: using parameters and subclasses to fine-tune functionality \citep{brugali_framework_1997}.
-
-Typically, software frameworks are \emph{integrated} to other frameworks and to larger software systems. However, as frameworks are generally designed for adaptation instead of integration \citep{mattsson_framework_1999}, this leads to integration problems. \citet{mattsson_framework_1999} describe several framework integration problems, e.g., architecture, design and pattern mismatches. Nonetheless, most of the problems can be overcome by using a number of solutions, such as separating the concerns cleanly and wrapping the functionality to compliant components \citep{mattsson_framework_1999}.
-
-One of the main advantages of frameworks is that they enable a complete, potentially opinionated approach for reusing software while preserving the possibility for customization \citep{johnson_frameworkscomponents+_1997}. The main disadvantages of using software frameworks consist of occasional steep learning curve and challenges in integration \citep{fayad_object-oriented_1997}.
 
 \chapter{Reuse in Data Visualization}
 \label{chapter:reuseinvisualization}
