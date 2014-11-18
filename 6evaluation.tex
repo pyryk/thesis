@@ -3,7 +3,7 @@
 \chapter{Evaluation}
 \label{chapter:evaluation}
 
-In this chapter, we describe the evaluation of the tool built. The evaluation is performed by using two separate methods: we evaluate the efficiency of development process with the software effort and complexity metrics presented in chapter \ref{chapter:methods}, and visualization effectiveness with heuristics by \citet{zuk_heuristics_2006} complemented by mapping objectives by \citet{schlichtmann_visualization_2002} presented in chapter \ref{section:visualizationprinciples}. As the first of the methods requires a baseline project, we decided to implement a number of sister projects as defined by \citet{kitchenham_evaluating_1998}. In this chapter, the visualizations built during sister projects are referred to with the term ``reference visualization'' while the visualizations built with Thematic.js are referred to with ``Thematic.js visualization''. \fixme{Are these terms clear enough?}
+In this chapter, we describe the evaluation of the tool built. The evaluation is performed by using two separate methods: we evaluate the efficiency of development process with the software effort and complexity metrics presented in chapter \ref{chapter:methods}, and visualization effectiveness with heuristics by \citet{zuk_heuristics_2006} complemented by mapping objectives by \citet{schlichtmann_visualization_2002} presented in chapter \ref{section:visualizationprinciples}. As the first of the methods requires a baseline project, we decided to implement a number of sister projects as defined by \citet{kitchenham_evaluating_1998}. In this chapter, the visualizations built during sister projects are referred to with the term ``reference visualization'' while the visualizations built with Thematic.js are referred to with ``Thematic.js visualization''.
 
 \section{Defining the Evaluated Cases}
 \label{section:evaluatedcases}
@@ -17,7 +17,7 @@ Alko provides an unsupported representational state transfer (REST) API\footnote
 Earthquakes have two fundamental data axes: location and magnitude. Therefore, earthquakes are best visualized using a proportional symbol map with the size of the symbol representing magnitude. United States Geological Survey provides historical earthquake data\footnote{\url{http://earthquake.usgs.gov/earthquakes/search/}}, and we decided to visualize earthquakes in the state of California since January 1, 1900. The data is available in a Comma-Separated Values (CSV) format which is can be trivially transformed to ``flat dot'' JSON format. This case is later referred to as ``earthquake map''.
 
 \paragraph{Circulation of the Biggest Finnish Newspapers}
-\fixme{Describe this}
+\fixme{Describe this, or if did not get the data, drop altogether.}
 
 \paragraph{Voter Turnout in Finnish Presidential Election of 2012}
 The Finnish Ministry of Interior provides regional voter turnout data of the presidential election of 2012\footnote{\url{http://tulospalvelu.vaalit.fi/TP2012K2/s/aanaktiivisuus/aanestys1.htm}}. This data is provided in electoral district and municipality level. We decided to visualize the turnout in municipality level, using municipality data by the Finnish Land Survey\footnote{\url{http://www.maanmittauslaitos.fi/en/opendata}}. The municipality data is provided in GeoJSON format by Teemu Tiilikainen\footnote{\url{https://github.com/varmais/maakunnat}}. These data can be combined to create an effective choropleth visualization of regional turnout. The data should be normalized in quantized fashion, i.e., using thresholds to create a discrete color range. This case is later referred to as ``election map''.
@@ -41,16 +41,14 @@ In order to better model typical real-life use cases, and to be usable on the we
 
 We implemented seven separate sister project visualizations with no visualization library to compare to visualization cases as defined in the previous section. The functionality of the visualizations was designed to reflect the functionality of the evaluated visualizations as accurately as possible. Sister visualizations were implemented using HTML, CSS and JavaScript to enable straightforward comparison to the evaluated visualization cases. While we did not use any visualization library for the sister projects, we deemed using a generic mapping library such as Leaflet.js appropriate, because typically, creating map visualizations is not feasible without using one. Moreover, also Thematic.js uses Leaflet.js as a mapping library.
 
-In order to better reflect the actual situations involving building visualizations, the sister projects were implemented in \emph{ad hoc} fashion, meaning that the design or architecture of the applications were not planned extensively beforehand. Also, no reuse of any form between visualizations was planned. However, during implementation, some design and code scavenging was done in order to speed up the development process. \fixme{The sister project code can be found in ...}
+In order to better reflect the actual situations involving building visualizations, the sister projects were implemented in \emph{ad hoc} fashion, meaning that the design or architecture of the applications were not planned extensively beforehand. Also, no reuse of any form between visualizations was planned. However, during implementation, some design and code scavenging was done in order to speed up the development process. The sister project code can be found in \url{https://github.com/pyryk/thesis-reference-implementations}
 
 \section{Evaluating Efficiency of Development}
 \label{section:evaluatingefficiency}
 
-We evaluated the efficiency of development by several metrics: software code length (number of physical (LOC) and logical (LLOC) lines of code), cyclomatic complexity (CC), Halstead difficulty (HD) and Halstead effort (HE). For measurements, we used ESComplex\footnote{\url{https://github.com/philbooth/escomplex}} for analyzing JavaScript programs. \fixme{What about HTML and CSS? Any way to measure these? Or is the effort for these considered equal in sister projects?}
+We evaluated the efficiency of development by several metrics: software code length (number of physical (LOC) and logical (LLOC) lines of code), cyclomatic complexity (CC), Halstead difficulty (HD) and Halstead effort (HE). For measurements, we used ESComplex\footnote{\url{https://github.com/philbooth/escomplex}} for analyzing JavaScript programs. As the visualizations are implemented as single-page applications, the majority of the functionality lies within JavaScript, with only little HTML code and CSS definitions. Therefore, we decided to exclude HTML and CSS from the evaluation.
 
 We began the evaluation by measuring the aforementioned metrics for the visualizations. It should be noted that for these measurements, we did not include code from Thematic.js or other third party libraries. The measurements are shown in table \ref{table:efficiencymetrics}.
-
-~
 
 \LTcapwidth=\textwidth
 \begin{longtable}{|l|c|c|c|c|c|}
@@ -78,21 +76,19 @@ According to the results, using Thematic.js yields significantly lower complexit
 
 However, it is likely that the results do not describe the most typical real-life scenarios completely accurately. It can be assumed that typically, visualizers do not possess knowledge of Thematic.js functionality beforehand and therefore effort for each line of code is considerably higher than when building the visualization from the ground up. In the results, this is reflected in rather high values for relative difficulty for Thematic.js visualizations as seen in figure \ref{fig:evaluationchart}.
 
-\fixme{Qualitative analysis - don't repeat yourself etc.}
-
 \begin{figure}[htbp]
   \begin{center}
     \includegraphics[width=\textwidth]{images/evaluation-results.png}
-    \caption{Thematic.js visualization metrics for each case in relation to a corresponding reference visualization. \fixme{Is this the correct way of saying ``metric value in Thematic.js visualization / metric value in reference visualization''?} \fixme{Polish the chart}}
+    \caption{Thematic.js visualization metrics for each case in relation to a corresponding reference visualization. \fixme{Is this the correct way of saying ``value in Thematic.js visualization / value in reference visualization''?}}
     \label{fig:evaluationchart}
   \end{center}
 \end{figure}
 
 Figure \ref{fig:evaluationchart} displays the ratio of Thematic.js visualization metrics for each visualization case to reference visualizations. The resulting metrics provide a good overview of the effort needed for Thematic.js visualizations compared to the using no visualization library.
 
-Surprisingly, according to the results, using Thematic.js yields relatively high benefits for all metrics for the dot map visualization (store map). The reason for this may be that, even though dot map is an inherently simple visualization method, e.g., error handling and marker clustering support add complexity to the reference implementation. Moreover, as the Thematic.js visualization implementation for dot map visualization consists of only 12 lines of relatively simple code, the boilerplate code needed in the reference implementation causes the relative metrics to be notably low.
+Perhaps surprisingly, according to the results, using Thematic.js yields relatively high benefits for all metrics for the dot map visualization (store map). The reason for this may be that, even though dot map is an inherently simple visualization method, e.g., error handling and marker clustering support add complexity to the reference implementation. Moreover, as the Thematic.js visualization implementation for dot map visualization consists of only 12 lines of relatively simple code, the boilerplate code needed in the reference implementation causes the relative metrics to be notably low.
 
-Relative metrics of proportional symbol (earthquake) map are approximately similar to the metrics of dot map. However, as the proportional symbol map is missing clustering support but involves symbol scaling functionality which is also needed in the Thematic.js implementation, the relative metrics are slightly more favorable to the reference implementation than in the dot map case. Nevertheless, also in proportional symbol case, using Thematic.js yields significant benefits compared to using no visualization framework, with Halstead effort measurement in Thematic.js implementation being under 10 \% of the corresponding measurement in the reference implementation.
+Relative metrics of proportional symbol (earthquake) map are approximately similar to the metrics of dot map. However, as the proportional symbol map is missing clustering support but involves symbol scaling functionality which is also needed in the Thematic.js implementation, the relative metrics are slightly more favorable to the reference implementation than in the dot map case. Nevertheless, also in the proportional symbol case, using Thematic.js yields significant benefits compared to using no visualization framework, with Halstead effort measurement in Thematic.js implementation being under 10 \% of the corresponding measurement in the reference implementation.
 
 \fixme{Add newspaper map}
 
@@ -100,7 +96,7 @@ Election map case yields the least benefits of all the evaluated cases, with Hal
 
 In the education map case, using Thematic.js yields slightly greater benefits than in the election map. Like the election map, the education map uses choropleth mapping technique for visualization. However, the data in this case is already combined in GeoJSON format, so no manual combining is required. In both Thematic.js and reference implementations, an external coloring functionality is used, which reduces the size of the code bases. Especially the use of external coloring functionality reduces the Thematic.js relative complexity considerably, which leads to the more significant gains when using the library than in the election map case.
 
-Both travel time maps yield highly similar results in measurements. This is likely due to the fact that both maps use isarithmic mapping method with relatively similar data, the only difference being the need for combining several data sources in the complex case. The data combining likely results in slightly lower values in Halstead difficulty and effort. However, in these cases, the Halstead effort metric is notably low, indicating that the effort for visualizing with Thematic.js taking only 5 \% of the effort of the reference implementation. This is probably due to the fact that even approximated isarithmic visualization requires a complex graphics implementation not supported directly by any mapping library.
+Both travel time maps yield highly similar results in measurements. This is likely due to the fact that both maps use isarithmic mapping method with relatively similar data, the only difference being the need for combining several data sources in the complex case. The data combining likely results in slightly lower values in Halstead difficulty and effort. However, in both of these cases, the Halstead effort metric is notably low, indicating that the effort for visualizing with Thematic.js taking only 5 \% of the effort of the reference implementation. This is probably due to the fact that even approximated isarithmic visualization requires a complex graphics implementation not supported directly by any mapping library.
 
 Across all cases, the Thematic.js measurements indicate more significant differences in physical lines of code than logical lines of code. This is likely due to the fact that Thematic.js API is designed to encourage functional-style, chainable operations while traditional JavaScript APIs typically are imperative and non-chainable. This is demonstrated in listing \ref{listing:chainableapi}. The chainable version can be used without line breaks, resulting in only 1 physical line of code, while with the API format in second example, it is not customary to combine the lines using only source code line. However, in practice, this has little effect on the actual effort needed as the underlying functionality stays largely similar.
 
@@ -120,9 +116,9 @@ map.addModule('voting', module);
 
 Additionally, in all the cases, Halstead difficulty measurements in Thematic.js implementations are 30 to 50 \% of the reference implementations while corresponding Halstead effort measurements are 4 to 12 \% of the reference implementations. This reflects the fact that the reference implementations consist largely of straightforward but laborious boilerplate code such as initializing the map. Thematic.js implementations consist mostly of data-specific initialization of the visualization, which is typically less straightforward but considerably more concise.
 
-Lastly, it should be noted that while the measurements are suitable for comparing different cases, as absolute metrics they are approximate at best. In practice, this means that it is not sensible to assume that using Thematic.js reduces the effort needed to 10 \% of the original. However, in light of these results, it seems extremely likely that using the library for visualizations similar to the evaluated cases yields considerable benefits over building the visualizations from the ground up. For more details about the measurements, see appendix \ref{appendix:escomplex}.
+The results are statistically significant assuming the individual measurements follow the normal distribution. Using the dependent samples t-test, we determined that the difference in every evaluated metric is significant using the significance level of 1 \%.
 
-\fixme{Analyze statistical significance here}
+Lastly, it should be noted that while the measurements are suitable for comparing different cases, as absolute metrics they are approximate at best. In practice, this means that it is not sensible to assume that using Thematic.js reduces the effort needed to 10 \% of the original. However, in light of these results, it seems extremely likely that using the library for visualizations similar to the evaluated cases yields considerable benefits over building the visualizations from the ground up. For more details about the measurements, see appendix \ref{appendix:escomplex}.
 
 \section{Evaluating Effectiveness of Visualizations}
 \label{section:evaluatingeffectiveness}

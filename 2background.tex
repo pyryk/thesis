@@ -3,6 +3,10 @@
 \chapter{Data Visualization}
 \label{chapter:dataviz}
 
+\fixme{Reorder data viz and reuse so that the order is consistent in thesis}
+
+\fixme{add intro}
+
 \section{Definition}
 
 According to \citet[chap.~3]{kosara_visualization_2007}, there is no universally accepted definition of visualization. He proposes the following for a ``minimal set of requirements for any visualization'':
@@ -144,7 +148,15 @@ Proportional symbol maps are closely related to dot maps. They are typically use
 
 \paragraph{Multivariate Mapping}
 
-Multivariate mapping denotes displaying multiple attributes simultaneously. This can be achieved in several ways. The visualized attributes can be either visualized using a single map or a separate map for each attribute. Additionally, the attributes can be either overlaid (placed on top of each other) or combined (use a single symbol depicting all attributes). (Ibid.) \fixme{add example image}
+Multivariate mapping denotes displaying multiple attributes simultaneously. This can be achieved in several ways. The visualized attributes can be either visualized using a single map or a separate map for each attribute. Additionally, the attributes can be either overlaid (placed on top of each other) or combined (use a single symbol depicting all attributes). An example of a multivariate map is presented in figure \ref{fig:multivariate}. (Ibid.)
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=10cm]{images/multivariate-example.jpg}
+    \caption{Multivariate map depicting the average temperature and precipitation of Brazil \citep{central_intelligence_agency_temperature_1977}.}
+    \label{fig:multivariate}
+  \end{center}
+\end{figure}
 
 \paragraph{Cartogram}
 
@@ -172,7 +184,7 @@ Flow maps are maps with lines or arrows of varying width from one location to an
 
 ~
 
-Even a single thematic map is often used for multiple different purposes \citep[chap.~2]{schlichtmann_visualization_2002}. For instance, a single map can be read on the \emph{overall level} (``where are the primary schools located in Helsinki metropolitan area?'') and \emph{elementary level} (``is there a primary school in Punavuori?''). Furthermore, some possible uses for a thematic map are ``what is the ratio and distribution of Finnish schools compared to Swedish schools in Helsinki'' or ``what is the spatial distribution of sizes of schools in Helsinki''. Therefore, an efficient map visualization should not lock the user to any single perspective. \fixme{maybe move somewhere? Create a separate (sub)section for interactivity?}
+Even a single thematic map is often used for multiple different purposes \citep[chap.~2]{schlichtmann_visualization_2002}. For instance, a single map can be read on the \emph{overall level} (``where are the primary schools located in Helsinki metropolitan area?'') and \emph{elementary level} (``is there a primary school in Punavuori?''). Furthermore, some possible uses for a thematic map are ``what is the ratio and distribution of Finnish schools compared to Swedish schools in Helsinki'' or ``what is the spatial distribution of sizes of schools in Helsinki''. Therefore, an efficient map visualization should not lock the user to any single perspective.
 
 \subsection{Effective Thematic Maps}
 \label{subsection:effectivemaps}
@@ -180,10 +192,6 @@ Even a single thematic map is often used for multiple different purposes \citep[
 While the map visualizations adhere to general visualization principles, the principles can be refined by specifying a set of guidelines for maps specifically. \citeauthor{koeman_het_1969} (\citeyear{koeman_het_1969} quoted by \citealt[p.~12]{kraak_cartographic_1998}) defines the guidelines for map visualization process as \emph{``How do I say what to whom''}. \emph{How} refers to the mapping methods and techniques used. \emph{What} refers to the data used and its characteristics. \emph{Whom} refers to the target audience of the visualization. \citet{kraak_cartographic_1998} complements the guidelines with \emph{``and is it effective''}, referring to the self-reflective and iterative nature of visualization.
 
 All the elements above are important to acknowledge when creating a thematic map. While they do not provide an exact formula for determining the effectiveness of a visualization, the elements are incredibly beneficial for creating an effective visualization. Therefore, created visualizations can also be examined with the help of the elements.
-
-~
-
-\fixme{Something about thematic map interactivity \citep[p.~12]{andrienko_interactive_1999,kraak_cartographic_1998} could be relevant in this chapter}
 
 \section{How Thematic Maps Are Made}
 \label{section:thematicmaps}
@@ -207,7 +215,7 @@ All the elements above are important to acknowledge when creating a thematic map
 	\item Determine whether users find the map useful and informative
 \end{enumerate}
 
-In practice, the processes described by \citeauthor{schlichtmann_visualization_2002} and \citeauthor{slocum_thematic_2014} concentrate on different perspectives of thematic mapping. \citeauthor{schlichtmann_visualization_2002} begins the process by defining the goal of the visualization while \citeauthor{slocum_thematic_2014} provides a more data-centric approach starting with phenomenon definition. Unlike \citeauthor{schlichtmann_visualization_2002}, \citeauthor{slocum_thematic_2014} emphasizes an iterative approach of the visualization. In both processes, defining and designing the visualization is emphasized, the actual visualization (turning the data into visual representation) being addressed in only one of the steps.
+In practice, the processes described by \citeauthor{schlichtmann_visualization_2002} and \citeauthor{slocum_thematic_2014} concentrate on different perspectives of thematic mapping. \citeauthor{schlichtmann_visualization_2002} begins the process by defining the goal of the visualization while \citeauthor{slocum_thematic_2014} provides a more data-centric approach starting with phenomenon definition. Unlike \citeauthor{schlichtmann_visualization_2002}, \citeauthor{slocum_thematic_2014} emphasize an iterative approach of the visualization. In both processes, defining and designing the visualization is emphasized, the actual visualization (turning the data into visual representation) being addressed in only one of the steps.
 
 \citet[chap.~1]{slocum_thematic_2014} express their concern on the utilization of the processes defined above. According to them, it is likely that naive visualizers do not follow the steps, but take shortcuts when designing the visualizations, resulting in subpar visualizations. Therefore, it is often needed to nudge the visualizers towards using (one of) the processes when building a visualization.
 
@@ -377,11 +385,25 @@ Typically, software frameworks are \emph{integrated} to other frameworks and to 
 
 One of the main advantages of frameworks is that they enable a complete, potentially opinionated approach for reusing software while preserving the possibility for customization \citep{johnson_frameworkscomponents+_1997}. The main disadvantages of using software frameworks consist of occasional steep learning curve and challenges in integration \citep{fayad_object-oriented_1997}.
 
-\chapter{Research Gap}
-\label{chapter:researchgap}
+\chapter{Reuse in Data Visualization}
+\label{chapter:reuseinvisualization}
 
-Currently, research on geographic or map visualization is abundant (e.g., \citealt{kraak_cartographic_1998,kraak_cartography_2011,slocum_thematic_2014,schlichtmann_visualization_2002,zuk_heuristics_2006}). Moreover, according to the visualization definition by \citet{kosara_visualization_2007}, it may be possible to abstract parts of the visualization implementation in order to achieve visualization process which requires less effort and technical knowledge. However, research on the effects of reuse on geovisualization is scant. Additionally, few reusable web geovisualization tools exist. This implies that there is room for improvement in both research and implementation related to geovisualization software.
+In this chapter, we present a number of visualization reuse cases in order to demonstrate the feasibility of such approach in general. We also discuss the lack of tools and studies of software reuse in the field of geographic data visualization.
 
-To address this shortcoming, we decided to attempt creating a reusable geovisualization tool for the web. We also evaluated the tool in order to obtain knowledge about its benefits when compared to building geographic visualizations from the beginning. While there is a definite research need for several aspects of the effect, we decided to concentrate on the effects related to effort and visualization quality in order to keep the scope of the work manageable.
+\section{Reuse Cases in Literature}
 
-\fixme{IMHO this is a bit too short for a chapter. How to fix?}
+Software reuse has been used successfully in the field of data visualization. \citet{fekete_infovis_2004} introduces InfoVis ToolKit, a reusable library for efficient building of information visualizations. He claims that building visualizations with the toolkit is efficient, typically taking only hours. However, this claim is not verified in any way, e.g., by comparing the efficiency to building visualizations without the toolkit.
+
+InfoVis ToolKit consists of several different visualization components, enabling scatter plots, time series and tree maps among others. Additionally, the toolkit includes interaction components and data structures suited for visualization. According to \citeauthor{fekete_infovis_2004}, the primary benefits of the toolkit include simplifying the usage of most common information visualization methods and promoting implementation of supplementary visualization methods by providing the structure and utilities required.
+
+\citet{heer_prefuse:_2005} reported significant benefits in the effort needed for building data visualizations using Prefuse, a reusable visualization toolkit. Using the toolkit, they were able to reduce the development time from days or weeks to minutes.
+
+Prefuse provides a composable, modular and extendable toolkit for data visualizations. According to \citet{heer_prefuse:_2005}, it provides a highly customizable set of building blocks which can be combined and composed to create a wide variety of visualizations. However, the blocks provided do not involve functionality for efficient building of geographical visualizations.
+
+\citet{bostock_protovis:_2009} present Protovis, a graphical toolkit for visualization. Protovis provides a data-centric approach for displaying visualizations bottom-up, favoring minimalistic graphics. In their study, \citeauthor{bostock_protovis:_2009} state that the choice of visualization tool may affect the effectiveness of visualization. According to them, the approach of Protovis discourages ``chartjunk'' and encourages building effective visualizations. However, they do no validate the claim. Nonetheless, their study indicates that Protovis benefits the visualization by providing a concise notation for building visualizations while still allowing thorough customization.
+
+\section{Research Gap}
+
+Currently, research on geographic or map visualization is abundant (e.g., \citealt{kraak_cartographic_1998,kraak_cartography_2011,slocum_thematic_2014,schlichtmann_visualization_2002}). Moreover, software reuse has been succesfully used to make building data visualization more efficient \citep{heer_prefuse:_2005,bostock_protovis:_2009}. However, research on the effects of reuse on geovisualization is scant. Additionally, few reusable web geovisualization tools exist, none of which is sufficiently high-level for enabling efficient building of effective geovisualizations. This implies that there is room for improvement in both research and implementation related to geovisualization software.
+
+To address this shortcoming, we decided to attempt creating a reusable geovisualization tool for the web. We also evaluated the tool in order to obtain knowledge about its benefits when compared to building geographic visualizations from the beginning using lower-level tools. According to the software reuse literature (e.g., \citealt{mohagheghi_empirical_2008,boehm_managing_1999}), software reuse may reduce the needed effort dramatically for building new software. Moreover, effectiveness is without doubt one of the most important properties of a visualization. Therefore, we decided to concentrate on evaluation of the effects related to effort and visualization quality.
