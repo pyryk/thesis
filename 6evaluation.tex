@@ -16,9 +16,6 @@ Alko provides an unsupported representational state transfer (REST) API\footnote
 \paragraph{Earthquakes in California}
 Earthquakes have two fundamental data axes: location and magnitude. Therefore, earthquakes are best visualized using a proportional symbol map with the size of the symbol representing magnitude. United States Geological Survey provides historical earthquake data\footnote{\url{http://earthquake.usgs.gov/earthquakes/search/}}, and we decided to visualize earthquakes in the state of California since January 1, 1900. The data is available in a Comma-Separated Values (CSV) format which is can be trivially transformed to ``flat dot'' JSON format. This case is later referred to as ``earthquake map''.
 
-\paragraph{Circulation of the Biggest Finnish Newspapers}
-\fixme{Describe this, or if did not get the data, drop altogether.}
-
 \paragraph{Voter Turnout in Finnish Presidential Election of 2012}
 The Finnish Ministry of Interior provides regional voter turnout data of the presidential election of 2012\footnote{\url{http://tulospalvelu.vaalit.fi/TP2012K2/s/aanaktiivisuus/aanestys1.htm}}. This data is provided in electoral district and municipality level. We decided to visualize the turnout in municipality level, using municipality data by the Finnish Land Survey\footnote{\url{http://www.maanmittauslaitos.fi/en/opendata}}. The municipality data is provided in GeoJSON format by Teemu Tiilikainen\footnote{\url{https://github.com/varmais/maakunnat}}. These data can be combined to create an effective choropleth visualization of regional turnout. The data should be normalized in quantized fashion, i.e., using thresholds to create a discrete color range. This case is later referred to as ``election map''.
 
@@ -39,7 +36,7 @@ In order to better model typical real-life use cases, and to be usable on the we
 
 \section{Implementing Sister Projects}
 
-We implemented seven separate sister project visualizations with no visualization library to compare to visualization cases as defined in the previous section. The functionality of the visualizations was designed to reflect the functionality of the evaluated visualizations as accurately as possible. Sister visualizations were implemented using HTML, CSS and JavaScript to enable straightforward comparison to the evaluated visualization cases. While we did not use any visualization library for the sister projects, we deemed using a generic mapping library such as Leaflet.js appropriate, because typically, creating map visualizations is not feasible without using one. Moreover, also Thematic.js uses Leaflet.js as a mapping library.
+We implemented six separate sister project visualizations with no visualization library to compare to visualization cases as defined in the previous section. The functionality of the visualizations was designed to reflect the functionality of the evaluated visualizations as accurately as possible. Sister visualizations were implemented using HTML, CSS and JavaScript to enable straightforward comparison to the evaluated visualization cases. While we did not use any visualization library for the sister projects, we deemed using a generic mapping library such as Leaflet.js appropriate, because typically, creating map visualizations is not feasible without using one. Moreover, also Thematic.js uses Leaflet.js as a mapping library.
 
 In order to better reflect the actual situations involving building visualizations, the sister projects were implemented in \emph{ad hoc} fashion, meaning that the design or architecture of the applications were not planned extensively beforehand. Also, no reuse of any form between visualizations was planned. However, during implementation, some design and code scavenging was done in order to speed up the development process. The sister project code can be found in \url{https://github.com/pyryk/thesis-reference-implementations}.
 
@@ -68,7 +65,7 @@ Reference travel times simple & 184 & 129 & 12 & 29.4 & 182000 \\
 Thematic.js travel times complex & 30 & 30 & 2 & 11.6 & 13300 \\
 Reference travel times complex & 193 & 144 & 12 & 34.5 & 255000 \\
 \hline
-\caption{Measurements for developed visualizations, including only visualization-specific code. \fixme{Add the last missing visualization}}
+\caption{Measurements for developed visualizations, including only visualization-specific code.}
 \label{table:efficiencymetrics}
 \end{longtable}
 
@@ -89,8 +86,6 @@ Figure \ref{fig:evaluationchart} displays the ratio of Thematic.js visualization
 Perhaps surprisingly, according to the results, using Thematic.js yields relatively high benefits for all metrics for the dot map visualization (store map). The reason for this may be that, even though dot map is an inherently simple visualization method, e.g., error handling and marker clustering support add complexity to the reference implementation. Moreover, as the Thematic.js visualization implementation for dot map visualization consists of only 12 lines of relatively simple code, the boilerplate code needed in the reference implementation causes the relative metrics to be notably low.
 
 Relative metrics of proportional symbol (earthquake) map are approximately similar to the metrics of dot map. However, as the proportional symbol map is missing clustering support but involves symbol scaling functionality which is also needed in the Thematic.js implementation, the relative metrics are slightly more favorable to the reference implementation than in the dot map case. Nevertheless, also in the proportional symbol case, using Thematic.js yields significant benefits compared to using no visualization framework, with Halstead effort measurement in Thematic.js implementation being under 10 \% of the corresponding measurement in the reference implementation.
-
-\fixme{Add newspaper map}
 
 Election map case yields the least benefits of all the evaluated cases, with Halstead difficulty being almost 50 \% and Halstead effort over 10 \% of the values for the reference implementation. This is likely due to the fact that the Leaflet.js mapping library provides a comprehensive GeoJSON polygon support used with choropleth visualizations. Therefore, the additional manual implementation needed for the reference case is relatively straightforward, the most effort needed being related to the coloring and showing values, the features that need to be implemented manually also in the Thematic.js implementation. That being said, even a simple choropleth map like this benefits considerably from the Thematic.js library.
 
