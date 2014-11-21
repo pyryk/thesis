@@ -31,12 +31,12 @@ Flat dot format is a simple, but non-standard format used by a number of web map
 \chapter{ESComplex Results for Visualizations}
 \label{appendix:escomplex}
 
-For the sake of conciseness, we omitted the full output of ESComplex\footnote{\url{https://github.com/philbooth/escomplex}} tool for evaluated cases in JSON format. The output contains additional details about the measurements. The full results are available in \url{https://github.com/pyryk/thesis-reference-implementations}.
+For the sake of conciseness, we omitted the full output of ESComplex\footnote{\url{https://github.com/philbooth/escomplex}} tool for evaluated cases in JSON format. The output contains additional details about the measurements, such as the full operator and operand lists. The full results are available in \url{https://github.com/pyryk/thesis-evaluation-results}.
 
 \chapter{Visualization Heuristics Evaluation}
 \label{appendix:heuristicsevaluation}
 
-Thematic.js evaluation results based on the visualization heuristics presented by \citet{zuk_heuristics_2006} are displayed in table \ref{table:heuristicsevaluation}. The evaluation is done using a tree-step scale. Heuristic is evaluated \emph{positive} if Thematic.js encourages conforming to the heuristic when compared to using no visualization library, \emph{neutral} if using Thematic.js has no effect, and \emph{negative} if Thematic.js discourages conforming to the heuristic.
+Thematic.js evaluation results based on the visualization heuristics presented by \citet{zuk_heuristics_2006} are displayed in table \ref{table:heuristicsevaluation}. The evaluation was done using a tree-step scale. Heuristic is evaluated \emph{positive} if Thematic.js encourages conforming to the heuristic when compared to using no visualization library, \emph{neutral} if using Thematic.js has no effect, and \emph{negative} if Thematic.js discourages conforming to the heuristic.
 
 \begin{longtable}{|p{3cm}|p{2.2cm}|p{7.8cm}|}
 \hline
@@ -59,7 +59,7 @@ No extra ink & Positive & Thematic.js provides data aggregation functionality to
 Gestalt laws & Positive & Thematic.js provides functionality to support Gestalt laws of grouping, such as using different symbols and sizes for different data points. However, not all Gestalt laws are considered. \\[0.5em] % Consider Gestalt Laws
 Levels of detail & Positive & Thematic.js provides clustering functionality of dots and symbols. While currently there is no support for levels of detail for other mapping methods, the library does not prevent implementing this in the future. \\[0.5em] % Provide multiple levels of detail
 Integrate text & Positive & Thematic.js supports attaching popups with textual content to data points, such as markers or choropleth areas. \\[0.5em]
-Overview first & Positive & Thematic.js supports overview-first approach in most of the mapping methods. Dot and proportional symbol maps support marker clustering and choropleth, isarithmic and dasymetric maps support zooming in to show the details. \\[0.5em] % Provide overview first
+Overview first & Positive & Thematic.js supports overview-first approach in most of the mapping methods. Dot and proportional symbol maps support marker clustering and choropleth, isarithmic and dasymetric maps support zooming for displaying the details. \\[0.5em] % Provide overview first
 Zoom and filter & Neutral & Thematic.js supports zooming of the map. However, support for filtering data on view-level is not provided. \\[0.5em]
 Details on demand & Positive & Thematic.js supports attaching popups to data points for displaying additional details. \\[0.5em]
 Relate & Neutral & Thematic.js does not support any method of emphasizing relationships between entries other than spacial distribution. \\[0.5em] % Consider relationships among items
@@ -111,6 +111,6 @@ Addable and Non-Addable Quantities & Positive & Thematic.js separates between ad
 % Creating an illusion of surface on the map. This can be achieved for example by using illumination and shadowing. These visual traits can convey a meaning themselves and often naturally do so.
 The Surface Illusion & Neutral & Thematic.js provides no additional means of achieving the surface illusion when compared to, e.g. the underlying Leaflet.js mapping library. \\[0.5em]
 \hline
-\caption{Evaluation of map visualization objectives of \citet{schlichtmann_visualization_2002}.}
+\caption{Evaluation of Thematic.js according to the map visualization objectives of \citet{schlichtmann_visualization_2002}.}
 \label{table:objectivesevaluation}
 \end{longtable}

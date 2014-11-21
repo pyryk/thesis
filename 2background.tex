@@ -46,10 +46,12 @@ According to \citet{krueger_software_1992}, in order to analyze reusing software
 
 Software reuse is not a single, uniform procedure or technique. Several different reuse techniques exist to cater different needs. Consequently, different reuse methods excel at different areas. In order to describe the advantages and disadvantages of the methods, we describe the using the reuse dimensions presented in the previous section.
 
-\citet{krueger_software_1992} and \citet{johnson_frameworkscomponents+_1997}, among others, present and analyze software reuse methods. From these, we have selected the most relevant for web environment, presenting those below.
+\citet{krueger_software_1992} and \citet{sametinger_software_1997}, among others, present and analyze software reuse methods. From these, we have selected the most relevant for web environment, presenting those below.
 
 \subsection{High-Level Languages}
-High-level languages denote programming languages which are designed to be on a high abstraction level and thus contain features which are not necessary for a programming language but benefit or speed up the development. Traditional examples of these kind of features are automatic memory allocation \citep{krueger_software_1992} and language constructs such as exceptions \citep{mitchell_concepts_2003}. More modern high-level language features are value type checking systems and abstracted support for parallel operations using futures \citep{totoo_haskell_2012}. It should be noted that the high-levelness of a language is a \emph{relative} property, i.e., it is not possible to determine the requirements for a high-level language per se, only high-levelness of languages compared to other languages. For example, \citet{krueger_software_1992} considers all programming languages above the abstraction level of the assembly language high-level languages, while \citet{carro_high-level_2006} consider e.g., lack of automatic memory management or type system a sign of lower-level language.
+High-level languages denote programming languages which are designed to be on a high abstraction level and thus contain features which are not necessary for a programming language but benefit or speed up the development. Traditional examples of these kind of features are automatic memory allocation \citep{krueger_software_1992} and language constructs such as exceptions \citep{mitchell_concepts_2003}. More modern high-level language features are value type checking systems and abstracted support for parallel operations using futures \citep{totoo_haskell_2012}. 
+
+It should be noted that the high-levelness of a language is a \emph{relative} property, i.e., it is not possible to determine the requirements for a high-level language per se, only high-levelness of languages compared to other languages. For example, \citet{krueger_software_1992} considers all programming languages above the abstraction level of an assembly language\footnote{A low-level language with one-to-one translation to machine code instructions for a computer architecture \citep{salomon_assemblers_1993}} high-level languages, while \citet{carro_high-level_2006} consider e.g., lack of automatic memory management or type system a sign of lower-level language.
 
 High-level languages \emph{abstract} frequently used procedures into seemingly uncomplicated operations, thus reducing the work and cognitive capacity needed for developing the application. \citep[chap.~3]{krueger_software_1992}
 
@@ -63,7 +65,7 @@ The advantages of high-level languages are mainly related to the decreased need 
 
 The main disadvantage of using high-level languages is the potential decrease in performance. As with any software reuse, high-level programming languages abstract the supported procedures by making them more generic. This often leads to additional complexity and unnecessary operations on the compiled program. However, the decrease can often be minimized by using additional compile-time optimizations. \citep{carro_high-level_2006}
 
-On the web, the technologies used on the client-side are inherently fixed to descendants of HyperText Markup Language (HTML), Cascading Style Sheets (CSS) and JavaScript \citep{world_wide_web_consortium_html5_2014,world_wide_web_consortium_cascading_2011,ecma_ecmascript_2011}. Therefore, web application languages are relatively high-level by definition. However, it is still possible to raise the abstraction level by using e.g., CoffeeScript \citep{ashkenas_coffeescript_2009} instead of JavaScript or LESS \citep{sellier_less_2009} instead of CSS.
+On the web, the technologies used on the client-side are inherently fixed to descendants of HyperText Markup Language (HTML)\footnote{\url{http://www.w3.org/TR/html5/}}, Cascading Style Sheets (CSS)\footnote{\url{http://www.w3.org/Style/CSS/}} and ECMAScript\footnote{\url{http://www.ecma-international.org/ecma-262/5.1/}}. Therefore, web application languages are relatively high-level by definition. However, it is still possible to raise the abstraction level by using e.g., CoffeeScript \citep{ashkenas_coffeescript_2009} instead of JavaScript or LESS \citep{sellier_less_2009} instead of CSS.
 
 \subsection{Design and Code Scavenging}
 
@@ -77,13 +79,13 @@ Usually there is no formal mechanism or support for \emph{selecting} pieces of s
 
 \emph{Integration} of the scavenged code is done by copying and pasting the code to the target source code file. This may lead to namespace collisions between original and scavenged code which may result in the need for refactoring the code. \citep[chap.~4]{krueger_software_1992}
 
-The main advantages of design and code scavenging are the ability to quickly include existing functionality to new software systems \citep[chap.~4]{krueger_software_1992}. As it is usually not needed to prepare the code to be scavenged before scavenging it, the extent of possible pieces of software is often significantly larger than when using any other reuse method. 
+The main advantages of design and code scavenging are the ability to quickly include existing functionality to new software systems \citep[chap.~4]{krueger_software_1992}. Moreover, as it is usually not needed to prepare the code to be scavenged before scavenging it, making  practically all available code reusable, the extent of possible pieces of software is often significantly larger than when using any other reuse method. 
 
 However, finding suitable pieces of software for scavenging is hard. Moreover, scavenging pieces of software often does not decrease the \emph{cognitive distance} between the target and implementation of the system. It may also create issues with maintainability of the software. \citep[chap.~4]{krueger_software_1992}
 
 \subsection{Source Code Components}
 
-Using source code components is a type of reuse that chooses and uses software components from a component repository \citep[chap.~3]{sametinger_software_1997}. Software component can be any piece of code, but in practice, components usually consist of one or more functions, modules or classes \citep[chap.~3]{sametinger_software_1997}. An example of a source code component is a trigonometry module which contains functions for sine, cosine and tangent calculations. When a developer needs to calculate sines in her program, she searches a component repository for trigonometry components and utilizes the component found in her own program \citep[chap.~5]{krueger_software_1992}.
+Using source code components is a type of reuse that enables choosing and using software components from a component repository \citep[chap.~3]{sametinger_software_1997}. Software component can be any piece of code, but in practice, components usually consist of one or more functions, modules or classes \citep[chap.~3]{sametinger_software_1997}. An example of a source code component is a trigonometry module which contains functions for sine, cosine and tangent calculations. When a developer needs to calculate sines in her program, she searches a component repository for trigonometry components and utilizes the component found in her own program \citep[chap.~5]{krueger_software_1992}.
 
 Ideally, source code components \emph{abstract} the implementation details of the component inside. This means that the required cognitive distance between the concept and the implementation of the software system is lower when using source code components instead of e.g., code scavenging. 
 
@@ -97,10 +99,6 @@ The main advantages of using source code components are the abstraction provided
 
 The main disadvantages of the source code components lie in the fact that the functionality must be deliberately designed to support reuse. The abstraction of the components is a major challenge \citep[chap.~5]{krueger_software_1992} in designing source code components. Additionally, the component repositories need administration and maintenance.
 
-\subsection{Software Schemas}
-
-\fixme{Add similarly structured content as in the previous subsubsection. Or maybe drop?}
-
 \subsection{Application Generators}
 
 Application generators are usually domain-specific generators which take very high level instructions (specifications) as input and then output significantly lower level software code (implementation) \citep[chap.~7]{cleaveland_building_1988,krueger_software_1992}. On fundamental level, application generators differ from high-level language compilers mainly by being designed to work on a narrow domain and thus being able to support considerably higher-level instructions \citep[chap.~7]{krueger_software_1992}. Unlike source code components, the reused components generated by application generators are usually not encapsulated or separated \citep[chap.~3]{sametinger_software_1997}.
@@ -111,7 +109,7 @@ In principle, \emph{selecting} application generations is moderately easy since 
 
 Typically, software systems generated with application generators consist of variant and invariant parts \citep[chap.~7]{krueger_software_1992}. Invariant part is the part of the program which the developer using the generator can't modify. The developer \emph{specializes} the program by modifying the variant part. There are several methods of modifying the variant part. One of the simplest may be straightforward parameterization: the developer chooses the parameters of the system from a predefined set of alternatives. This method makes using the generation extraordinarily easy. However, it also limits the resulting application considerably.
 
-On the other end of the spectrum, the application generator may require the variant parts to be inputted using a domain-specific or generic-purpose programming language. This makes the application generator incredibly versatile, but requires both more domain-specific and programming knowledge.
+On the other end of the spectrum, the application generator may require the variant parts to be inputted using a domain-specific or general-purpose programming language. This makes the application generator incredibly versatile, but requires both more domain-specific and programming knowledge.
 
 Typically, application generators generate complete applications which do not require further \emph{integration} \citep[chap.~7]{krueger_software_1992}. However, occasionally, the resulting applications are not independent per se, but require integration to other systems. This may be an issue since often it is not possible to select the integration interfaces freely, but to use the ones provided by the generator.
 
@@ -119,13 +117,9 @@ One of the main advantages of the application generators is the abstraction they
 
 However, application generators require an unambiguous mapping between the specifications and implementation details \citep[chap.~7]{krueger_software_1992}. Moreover, building application generators requires a reliable, generic implementation and user interfaces for developers \citep{cleaveland_building_1988}. Therefore, building application generators requires comprehensive domain-specific knowledge in addition to extensive software development expertise.
 
-\subsection{Design Patterns}
-
-\fixme{Add similarly structured content as in the previous subsubsection}
-
 \subsection{Software Frameworks}
 
-Software frameworks are a reuse technique which combines the use of software components and programming patterns \citep{johnson_frameworkscomponents+_1997}. Therefore, it can be argued that software frameworks enable creating reusable software design. Another definition of software frameworks is a collection of consolidated components, i.e., components which share the design, interfaces, and, to some degree, implementations \citep{johnson_frameworkscomponents+_1997}. It should also be noted that software frameworks are typically strictly object-oriented reuse technique \citep{johnson_frameworkscomponents+_1997}.
+Software frameworks are a reuse technique which combines the use of software components and programming patterns \citep{johnson_frameworkscomponents+_1997}. Therefore, it can be argued that software frameworks enable creating reusable software design. Unlike software components, frameworks are designed to be extended by providing case-specific functionality \citep{lambeau_software_2011}. Another definition of software frameworks is that they are a collection of consolidated components, i.e., components which share the design, interfaces, and, to some degree, implementations \citep{johnson_frameworkscomponents+_1997}. It should also be noted that software frameworks are typically strictly object-oriented reuse technique \citep{johnson_frameworkscomponents+_1997}.
 
 Largely, software frameworks \emph{abstract} the implementation details the same way that components do, i.e., providing a higher-level interface for the low-level operations. In addition to that, frameworks abstract software \emph{design patterns} used to provide a more complete architecture and functionality.
 
@@ -154,7 +148,7 @@ According to \citet[chap.~3]{kosara_visualization_2007}, there is no universally
 
 According to him, while visualizations can also have other properties or qualities, such as interaction or visual efficiency, the requirements above are the ones needed for technical definition of the term. Moreover, it should be emphasized that according to this definition, visualization is the \emph{process} itself, not the result of it.
 
-\citet[chap.~4]{kosara_visualization_2007} argues that visualization is separated into two types, \emph{pragmatic} and \emph{artistic} visualization. \fixme{This is related to Hassenzahl's UX definition. May be nice to refer to that as well somewhere.} Pragmatic visualization focuses on the analysis of the data in order to show its relevant characteristics as efficiently as possible. Artistic visualization on the other hand concentrates on the communication of a concern, not the display of the actual data. Therefore, artistic visualizations may emphasize or even exaggerate some of the features of the data. \citeauthor{kosara_visualization_2007} states that while these types focus on the opposite sides of the visualization spectrum, it may be possible to close the gap using, e.g., interaction.
+\citet[chap.~4]{kosara_visualization_2007} argues that visualization is separated into two types, \emph{pragmatic} and \emph{artistic} visualization. Pragmatic visualization focuses on the analysis of the data in order to show its relevant characteristics as efficiently as possible. Artistic visualization on the other hand concentrates on the communication of a concern, not the display of the actual data. Therefore, artistic visualizations may emphasize or even exaggerate some of the features of the data. \citeauthor{kosara_visualization_2007} states that while these types focus on the opposite sides of the visualization spectrum, it may be possible to close the gap using, e.g., interaction.
 
 The first requirement for visualizations by \citet{kosara_visualization_2007} dictates that the visualization is based on data. This is in alignment with the principle of \citet{tufte_visual_1986} which states that visualizations should, above all else, show the data. This is an essential characteristic of \emph{data} visualizations: the visualization is a function which takes data as an input and produces a visual object as an output. In less technical terms, this means that the visualization turns data into visual, effortlessly and efficiently digestible format.
 
@@ -174,7 +168,6 @@ In addition to graphics principles presented in the previous paragraph, \citet[p
 
 The principles presented above are essential, but too abstract in order to be used as a sole basis for defining a good visualization. However, when combined with \citeauthor{kosara_visualization_2007}'s data visualization definition stated above, the principles become considerably more useful and concrete. \citet{azzam_j-b_2013} propose an adapted version of the definition by \citet{kosara_visualization_2007}: ``Data visualization is a process that (a) is based on qualitative or quantitative data and (b) results in an image that is representative of raw data, which is (c) readable by viewers and supports exploration, examination and communication of the data''. The most significant differences are that the definition complements the second requirement of \citeauthor{kosara_visualization_2007} (``It produces an image'') by requiring the produced image to represent the data truthfully, and requires the visualization to be enlightening instead of just readable. This definition effectively combines the definition by \citet{kosara_visualization_2007} with the principle of showing data introduced by \citet{tufte_visual_1986}. The adapted definition facilitates the process of creating a successful data visualizations by offering a more concrete version of Tufte's principles. It gives the developer of the visualization slightly more concrete checklist for representing the data: make sure the representation does not (a) omit or (b) overrepresent any information, and (c) helps the viewer gain knowledge \citep{azzam_j-b_2013}.
 
-For the most concrete principles, \citet{zuk_heuristics_2006} provide a list of heuristics for visualizations established in perceptual, cognitive and usability research. The list combines several heuristics from multiple heuristics sets by \citet{shneiderman_eyes_1996,zuk_theoretical_2006,amar_knowledge_2004}. While the combination results in potentially conflicting or redundant heuristics, it nevertheless results in a concrete checklist for making successful visualizations. The heuristics, along with generated identifiers for easier referring, are presented in table \ref{table:heuristics}.
 
 \begin{table}
 \begin{tabular}{|p{4.2cm}|p{8.8cm}|}
@@ -212,6 +205,8 @@ Hypotheses & Confirm Hypotheses \\
 \label{table:heuristics}
 \end{table}
 
+For the most concrete principles, \citet{zuk_heuristics_2006} provide a list of heuristics for visualizations established in perceptual, cognitive and usability research. The list combines several heuristics from multiple heuristics sets by \citet{shneiderman_eyes_1996,zuk_theoretical_2006,amar_knowledge_2004}. While the combination results in potentially conflicting or redundant heuristics, it nevertheless provides a concrete checklist for making successful visualizations. The heuristics, along with generated identifiers for easier referring, are presented in table \ref{table:heuristics}.
+
 \section{Visualizing Geographical Data}
 
 As geographic data is associated with a specific location, the most natural way of visualizing it is by using a map \citep[chap.~1]{kraak_cartographic_1998,kraak_cartography_2011}. This technique is called \emph{thematic mapping} \citep[chap.~1]{slocum_thematic_2014}. Thematic mapping does not require any specific format of data, except for the geographical dimension \citep[chap.~1]{kraak_cartography_2011}. However, the nature of the data has a great effect on the method, or type, of thematic mapping.
@@ -247,7 +242,7 @@ Isarithmic maps are map visualizations depicting continuous or smooth phenomena.
 
 \paragraph{Dasymetric Map}
 
-Dasymetric mapping is closely related to choropleth mapping, with the exception that in dasymetric mapping, the enumeration units are not predefined, but rather defined by the data coherency. When creating exact dasymetric maps computationally, the properties can be approximated using a number of techniques, as presented in chapter \ref{subsection:supportedvisualizationmethods}. Dasymetric mapping is most naturally used for data which consists of a set of internally cohesive blocks of area, such as land use (i.e. the distribution of roads, cities, forests etc.) as illustrated in figure \ref{fig:dasymetric}. (Ibid.)
+Dasymetric mapping is closely related to choropleth mapping, with the exception that in dasymetric mapping, the enumeration units are not predefined, but rather defined by the data coherency. When creating dasymetric maps computationally, the properties can be approximated using a number of techniques, as presented in chapter \ref{subsection:supportedvisualizationmethods}. Dasymetric mapping is most naturally used for data which consists of a set of internally cohesive blocks of area, such as land use (i.e. the distribution of roads, cities, forests etc.) as illustrated in figure \ref{fig:dasymetric}. (Ibid.)
 
 \begin{figure}[htbp]
   \begin{center}
@@ -259,7 +254,7 @@ Dasymetric mapping is closely related to choropleth mapping, with the exception 
 
 \paragraph{Dot Map}
 
-Dot maps are used to represent data which is associated with locations. With dot maps, the data used can be \emph{true} (truly associated with a single point) or \emph{conceptual} (aggregated to a point). Moreover, dots can be clustered or combined. In practice, dot maps can be used for visualizing, e.g., store locations or the number of homicides in different cities. An example of a dot map is presented in figure \ref{fig:dot}. (Ibid.)
+Dot maps are used to represent data which is associated with locations. With dot maps, the data used can be \emph{true} (truly associated with a single point) or \emph{conceptual} (aggregated to a point). Moreover, dots can be clustered or combined. Dot maps can be used for visualizing, e.g., store locations or the number of homicides in different cities. An example of a dot map is presented in figure \ref{fig:dot}. (Ibid.)
 
 \begin{figure}[htbp]
   \begin{center}
@@ -271,19 +266,19 @@ Dot maps are used to represent data which is associated with locations. With dot
 
 \paragraph{Proportional Symbol Map}
 
-Proportional symbol maps are closely related to dot maps. They are typically used for visualizing numerical data associated with a location, but unlike with dot maps, the symbols on a map are resized proportionally to the data. Symbols can be geometric or pictorial, and the sizes can be determined using several different methods, e.g., purely mathematical scaling or perceptual scaling which takes human visual inaccuracy into account. An example of a proportional symbol map is presented in figure \ref{fig:proportionalsymbol}. (Ibid.)
+Proportional symbol maps are closely related to dot maps. They are typically used for visualizing ratio variables associated with a location. Unlike dot maps, the symbols on a proportional symbol map are sized proportionally to the data. Symbols can be geometric or pictorial, and the sizes can be determined using several different methods, e.g., purely mathematical scaling or perceptual scaling which takes human visual inaccuracy into account. An example of a proportional symbol map is presented in figure \ref{fig:proportionalsymbol}. (Ibid.)
 
 \begin{figure}[htbp]
   \begin{center}
     \includegraphics[width=8cm]{images/proportionalsymbol-example.png}
-    \caption{Proportional symbol map depicting the magnitude of earthquakes in California.}
+    \caption{Proportional symbol map depicting the location and magnitude of earthquakes in California.}
     \label{fig:proportionalsymbol}
   \end{center}
 \end{figure}
 
 \paragraph{Multivariate Mapping}
 
-Multivariate mapping denotes displaying multiple attributes simultaneously. This can be achieved in several ways. The visualized attributes can be either visualized using a single map or a separate map for each attribute. Additionally, the attributes can be either overlaid (placed on top of each other) or combined (use a single symbol depicting all attributes). An example of a multivariate map is presented in figure \ref{fig:multivariate}. (Ibid.)
+Multivariate mapping denotes displaying multiple attributes simultaneously. This can be achieved in several ways. The visualized attributes can be either visualized with a single map or using a separate map for each attribute. Additionally, the attributes can be either overlaid (placed on top of each other) or combined (using a single symbol depicting all attributes). An example of a multivariate map is presented in figure \ref{fig:multivariate}. (Ibid.)
 
 \begin{figure}[htbp]
   \begin{center}
@@ -392,7 +387,7 @@ In this chapter, we present a number of visualization reuse cases in order to de
 
 Software reuse has been used successfully in the field of data visualization. \citet{fekete_infovis_2004} introduces InfoVis ToolKit, a reusable library for efficient building of information visualizations. He claims that building visualizations with the toolkit is efficient, typically taking only hours. However, this claim is not verified in any way, e.g., by comparing the efficiency to building visualizations without the toolkit.
 
-InfoVis ToolKit consists of several different visualization components, enabling scatter plots, time series and tree maps among others. Additionally, the toolkit includes interaction components and data structures suited for visualization. According to \citeauthor{fekete_infovis_2004}, the primary benefits of the toolkit include simplifying the usage of most common information visualization methods and promoting implementation of supplementary visualization methods by providing the structure and utilities required.
+InfoVis ToolKit consists of several different visualization components, enabling scatter plots, time series and tree maps among others. Additionally, the toolkit includes interaction components and data structures suited for visualization. According to \citeauthor{fekete_infovis_2004}, the primary benefits of the toolkit include simplifying the usage of the most common information visualization methods and promoting implementation of supplementary visualization methods by providing the structure and utilities required.
 
 \citet{heer_prefuse:_2005} reported significant benefits in the effort needed for building data visualizations using Prefuse, a reusable visualization toolkit. Using the toolkit, they were able to reduce the development time from days or weeks to minutes.
 
@@ -404,4 +399,4 @@ Prefuse provides a composable, modular and extendable toolkit for data visualiza
 
 Currently, research on geographic or map visualization is abundant (e.g., \citealt{kraak_cartographic_1998,kraak_cartography_2011,slocum_thematic_2014,schlichtmann_visualization_2002}). Moreover, software reuse has been succesfully used to make building data visualization more efficient \citep{heer_prefuse:_2005,bostock_protovis:_2009}. However, research on the effects of reuse on geovisualization is scant. Additionally, few reusable web geovisualization tools exist, none of which is sufficiently high-level for enabling efficient building of effective geovisualizations. This implies that there is room for improvement in both research and implementation related to geovisualization software.
 
-To address this shortcoming, we decided to attempt creating a reusable geovisualization tool for the web. We also evaluated the tool in order to obtain knowledge about its benefits when compared to building geographic visualizations from the beginning using lower-level tools. According to the software reuse literature (e.g., \citealt{mohagheghi_empirical_2008,boehm_managing_1999}), software reuse may reduce the needed effort dramatically for building new software. Moreover, effectiveness is without doubt one of the most important properties of a visualization. Therefore, we decided to concentrate on evaluation of the effects related to effort and visualization quality.
+To address this shortcoming, we decided to attempt creating a reusable geovisualization tool for the web. We also evaluated the tool in order to obtain knowledge about its benefits when compared to building geographic visualizations from the beginning using lower-level tools. According to the software reuse literature (e.g., \citealt{mohagheghi_empirical_2008,boehm_managing_1999}), software reuse may reduce the needed effort dramatically for building new software. Moreover, effectiveness is one of the most important properties of a visualization \citep{kraak_cartographic_1998}. Therefore, we decided to concentrate on evaluation of the effects related to effort and visualization quality.

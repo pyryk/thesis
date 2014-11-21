@@ -3,7 +3,7 @@
 \chapter{Conclusions}
 \label{chapter:conclusions}
 
-In this thesis, we studied the effects of a reusable web geovisualization tool on the effort needed for building visualizations, and on the quality of visualizations. In order to do this, we studied software reuse and geovisualizations, implemented a reusable web geovisualization tool and evaluated the tool against visualizations built without it. Our principal findings were that the tool enables visualizers to build \emph{more effective} visualizations \emph{more efficiently} at least in certain situations.
+In this thesis, we studied the effects of a reusable web geovisualization tool on the effort needed for building visualizations, and on the quality of the resulting visualizations. In order to do this, we studied software reuse and geovisualizations, implemented a reusable web geovisualization tool and evaluated the tool against visualizations built without it. Our principal findings were that the tool enables visualizers to build \emph{more effective} visualizations \emph{more efficiently} at least in certain situations.
 
 Geographical data is data with a geospatial dimension, such as Point of Interest with location data as coordinates. When such data is visualized based on the geospatial dimension, the resulting visualization is called \emph{geographical visualization} (or \emph{geovisualization}). Most typically, geographical visualization is done using a map using the process called \emph{thematic mapping}. In the past, thematic maps were predominantly made by cartographers. However, recently, the advent of web-based mapping tools has enabled non-cartographers to create various map visualizations. Currently, it is estimated that the majority of web map visualizations are made by laymen with no education related to cartography.
 
@@ -15,7 +15,7 @@ Geographical data is data with a geospatial dimension, such as Point of Interest
 
 Before this work, apart from general-purpose mapping libraries, practically no libraries exist for building geovisualizations on the web. General-purpose mapping libraries such as Google Maps API support building visualizations to some degree. However, these libraries are of too low abstraction level to allow building more complex visualizations efficiently. Moreover, as the libraries are not designed for building visualizations, they do not encourage building effective visualizations. Therefore, it is both laborious and difficult to build effective map visualizations with general-purpose mapping tools. Moreover, research on the effect of software reuse on the quality of visualization is scant.
 
-During this work, we implemented Thematic.js, a reusable visualization application for the web. The application can be used independently as a single-page application, or as a part of other JavaScript applications. The application is designed to support the most frequently used thematic mapping methods and relevant utility functionality. Additionally, the application architecture is designed to be modular for effective extensibility.
+During this work, we implemented Thematic.js, a reusable visualization application for the web. The application can be used independently as a single-page application, or as a part of other JavaScript applications. The application is designed to support the most frequently used thematic mapping methods and relevant utility functionality. Additionally, the application architecture is designed to be modular for efficient extensibility.
 
 We evaluated the implemented application by defining several use cases depicting typical geovisualization use. Then, we implemented the cases using Thematic.js, and reference implementations for comparison using Leaflet.js, a general-purpose mapping library. These implementations were then compared using several metrics for software development effort. Additionally, we evaluated the Thematic.js implementations according to the heuristics of \citet{zuk_heuristics_2006} and objectives of \citet{schlichtmann_visualization_2002}.
 
@@ -23,11 +23,14 @@ The evaluation results indicated that using Thematic.js, building geographic vis
 
 Additionally, we deemed using Thematic.js beneficial regarding 16 of 35 visualization effectiveness guidelines (heuristics and objectives), with only 1 of 35 guidelines deemed negative. This indicates that Thematic.js is beneficial to the effectiveness of the visualization at least in certain cases.
 
-Thus, we can conclude the findings in relation to the research questions selected:
+Thus, we can conclude the findings in relation to the research questions selected:\vskip 2em
+% FIXME ensure that this renders correctly
 
 \begin{enumerate}
 	\item[RQ1] How does a reusable software system affect the \emph{efficiency} of building geographical visualizations?
-	\item[A1] According to our findings, a reusable software system such as Thematic.js increases the efficiency of building geographical visualizations.
+	\item[A1] According to our findings, a reusable software system such as Thematic.js increases the efficiency of building geographical visualizations considerably.
+\end{enumerate}
+\begin{enumerate}
 	\item[RQ2] Can a reusable software system enable creating \emph{effective} geographical visualizations?
 	\item[A2] According to our findings, a reusable software system such as Thematic.js encourages visualizers to create effective geographical visualizations.
 \end{enumerate}
