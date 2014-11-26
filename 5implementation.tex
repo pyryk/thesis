@@ -17,7 +17,7 @@ As discussed in the chapter \ref{chapter:reuse}, reusing software typically lead
 
 \section{Problem Setting}
 
-Currently, when building a visualization for geographical data, it is unnecessarily laborious to develop the visualization from the beginning using low abstraction level APIs provided by mapping libraries. This leads to the situation when using especially more complicated visualization methods such as isarithmic maps, it is not feasible to create an effective visualization, encouraging to use a simpler, yet more ineffective methods such as dot maps.
+Currently, when building a visualization for geographical data, it is unnecessarily laborious to develop the visualization from the beginning using low abstraction level APIs provided by mapping libraries. Consequently, when visualizing data suitable to be visualized with more complicated visualization methods such as isarithmic maps, it is not feasible to use the most suitable visualization methods. \emph{This encourages the visualizer to use a simpler, yet less suitable method such as a dot map.}
 
 Second, when building web-based geographical visualizations, it is typically needed to build the whole visualization architecture using web technology such as HTML\footnote{\url{http://www.w3.org/TR/html5/}} and ECMAScript\footnote{\url{http://www.ecma-international.org/ecma-262/5.1/}}. Therefore, an astonishing amount of knowledge of such technology is required to even develop a simple map visualization. \fixme{Do these require some concrete or literature proof?}
 
@@ -26,7 +26,7 @@ Second, when building web-based geographical visualizations, it is typically nee
 
 We started the implementation process by analyzing the requirements of the different geographic visualization methods presented in chapter \ref{subsection:mappingmethods}. Specifically, we analyzed the underlying structure of the visualizations in order to abstract the applicable parts as reusable components. For this, we adopted the ``hot spot'' method by \citet{schmid_systematic_1997} for detecting similarities and dissimilarities in software.
 
-In order to solve both problems presented in the previous section, we decided to implement a dual approach for visualization. As one of the problems related to visualizations is the amount of application architecture work needed, the tool should provide a so-called whole-page scaffold architecture \citep{jazayeri_trends_2007} which contains the needed page-specific architecture. We call this part of the system \emph{framework}. However, as the framework approach involves challenges regarding integrations, we decided to also implement an independent visualization component in order to support integration of the visualization in existing web pages. We call this part \emph{library}. When referring to both of the parts of the system, we use the term \emph{application}.
+\emph{In order to solve both problems presented in the previous section, we decided to implement a dual approach for visualization.} As one of the problems related to visualizations is the amount of application architecture work needed, the tool should provide a so-called whole-page scaffold architecture \citep{jazayeri_trends_2007} which contains the needed page-specific architecture. We call this part of the system \emph{framework}. However, as the framework approach involves challenges regarding integrations, we decided to also implement an independent visualization component in order to support integration of the visualization in existing web pages. We call this part \emph{library}. When referring to both of the parts of the system, we use the term \emph{application}.
 
 \subsection{Reuse Methods}
 
@@ -95,7 +95,14 @@ The following sections present the most important application functionality, nam
 
 Choropleth maps are used for visualizing enumerated or areally aggregated data \citep[chap.~6]{dent_cartography:_2008}. According to \citet[chap.~14]{slocum_thematic_2014}, it is the most frequently used mapping method. Therefore, implementing choropleth mapping functionality is essential for a successful mapping tool.
 
-To use choropleth mapping, visualizer uses the choropleth mapping module of the application. If the user already has the relevant data in GeoJSON format, nothing else is required. However, if the relevant data is stored separately of the designated area definitions, the user needs to use the \emph{combine} aggregator provided by the application. The aggregator associates the data with the area definition in question and outputs the data in GeoJSON format supported by the mapping module.
+To use choropleth mapping, visualizer uses the choropleth mapping module of the application. If the user already has the relevant data in GeoJSON format, nothing else is required. However, if the relevant data is stored separately of the designated area definitions, the user needs to use the \emph{combine} aggregator provided by the application. The aggregator associates the data with the area definition in question and outputs the data in GeoJSON format supported by the mapping module. An example code for using the choropleth module is presented in listing \ref{listing:choropleth}.
+
+\begin{lstlisting}[caption=Using the choropleth mapping module with Thematic.js.,language=JavaScript,label=listing:choropleth]
+var Choropleth = thematic.modules.Choropleth;
+map.addModule('voting', new Choropleth({field: 'value'})
+    .setScale(scaleFn)
+    .setData(data));
+\end{lstlisting}
 
 \subsection{Dasymetric Maps}
 
@@ -103,7 +110,15 @@ Dasymetric maps are supported in an approximated fashion: the dasymetric mapping
 
 \subsection{Isarithmic Maps}
 
-The application provides two isarithmic mapping modules: the Isarithmic module enables approximated isarithmic mapping while the Heatmap module enables heat map visualizations. Heatmap method is more accurate than the approximated isarithmic method, but requires a dot-like data set in order to provide best results. The approximated isarithmic module employs the floating grid method of \citet{langford_generating_1994}. 
+The application provides two isarithmic mapping modules: the Isarithmic module enables approximated isarithmic mapping while the Heatmap module enables heat map visualizations. Heatmap method is more accurate than the approximated isarithmic method, but requires a dot-like data set in order to provide best results. The approximated isarithmic module employs the floating grid method of \citet{langford_generating_1994}. An example isarithmic visualization built with Thematic.js is presented in figure \ref{fig:isarithmicimpl}.
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=8cm]{images/isarithmic-example.png}
+    \caption{An approximated isarithmic map depicting travel times to Helsinki center.}
+    \label{fig:isarithmicimpl}
+  \end{center}
+\end{figure}
 
 \subsection{Dot Maps and Proportional Symbol Maps}
 
@@ -111,7 +126,14 @@ The application supports producing dot and proportional symbol maps by providing
 
 \subsection{Input Formats}
 
-All implemented mapping modules use GeoJSON as their input format. GeoJSON is the \emph{de facto} format for transmitting geographical data on the web \citep{bostock_code_2013}. There is also great support for GeoJSON data in the existing software, for example in the Leaflet map library used by the application. However, due to its verboseness, GeoJSON may be unsuitable for simpler data sets and visualizations such as dot maps. Therefore, we have specified and implemented support for converters for transforming data to GeoJSON format. Currently, only converting ``flat dot'' (see appendix \ref{appendix:flatdotformat}) format is supported.
+All implemented mapping modules use GeoJSON as their input format. GeoJSON is the \emph{de facto} format for transmitting geographical data on the web \citep{bostock_code_2013}. There is also great support for GeoJSON data in the existing software, for example in the Leaflet map library used by the application. However, due to its verboseness, GeoJSON may be unsuitable for simpler data sets and visualizations such as dot maps. Therefore, we have specified and implemented support for converters for transforming data to GeoJSON format. Currently, only converting ``flat dot'' (see appendix \ref{appendix:flatdotformat}) format is supported. An example of the format converter functionality is presented in listing \ref{listing:inputformats}.
+
+\begin{lstlisting}[caption=An example code for using the flat dot input format converter.,language=JavaScript,label=listing:inputformats]
+var data = fetch('markers.json')
+  .then(function(resp) { return resp.json(); })
+  .then(thematic.converters.flatToGeoJSON);
+module.setData(data);
+\end{lstlisting}
 
 Typically, the data is fetched from an external resource (external API or a separate JSON file) asynchronously. Therefore, the modules support using ECMAScript Promises\footnote{\url{https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise}} to pass visualized data. However, also synchronous data (such as using data defined in the source code file) is supported by wrapping the values in Promise objects.
 
@@ -119,7 +141,34 @@ Typically, the data is fetched from an external resource (external API or a sepa
 
 When visualizing a metric such as average temperature of an area, the scale of values is completely different from when visualizing, say, population density. Therefore, in order to provide general-purpose map visualization tools, it is necessary to support displaying a wide variety of values and scales.
 
-For this application, we decided to implement a highly versatile normalization functionality which allows the visualizer to work on virtually any scale. Instead of transforming the input values into a predefined value set, the application transforms the input values directly to a visualizable value, such as ``red'' on a choropleth map, or ``10px'' on a proportional symbol map. Moreover, this mechanism is compatible with, e.g., scaling functionality of D3.js\footnote{\url{http://d3js.org/}, \url{https://github.com/mbostock/d3/wiki/Scales}} visualization library, so the visualizer can leverage the sophisticated scaling functionality of external libraries.
+For this application, we decided to implement a highly versatile normalization functionality which allows the visualizer to work on virtually any scale. Instead of transforming the input values into a predefined value set, the application transforms the input values directly to a visualizable value, such as ``red'' on a choropleth map, or ``10px'' on a proportional symbol map. Moreover, this mechanism is compatible with, e.g., scaling functionality of D3.js\footnote{\url{http://d3js.org/}, \url{https://github.com/mbostock/d3/wiki/Scales}} visualization library, so the visualizer can leverage the sophisticated scaling functionality of external libraries. An example of a Thematic.js scale functionality is presented in listing \ref{listing:valuenormalization}
+
+\begin{lstlisting}[caption=An example of Thematic.js scale functionality.,language=JavaScript,label=listing:valuenormalization]
+// a standalone scale function
+var scale = function(value) {
+  var colors = [
+    {time: 30, color: 'green'},
+    {time: 40, color: 'yellowgreen'},
+    {time: 50, color: 'yellow'},
+    {time: 60, color: 'orange'},
+    {time: 80, color: 'red'},
+    {time: 100, color: 'purple'},
+    {time: 120, color: 'blue'}
+  ];
+
+  return _.find(colors, 
+    color => value <= color.time) || _.last(colors);
+}
+
+module.setScale(scale);
+
+// a scale function using the d3.js library
+var d3scale = d3.scale.linear()
+  .domain([60, 65, 70])
+  .range(['#e5f5f9', '#99d8c9', '#2ca25f']);
+
+module2.setScale(d3scale):
+\end{lstlisting}
 
 \subsection{Modularity and Extendability}
 

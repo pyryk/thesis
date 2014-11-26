@@ -8,7 +8,7 @@
 
 We are confronted with a quickly increasing amount of data every day. We also increasingly need to use the data as a basis for our actions and thoughts. Data visualization enables us to obtain insight about data quickly and efficiently \citep{van_wijk_value_2005}, making it crucial in the modern world. 
 
-An estimated 95 \% of all digital data contains geographical references \citep{perkins_have_2010}. Visualizing this data helps users perceive geospatial relationships and patterns. Additionally, maps can be used for determining information on distances, directions and areas \citep[chap.~1.1]{kraak_cartography_2011}. Using geographical visualizations, it is also possible to organize data spatially and visually, allowing more efficient memorization of data.
+An estimated 95 \% of all digital data contains geographical references \citep{perkins_have_2010}. Visualizing this data helps users perceive geospatial relationships and patterns. Additionally, geographical visualizations can be used for determining information on distances, directions and areas \citep[chap.~1.1]{kraak_cartography_2011}. Using geographical visualizations, it is also possible to organize data spatially and visually, allowing more efficient memorization of data.
 
 Geographical data is data with geospatial dimension, such as Point of Interest (POI) with location data as coordinates \citep[chap.~1.2]{kraak_cartography_2011}. The most natural method for visualizing geographical data is usually with various maps. In the past, geographical data was predominantly visualized by cartographers, but it has been recognized \citep{kraak_visualization_1999} that the situation has changed, with people from increasing number of fields having a need -- and the possibility \citep[chap.~1]{slocum_thematic_2014} -- for visualizing geographical data. Moreover, the popularity of Google Maps \citep{google_maps_2005-1} along with its Application Programming Interface (API) \citep{google_maps_2005} has proved that in addition to experts of other academic fields, there is a definite demand for web map visualizations within consumers as well. 
 
@@ -17,8 +17,6 @@ The web makes publishing and bundling map visualizations extraordinarily straigh
 \section{Problem Statement}
 
 Currently, there are several libraries available for displaying maps and simple visualizations \citep{google_maps_2005,agafonkin_leaflet_2011,metacarta_openlayers_2006}. However, the problem is that none of the mainstream libraries is of sufficiently high abstraction level for building map visualizations efficiently, resulting in the need for writing \emph{boilerplate} code that does not directly contribute to the visualization. Moreover, the libraries are not designed primarily for visualizations and therefore do not encourage or push the visualizer to create visually and cognitively effective visualizations, resulting in subpar visualizations \citep[chap.~1]{slocum_thematic_2014}.
-
-In the scope of this thesis, we adopt the process definitions of \citet{van_wijk_value_2005} by making the difference between an efficient and an effective process. By an efficient process, we mean a process which requires as little as possible effort and other resources to complete. By an effective process, we mean a process which reaches its objectives sufficiently. Therefore, building a visualization efficiently indicates that the building process is as effortless as possible, and building effective visualization indicates that the resulting visualization conveys its intended message appropriately.
 
 \section{Objectives and Scope}
 
@@ -30,6 +28,8 @@ In order to find the solution for the problem, it is necessary to study geograph
 	\item[RQ1] How does a reusable software system affect the \emph{efficiency} of building geographical visualizations?
 	\item[RQ2] How does a reusable software system affect the \emph{effectiveness} of geographical visualizations?
 \end{enumerate}
+
+In the scope of this thesis, we adopt the process definitions of \citet{van_wijk_value_2005} by making the difference between an efficient and an effective process. \emph{By an efficient process, we mean a process which requires as little as possible effort and other resources to complete. By an effective process, we mean a process which reaches its objectives sufficiently.} Therefore, building a visualization efficiently indicates that the building process is as effortless as possible, and building an effective visualization indicates that the resulting visualization conveys its intended message appropriately.
 
 % a) how does a reusable software system affect the efficiency of ...
 % b) can a reusable software system...
