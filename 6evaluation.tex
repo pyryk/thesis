@@ -13,22 +13,70 @@ The most important findings of the evaluation are that 1) \emph{typically, Thema
 The visualization tool should be able to visualize a large variety of data. Moreover, the benefits of reusable software are typically emphasized when examining a large number of relatively similar cases \citep{frakes_software_1996}. However, in order to keep the scope of this work manageable, I decided to evaluate a set of visualization cases listed below.
 
 \paragraph{Alko stores in Finland}
-Alko provides an unsupported representational state transfer (REST) API\footnote{\url{http://www.alko.fi/api/store/mapmarkers?language=fi}} for fetching data of Alko stores. The data is in a non-standard ``flat dot'' format (see appendix \ref{appendix:flatdotformat}). Therefore, I decided to visualize Alko store locations using a dot map. The map should display all Alko stores in an effective fashion, with clustering support for markers in order to avoid map cluttering. This case is later referred to as ``store map''.
+Alko provides an unsupported representational state transfer (REST) API\footnote{\url{http://www.alko.fi/api/store/mapmarkers?language=fi}} for fetching data of Alko stores. The data is in a non-standard ``flat dot'' format (see appendix \ref{appendix:flatdotformat}). Therefore, I decided to visualize Alko store locations using a dot map. The map should display all Alko stores in an effective fashion, with clustering support for markers in order to avoid map cluttering. Figure \ref{fig:storemapresult} depicts the desired visualization result. This case is later referred to as ``store map''.
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=8cm]{images/dotmap-example-thematic.png}
+    \caption{A dot map depicting the desired result of the store map visualization.}
+    \label{fig:storemapresult}
+  \end{center}
+\end{figure}
 
 \paragraph{Earthquakes in California}
-Earthquakes have two fundamental data axes: location and magnitude. Therefore, earthquakes are best visualized using a proportional symbol map with the size of the symbol representing magnitude. United States Geological Survey provides historical earthquake data\footnote{\url{http://earthquake.usgs.gov/earthquakes/search/}}, and I decided to visualize earthquakes in the state of California since January 1, 1900. The data is available in a Comma-Separated Values (CSV) format which is can be trivially transformed to ``flat dot'' JSON format. This case is later referred to as ``earthquake map''.
+Earthquakes have two fundamental data axes: location and magnitude. Therefore, earthquakes are best visualized using a proportional symbol map with the size of the symbol representing magnitude. United States Geological Survey provides historical earthquake data\footnote{\url{http://earthquake.usgs.gov/earthquakes/search/}}, and I decided to visualize earthquakes in the state of California since January 1, 1900. The data is available in a Comma-Separated Values (CSV) format which is can be trivially transformed to ``flat dot'' JSON format. Figure \ref{fig:quakemapresult} depicts the desired visualization result. This case is later referred to as ``earthquake map''.
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=8cm]{images/proportionalsymbol-example-thematic.png}
+    \caption{A dot map depicting the desired result of the earthquake map visualization.}
+    \label{fig:quakemapresult}
+  \end{center}
+\end{figure}
 
 \paragraph{Voter Turnout in Finnish Presidential Election of 2012}
-The Finnish Ministry of Interior provides regional voter turnout data of the presidential election of 2012\footnote{\url{http://tulospalvelu.vaalit.fi/TP2012K2/s/aanaktiivisuus/aanestys1.htm}}. This data is provided in electoral district and municipality level. I decided to visualize the turnout in municipality level, using municipality data by the Finnish Land Survey\footnote{\url{http://www.maanmittauslaitos.fi/en/opendata}}. The municipality data is provided in GeoJSON format by Teemu Tiilikainen\footnote{\url{https://github.com/varmais/maakunnat}}. These data can be combined to create an effective choropleth visualization of regional turnout. The data should be normalized in quantized fashion, i.e., using thresholds to create a discrete color range. This case is later referred to as ``election map''.
+The Finnish Ministry of Interior provides regional voter turnout data of the presidential election of 2012\footnote{\url{http://tulospalvelu.vaalit.fi/TP2012K2/s/aanaktiivisuus/aanestys1.htm}}. This data is provided in electoral district and municipality level. I decided to visualize the turnout in municipality level, using municipality data by the Finnish Land Survey\footnote{\url{http://www.maanmittauslaitos.fi/en/opendata}}. The municipality data is provided in GeoJSON format by Teemu Tiilikainen\footnote{\url{https://github.com/varmais/maakunnat}}. These data can be combined to create an effective choropleth visualization of regional turnout. The data should be normalized in quantized fashion, i.e., using thresholds to create a discrete color range. Figure \ref{fig:voterturnoutresult} depicts the desired visualization result. This case is later referred to as ``election map''.
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=8cm]{images/choropleth-example-thematic.png}
+    \caption{A choropleth map depicting the desired result of the regional voter turnout visualization.}
+    \label{fig:voterturnoutresult}
+  \end{center}
+\end{figure}
 
 \paragraph{Share of People with No Secondary Education in Finland}
-Statistics Finland\footnote{\url{http://www.tilastokeskus.fi/}} provides provincial data on the education of the population of Finland in CSV format. This can be combined with province data by the Finnish Land Survey\footnote{\url{http://www.maanmittauslaitos.fi/en/opendata}} to create an effective choropleth visualization. The data should be normalized in linear fashion, i.e., using a continuous color range. This case is later referred to as ``education map''.
+Statistics Finland\footnote{\url{http://www.tilastokeskus.fi/}} provides provincial data on the education of the population of Finland in CSV format. This can be combined with province data by the Finnish Land Survey\footnote{\url{http://www.maanmittauslaitos.fi/en/opendata}} to create an effective choropleth visualization. The data should be normalized in linear fashion, i.e., using a continuous color range. Figure \ref{fig:secondaryeducationresult} depicts the desired visualization result. This case is later referred to as ``education map''.
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=8cm]{images/choropleth-d3-example.png}
+    \caption{A choropleth map depicting the desired result of the secondary education visualization.}
+    \label{fig:secondaryeducationresult}
+  \end{center}
+\end{figure}
 
 \paragraph{Travel Times to a Single Destination}
-Travel times to a destination can be visualized using an isarithmic map. I decided to visualize travel times to Futurice headquarters\footnote{\url{http://futurice.com/contact\#helsinki}} using public transport. The travel times can be obtained by using Travel Time Visualization Utility for HSL Reittiopas\footnote{\url{https://github.com/pyryk/reittiopas-travel-times}} which provides the data in an approximated ``flat dot'' format. The data should be normalized in a quantized fashion to emphasize isarithmic contours. This case is later referred to as ``simple travel times map''.
+Travel times to a destination can be visualized using an isarithmic map. I decided to visualize travel times to Futurice headquarters\footnote{\url{http://futurice.com/contact\#helsinki}} using public transport. The travel times can be obtained by using Travel Time Visualization Utility for HSL Reittiopas\footnote{\url{https://github.com/pyryk/reittiopas-travel-times}} which provides the data in an approximated ``flat dot'' format. The data should be normalized in a quantized fashion to emphasize isarithmic contours. Figure \ref{fig:isarithmicimpl} depicts the desired visualization result. This case is later referred to as ``simple travel times map''.
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=8cm]{images/isarithmic-example-thematic.png}
+    \caption{An approximated isarithmic map depicting travel times to Helsinki center.}
+    \label{fig:isarithmicimpl}
+  \end{center}
+\end{figure}
 
 \paragraph{Travel Times to Multiple Destinations}
-In addition to visualizing travel times to a single destination, I decided to evaluate a case for displaying travel times to multiple destinations. The travel times are obtained with the method defined in the previous paragraph, and combined using a weighted average method. Like in the previous case, the data should be normalized in a quantized fashion. This case is later referred to as ``complex travel times map''.
+In addition to visualizing travel times to a single destination, I decided to evaluate a case for displaying travel times to multiple destinations. The travel times are obtained with the method defined in the previous paragraph, and combined using a weighted average method. Like in the previous case, the data should be normalized in a quantized fashion. Figure \ref{fig:isarithmicimplcomplex} depicts the desired visualization result. This case is later referred to as ``complex travel times map''.
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=8cm]{images/isarithmic-example-thematic-complex.png}
+    \caption{An approximated isarithmic map depicting travel times to multiple destinations.}
+    \label{fig:isarithmicimplcomplex}
+  \end{center}
+\end{figure}
 
 ~
 
