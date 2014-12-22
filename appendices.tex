@@ -36,7 +36,7 @@ For the sake of conciseness, I omitted the full output of ESComplex\footnote{\ur
 \chapter{Visualization Heuristics Evaluation}
 \label{appendix:heuristicsevaluation}
 
-Thematic.js evaluation results based on the visualization heuristics presented by \citet{zuk_heuristics_2006} are displayed in table \ref{table:heuristicsevaluation}. The evaluation was done using a tree-step scale. Heuristic is evaluated \emph{positive} if Thematic.js encourages conforming to the heuristic when compared to using no visualization library, \emph{neutral} if using Thematic.js has no effect, and \emph{negative} if Thematic.js discourages conforming to the heuristic.
+Thematic.js evaluation results based on the visualization heuristics presented by \citet{zuk_heuristics_2006} are displayed in table \ref{table:heuristicsevaluation}. I performed the evaluation using a tree-step scale. I evaluated each heuristic \emph{positive} if Thematic.js encourages conforming to the heuristic when compared to using no visualization library. I evaluated a heuristic \emph{neutral} if using Thematic.js has no effect, and \emph{negative} if Thematic.js discourages conforming to the heuristic.
 
 \begin{longtable}{|p{3cm}|p{2.2cm}|p{7.8cm}|}
 \hline
@@ -53,7 +53,7 @@ Local contrast & Neutral & Thematic.js does not provide any color-adjusting mech
 Color blindness & Neutral & Thematic.js does not provide any advice regarding color blindness. \\[0.5em] % Consider people with color blindness
 Preattentive benefits & Neutral & Thematic.js provides and enforces spacial positioning of the data. However, this is fundamental to any geovisualization, and therefore, cannot be considered a positive trait of the library. \\[0.5em] % Preattentive benefits increase with field of view
 Size variation & Positive & Thematic.js provides size variation in proportional symbol mapping to encourage the visualizer to emphasize quantitative variation in data. \\[0.5em] % Quantitative assessment requires position or size variation
-Graphic dimensionality & Negative & Thematic.js does not enforce preserving dimensionality of the data, and in some cases, such as when using a proportional symbol map, it encourages the visualizer to increase dimensionality by displaying scalar values using proportional symbols. \\[0.5em] % Preserve data to graphic dimensionality
+Graphic dimensionality & Negative & Thematic.js does not enforce preserving dimensionality of the data. In some cases, such as when using a proportional symbol map, it encourages the visualizer to increase dimensionality by displaying scalar values using proportional symbols. \\[0.5em] % Preserve data to graphic dimensionality
 Most data & Positive & Thematic.js encourages the visualizer to maximize data shown by providing support for several different mapping methods suitable for different kind of data. \\[0.5em] % Put the most data in the least space
 No extra ink & Positive & Thematic.js provides data aggregation functionality to combine the relevant data. \\[0.5em] % Remove the extraneous (ink)
 Gestalt laws & Positive & Thematic.js provides functionality to support Gestalt laws of grouping, such as using different symbols and sizes for different data points. However, not all Gestalt laws are considered. \\[0.5em] % Consider Gestalt Laws
@@ -79,7 +79,7 @@ Hypotheses & Positive & The availability of several different mapping methods of
 \chapter{Mapping Objectives Evaluation}
 \label{appendix:objectivesevaluation}
 
-Evaluation results of Thematic.js regarding thematic mapping objectives of \citet{schlichtmann_visualization_2002} are presented in table \ref{table:objectivesevaluation}. The evaluation was performed with a three-step scale. Result for each objective is regarded as \emph{positive} if the library encourages achieving the objectives better than typical mapping library does. Result is regarded as \emph{neutral} if using Thematic.js has no effect on achieving the objective, and \emph{negative} if Thematic.js discourages the visualizer to achieve the objective.
+Evaluation results of Thematic.js regarding thematic mapping objectives of \citet{schlichtmann_visualization_2002} are presented in table \ref{table:objectivesevaluation}. I performed the evaluation with a three-step scale. I regarded the result for each objective as \emph{positive} if the library encourages achieving the objectives better than typical mapping library does. I regarded the result as \emph{neutral} if using Thematic.js has no effect on achieving the objective, and \emph{negative} if Thematic.js discourages the visualizer to achieve the objective.
 
 \LTcapwidth=\textwidth
 \begin{longtable}{|p{3cm}|p{2.5cm}|p{7.5cm}|}
