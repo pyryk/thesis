@@ -68,7 +68,7 @@ Travel times to a destination can be visualized using an isarithmic map. I decid
 \end{figure}
 
 \paragraph{Travel Times to Multiple Destinations}
-In addition to visualizing travel times to a single destination, I decided to evaluate a case for displaying travel times to multiple destinations. The visualization should obtain the travel time data with the method defined in the previous paragraph, and combined using a weighted average method. Like in the previous case, the visualization should normalize the data in a quantized fashion. Figure \ref{fig:isarithmicimplcomplex} depicts the desired visualization result. This case is later referred to as ``complex travel times map''.
+In addition to visualizing travel times to a single destination, I decided to evaluate a case for displaying travel times to multiple destinations. The visualization should obtain the travel time data with the method defined in the previous paragraph, and combine it using the weighted average method. Like in the previous case, the visualization should normalize the data in a quantized fashion. Figure \ref{fig:isarithmicimplcomplex} depicts the desired visualization result. This case is later referred to as ``complex travel times map''.
 
 \begin{figure}[htbp]
   \begin{center}
@@ -93,7 +93,7 @@ In order to better reflect the actual situations involving building visualizatio
 \section{Evaluating Efficiency of Development}
 \label{section:evaluatingefficiency}
 
-I evaluated the efficiency of development by several metrics: software code length (number of physical (LOC) and logical (LLOC) lines of code), cyclomatic complexity (CC), Halstead difficulty (HD) and Halstead effort (HE). For measurements, I used ESComplex\footnote{\url{https://github.com/philbooth/escomplex}} for analyzing JavaScript programs. As the visualizations are implemented as single-page applications, the majority of the functionality lies within JavaScript. Only small part of the functionality involves HTML code and CSS definitions. Therefore, I decided to exclude HTML and CSS from the evaluation.
+I evaluated the efficiency of development with several metrics: software code length (number of physical (LOC) and logical (LLOC) lines of code), cyclomatic complexity (CC), Halstead difficulty (HD) and Halstead effort (HE). For measurements, I used ESComplex\footnote{\url{https://github.com/philbooth/escomplex}} for analyzing JavaScript programs. As the visualizations are implemented as single-page applications, the majority of the functionality lies within JavaScript. Only small part of the functionality involves HTML code and CSS definitions. Therefore, I decided to exclude HTML and CSS from the evaluation.
 
 I began the evaluation by measuring the aforementioned metrics for the visualizations. It should be noted that for these measurements, I did not include code from Thematic.js or other third party libraries. The measurements are shown in table \ref{table:efficiencymetrics}.
 
@@ -134,7 +134,7 @@ However, it is likely that the results do not describe the most typical real-lif
 \begin{figure}[htbp]
   \begin{center}
     \includegraphics[width=\textwidth]{images/evaluation-results.pdf}
-    \caption{Thematic.js visualization metrics for each case as a percentage of the corresponding reference visualization metric. The percentages are calculated using the values for each visualization case in table \ref{table:efficiencymetrics}}.
+    \caption{Thematic.js visualization metrics for each case as a percentage of the corresponding reference visualization metric. The percentages are calculated using the values for each visualization case in table \ref{table:efficiencymetrics}.}
     \label{fig:evaluationchart}
   \end{center}
 \end{figure}
