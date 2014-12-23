@@ -392,8 +392,8 @@
 \newcommand{\FPROFESSORSHIP}{Media}
 % Professorship code is the same in all languages
 \newcommand{\PROFCODE}{T-111}
-\newcommand{\KEYWORDS}{work, in, progress}
-\newcommand{\FKEYWORDS}{vähän, vielä, kesken}
+\newcommand{\KEYWORDS}{geovisualization, software reuse, visualization effectiveness, development efficiency}
+\newcommand{\FKEYWORDS}{karttavisualisaatio, uudelleenkäytettävät ohjelmistot, ohjelmistokehityksen tehokkuus, visualisaation laatu}
 \newcommand{\LANGUAGE}{English}
 \newcommand{\FLANGUAGE}{Englanti}
 \newcommand{\SLANGUAGE}{Engelska}
@@ -483,13 +483,34 @@
 % Abstract in English
 % ------------------------------------------------------------------
 \thesisabstract{english}{
-\fixme{Write the abstract}
+This thesis studies the effect of a reusable software tool on geographical visualizations on the web. In particular, the thesis studies the efficiency of development and the effectiveness of the resulting visualizations. During this thesis, I implemented and evaluated a reusable software tool for geovisualization on the web.
+
+Geographical data is data with a geospatial dimension. Typically, geographical data is visualized on a map using a process called thematic mapping. In the past, thematic mapping was predominantly done by cartographers. However, with the advent of the web, the situation has changed. Currently, a majority of geographical visualizations is done by ordinary web users.
+
+Before this work, no sufficient geovisualization tools for the web exist. General-purpose mapping libraries such as Google Maps API provide a low-level support for visualizations. However, generally, those tools are on too low abstraction level to support efficient building of complex visualizations.
+
+During this work, I implemented Thematic.js, a reusable tool for thematic mapping on the web, evaluating it using a sister project case study. I implemented several geographical visualizations with and without the tool and evaluated the effort needed for the implementations. I also examined the effect of the tool on visualization effectiveness by using visualization heuristics and objectives.
+
+% * geodata - visualized with a map
+% * current situation (no viz libraries available)
+% * evaluation - method etc.
+% * results
+
+The primary results of this thesis indicate that using Thematic.js benefits the development efficiency tremendously. Moreover, the results hint that using Thematic.js may benefit also the effectiveness of the resulting visualization.
 }
 
 % Abstract in Finnish
 % ------------------------------------------------------------------
 \thesisabstract{finnish}{
-\fixme{Tämä on diplomityö.}
+Tämä diplomityö tutkii uudelleenkäytettävän visualisaatiotyökalun vaikutusta karttavisualisaatioihin webissä. Erityisesti työ tutkii työkalun vaikutusta visualisaation luomisen työmäärään ja tulosvisualisaation laatuun. Tämän työn aikana toteutin uudelleenkäytettävän web-visualisaatiotyökalun ja arvioin sen vaikutusta edellämainittuihin ominaisuuksiin.
+
+Geografinen data on dataa, joka on sidottu maantieteelliseen paikkaan. Tyypillisesti geografista dataa visualisoidaan teemakarttamenetelmällä. Aiemmin teemakarttoja tekivät pääasiassa ammattimaiset kartanpiirtäjät, mutta webin suosion myötä tavalliset web-käyttäjät luovat nykyisin valtaosan teemakartoista.
+
+Ennen tätä työtä web-ympäristöön ei ollut tarjolla geovisualisaatiotyökaluja. Karttakirjastot, kuten Google Maps API, tarjoavat alhaisen abstraktiotason tuen myös visualisaatioille. Alhainen abstraktiotaso kuitenkin johtaa siihen, että monimutkaisten karttavisualisaatioiten luominen vaatii merkittävän työmäärän.
+
+Tämän työn aikana toteutin Thematic.js-työkalun, joka tarjoaa korkean abstraktiotason tuen teemakartoille. Arvioin työkalua sisarprojektimenetelmällä toteuttamalla useita tyypillisiä teemakarttoja sekä työkalun kanssa että ilman sitä, ja arvioimalla toteutusten työmäärää. Arvioin lisäksi työkalun vaikutusta visualisaation laatuun käyttämällä visualisaatioheuristiikkoja sekä teemakarttatavoitteita.
+
+Työn tutkimustulokset viittaavat siihen, että Thematic.js vähentää teemakarttojen luomisen työmäärää merkittävästi. Lisäksi tulokset vihjaavat siihen, että Thematic.js saattaa hyödyttää myös visualisaation laatua.
 }
 
 % Acknowledgements
