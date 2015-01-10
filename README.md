@@ -1,6 +1,8 @@
 # Tools for Visualizing Geographical Data on the Web
 ## Reducing the Work Needed by Eliminating Boilerplate
 
+[Download PDF](http://pyryk.github.io/thesis/thesis.pdf)
+
 ### Abstract
 
 This thesis studies the effect of a reusable software tool on geographical visualizations on the web. In particular, the thesis studies the efficiency of development and the effectiveness of the resulting visualizations. During this thesis, I implemented and evaluated a reusable software tool for geovisualization on the web.
